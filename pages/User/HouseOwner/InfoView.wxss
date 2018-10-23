@@ -1,0 +1,47 @@
+/* userhomepage.wxss */
+
+p {
+  display: block;
+  margin-top: 5px;
+}
+
+.my-img {
+  width: 10px;
+  height: 10px;
+  padding-left: 5px;
+}
+
+.weui-cell__hd {
+  margin-right: 15px;
+}
+
+.text-info {
+  color: #999;
+}
+
+.InfoView {
+  margin-top: 0;
+  position: relative;
+  background-color: #fff;
+  font-size: 15px;
+}
+
+.top-title {
+  padding: 20px 0;
+  text-align: center;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.top-title > text {
+  display: block;
+}
+
+.top-title > text:nth-of-type(2) {
+  color: orange;
+  padding: 10px 10px 0 10px;
+  margin-top:10px;
+  border-top: 1px solid #ccc;
+}

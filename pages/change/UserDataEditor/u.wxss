@@ -1,0 +1,130 @@
+/* setuserhomepage.wxss */
+
+.hong {
+  color: red;
+}
+
+.name {
+  display: flex;
+  position: relative;
+  width: 240rpx;
+}
+
+p {
+  display: block;
+  margin-top: 5px;
+}
+
+.my-img {
+  width: 10px;
+  height: 10px;
+  padding-left: 5px;
+}
+
+.weui-cell__hd {
+  margin-right: 15px;
+}
+
+.userCharmImg {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.submit-btn-cls {
+  bottom: 4px;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  flex: 1;
+  border-radius: 5px;
+}
+
+.placeholder {
+  margin: 5px;
+  padding: 0 10px;
+  height: 1.8em;
+  line-height: 1.8em;
+  text-align: center;
+  color: #97d54e;
+  border: 1px solid #97d54e;
+  border-radius: 9px;
+}
+
+.selected {
+  color: #fff;
+}
+
+.choose {
+  color: #4e9000;
+  border: 1px solid #4e9000;
+  border-radius: 9px;
+  background-color: #baf971;
+}
+
+/*删除按钮*/
+
+.positions {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 2px 2px 2px;
+}
+
+.positions > image {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.delete {
+  width: 80px;
+  position: absolute;
+  bottom: 0;
+  height: 20px;
+  background: #ccc;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.delete image {
+  width: 20px;
+  height: 20px;
+}
+
+.top-title {
+  padding: 14px 0;
+  text-align: center;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.top-title > text {
+  display: block;
+}
+
+.top-title > text:nth-of-type(2) {
+  color: orange;
+  padding: 10px 10px 0 10px;
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.title-tips {
+  display: block;
+  align-items: center;
+  background-color: white;
+  justify-content: center;
+  text-align: center;
+  padding: 5px 0;
+  border-top: 1px solid #ccc;
+  color: orange;
+}
+
+.btn {
+  background: #82c435;
+}
+
+

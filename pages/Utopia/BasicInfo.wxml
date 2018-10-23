@@ -1,0 +1,68 @@
+<!--pages/Utopia/BasicInfo.wxml-->
+<view class='container-new'>
+
+  <view class='header'>
+    <image src='{{userInfo.avatarUrl}}'></image>
+      </view>
+    <view class='sex'>
+    <text>{{userInfo.nickName}}
+    </text>
+    <image class='sex-img' src='{{userInfo.gender==1?"/img/my/male.png":"/img/my/female.png"}}'></image>
+     </view>
+
+  <view class='item'>
+    <text>情感状况:</text>
+    <picker class='item-right' bindchange="bindFeelChange" value="{{marryIndex}}" range-key="{{'name'}}" range="{{marryArray}}">
+      <view class="picker">
+        {{marryArray[marryIndex].name}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='item'>
+    <text>生日:</text>
+    <view class='item-right'>
+      <picker mode="date" value="{{birth}}" bindchange="bindBirthdayChange">
+        <view class="picker_bir">
+          <block wx:if="{{!birth}}"> 请选择 </block> {{birth}}
+        </view>
+      </picker>
+    </view>
+    <text class='text-middle'>{{age}}岁</text>
+    <text>{{constellationArray[constellationIndex].name}}</text>
+  </view>
+
+  <view class='item'>
+    <text>毕业院校:</text>
+    <input class='item-right input-text' type='text' value='{{universityStr}}' data-name="universityStr" bindinput='inputUniversityStrText' name="" placeholder='例如：北京大学'></input>
+  </view>
+  <view class='item'>
+    <text>公司|职业:</text>
+    <view class='item-right'>
+      <input class='input-text' type='text' value='{{profession}}' data-name="profession" bindinput='inputProfessionText'  placeholder='例如：阿里巴巴 | 大数据工程师'></input>
+    </view>
+  </view>
+
+  <view class='item'>
+    <text>微信:</text>
+    <view class='item-right'>
+      <input class='input-text' type='text' value='{{wechat}}' data-name="wechat" bindinput='inputWechatText'  name="" placeholder='请填写你的可被搜索到的微信号' ></input>
+    </view>
+  </view>
+
+  <view class='item'>
+    <text>手机:</text>
+    <view class='item-right'>
+      <input class='input-text' type='text' value='{{mobile}}' data-name="mobile" bindinput='inputMobileText' name="" placeholder='选填，填了帮助更大'></input>
+    </view>
+  </view>
+
+  <view class='item-column'>
+    <text class='textarea-text'>个人魅力简介（选填，填了方便匹配室友）</text>
+    <textarea class='textarea-class' value='{{info}}' data-name="info" bindinput='inputDream_homeText' maxlength='2000'  placeholder='例如：我叫阿桑，今年23岁，我对这个世界充满好奇心，所以我喜欢探索一切有魅力的事情，在新新人类乐园，我希望找到志趣相投的人，一起搭建我们想要的天地，那里自然美好，能让我们诗意地栖居'>
+    </textarea>
+  </view>
+ 
+  <text class='utopia-button' bindtap='onNext'>下一步</text>
+
+</view>

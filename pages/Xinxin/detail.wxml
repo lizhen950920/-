@@ -1,0 +1,17 @@
+<!--pages/Xinxin/detail.wxml-->
+<import src="../../template/userInfo.wxml" />
+<include src="../../common/alert.wxml" />
+
+
+<view style='padding-bottom:64px;'>
+<template is="userInfo" data="{{user}}"></template>
+
+</view>
+
+<view>
+  <button class='btn' bindtap='first'>回到首页</button>
+  <form bindsubmit='changeConcat'  report-submit="true">
+    <button wx:if="{{user.apply == -1}}" form-type='submit' class='concat-btn button-cls'>互换联系方式</button>
+    <button wx:if="{{user.apply == 0}}" class='concat-btn button-cls'>已提交申请待对方同意</button>
+  </form>
+</view>

@@ -1,0 +1,81 @@
+<import src="../../template/applyHome.wxml" />
+<include src="../../common/alert.wxml" />
+
+<!--userhomepage.wxml-->
+
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">厉害的发起人，我想与你共建美家</view>
+  <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text" style='display:flex'>
+          <view class="weui-media-box__title weui-media-box__title_in-text" style='color:#797979'>入住时间</view>
+          <view class="weui-media-box__desc"><text style='color:#FF9900;padding-left:30rpx;font-size:17px'>{{applyHome.move_start}}</text> <text style='padding-left:30rpx;font-size:17px;color:#333333;'>至</text> <text style='color:#FF9900; padding-left:30rpx;font-size:17px'>{{applyHome.move_end}}</text> </view>
+      </view>
+      <view class="weui-media-box weui-media-box_text" style='display:flex'>
+          <view class="weui-media-box__title weui-media-box__title_in-text" style='color:#999999'>我想申请的房间</view>
+          <view class="weui-media-box__desc">
+          <text class='home-room'>{{applyHome.home_room}}</text></view>
+      </view>
+      <view class="weui-media-box weui-media-box_text" >
+          <view class="weui-media-box__title weui-media-box__title_in-text" style='color:#999999'>关于我</view>
+          <view class="weui-media-box__desc_2" style='color:#000000'>{{applyHome.content}}</view>
+      </view>
+  </view>
+</view>
+
+<view class="weui-cells weui-cells-my">
+  <view class="weui-cell">
+    <text>以下是我的个人资料</text>
+  </view>
+</view>
+<template is="applyHome" data="{{user}}"></template>
+
+
+  <view class="weui-panel">
+    <view class="weui-panel__hd">我的联系方式</view>
+    <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+            <view class="weui-cells weui-cells_in-small-appmsg">
+                <view class="weui-cell weui-cell_access">
+                    <view class="weui-cell__hd">手机号</view>
+                    <view class="weui-cell__bd weui-cell_primary">
+                        <view>{{user.mobile}}</view>
+                    </view>
+                    <view class="weui-cell__ft"><button data-mobile='{{user.mobile}}' size='mini' bindtap='call'>一键拨号</button></view>
+                </view>
+                <view class="weui-cell weui-cell_access">
+                    <view class="weui-cell__hd">微信号</view>
+                    <view class="weui-cell__bd weui-cell_primary">
+                        <view>{{user.wechat}}</view>
+                    </view>
+                    <view class="weui-cell__ft"><button data-wechat='{{user.wechat}}' size='mini' bindtap='copy'>一键复制</button></view>
+                </view>
+                
+            </view>
+        </view>
+    </view>
+  </view>
+
+<view class="weui-cells weui-cells-my">
+  <view class="weui-cell">
+    <form bindsubmit='agreeApply'  report-submit="true">
+    <input hidden='true' name="status" value='1'></input>
+      <button wx:if="{{applyHome.status == 0}}" data-status='1' class="primary-btn" disabled="{{disabledState}}" form-type="submit" > 同意申请 </button>
+    </form>
+    <button wx:if="{{applyHome.status == 1}}"> 已同意申请 </button>
+  </view>
+
+  <view class="weui-cell">
+    <form bindsubmit='agreeApply'  report-submit="true">
+    <input hidden='true' name="status" value='2'></input>
+      <button wx:if="{{applyHome.status == 0}}" data-status='2' class="primary-btn" disabled="{{disabledState}}" form-type="submit" > 不符合 </button>
+    </form>
+    <button wx:if="{{applyHome.status == 2}}"> 不符合 </button>
+  </view>
+  <view class="weui-cell">
+    <form bindsubmit='agreeApply'  report-submit="true">
+      <input hidden='true' name="status" value='3'></input>
+      <button wx:if="{{applyHome.status == 0}}"  class="primary-btn" disabled="{{disabledState}}" form-type="submit" > 对不起,没房了 </button>
+    </form>
+    <button wx:if="{{applyHome.status == 3}}"> 对不起,没房了 </button>
+  </view>
+</view>

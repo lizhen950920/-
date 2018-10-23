@@ -1,0 +1,105 @@
+<view class="weui-cells">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <text>关键字</text>
+    </view>
+    <p class="weui-cell__ft">
+      <input type="text" value="{{keyword}}" bindinput='keywordInput' placeholder="暂只支持爱家名字搜索" />
+    </p>
+  </view>
+</view>
+
+
+<view class="weui-cells">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <text>魅力值</text>
+    </view>
+    <p class="weui-cell__ft">
+      <picker bindchange="bindScoreChange" value="{{scoreIndex}}" range-key="{{'name'}}" range="{{scoreArray}}">
+        <view class="picker">
+          {{scoreArray[scoreIndex].name}}
+        </view>
+      </picker>
+    </p>
+  </view>
+</view>
+
+<view class="weui-cells">
+
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <text>人均预算</text>
+    </view>
+    <p class="weui-cell__ft">
+      <picker bindchange="bindPirceChange" value="{{priceIndex}}" range-key="{{'name'}}" range="{{priceArray}}">
+        <view class="picker">
+          {{priceArray[priceIndex].name}}
+        </view>
+      </picker>
+    </p>
+  </view>
+</view>
+<!-- 
+<view class="weui-cells">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <text style="font-weight:bold" data-hh="{{hobbies_ids}}">兴趣爱好</text>
+    </view>
+  </view>
+
+  <view class="weui-cell">
+    <view class="weui-cell__bd" style="display:flex;flex-wrap:wrap;">
+      <block wx:for="{{hobbies}}">
+        <view class="weui-flex">
+          <view class="weui-flex__item " bindtap="clickHobbies" data-status="{{item.selected}}" data-cid="{{item.id}}">
+            <view class="{{item.selected=='true'?'placeholder selected':'placeholder'}}">{{item.name}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view> -->
+
+<view class="weui-cells">
+  <view class="weui-cell" bindtap="openPickerView">
+    <view class="weui-cell__bd">
+      <text>选择地区</text>
+    </view>
+    <view class="">
+      <text>{{addressName}}</text>
+      <input hidden="true" cursor-spacing="100" name="province" value="{{provId}}" />
+      <input hidden="true" cursor-spacing="100" name="city_id" value="{{cityId}}" />
+      <input hidden="true" cursor-spacing="100" name="area_id" value="{{areaId}}" />
+    </view>
+
+  </view>
+</view>
+
+<view class="btn-area">
+  <button type="primary" bindtap="onSubmit" style="border-radius:5px;margin-top:25px;background-color:#97d54e">确定</button>
+  <button type="default" bindtap="resetSearch" style="border-radius:5px;margin-top:5px;">清除</button>
+  <navigator url='/pages/Aiqilin/Search'>搜索</navigator>
+</view>
+
+<!--省市区三级联动-->
+<view wx:if="{{showPickerView}}" class="picker-view-container">
+  <view class="picker-view-title">
+    <text style="margin-left:10rpx" bindtap="closePickerView">取消</text>
+    <text>选择地址</text>
+    <text style="margin-right:10rpx" bindtap="confirmPickerView">确定</text>
+  </view>
+  <picker-view class="area-picker-view" indicator-class="area-indicator-class" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{provArr}}" wx:key="id" class="picker-view-column">{{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{cityArr}}" wx:key="id" class="picker-view-column">{{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{areaArr}}" wx:key="id" class="picker-view-column">{{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+
+

@@ -1,0 +1,103 @@
+.xx-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+height: 80rpx;
+  width:100%;
+  padding:3px 0;
+  position: fixed;
+  background: #f3f6f8;
+  top: 0;
+  z-index: 6; 
+  font-size: 14px;
+
+}
+.xx-header text{
+  margin-left: 20px;
+  padding:6px 12px;
+  background-color:#FF9900;
+  border-radius:13px;
+  color: white;
+
+}
+.xx-header image{
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  padding:6px 12px;
+}
+
+.userinfo-avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 10rpx;
+  border-radius: 75rpx;
+}
+.person-left{
+  float: left;
+  width: 20%;
+  padding-left: 30rpx;
+}
+.person-right{
+  float: right;
+  width: 80%;
+  padding-left: 30rpx;
+}
+.person-infor{
+  display: flex;
+}
+.right-fir{
+  padding-top: 30rpx;
+}
+.right-senc{
+  margin-top: 30rpx;
+  color: #999999;
+}
+.per_introduce{
+color: #333333;
+font-size: 28rpx;
+width: 690rpx;
+margin-left: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height:158%; /*防止出现底部多一行字*/
+}
+.new-infor{
+display: flex;
+padding-left: 30rpx;
+margin-top: 40rpx;
+height: 60rpx;
+border-top: 3rpx #D7D7D7 solid;
+padding-top: 30rpx;
+
+}
+.location{
+  width:30rpx;
+  height:30rpx;
+}
+.userinfo-dist{
+  font-size: 28rpx;
+  color: #949494;
+padding-left: 30rpx;
+width: 130rpx;
+}
+.rent{
+  color: #949494;
+  font-size: 28rpx;
+  padding-left: 120rpx;
+}
+.date{
+  color: #949494;
+  font-size: 28rpx;
+  padding-left: 120rpx;
+}
+.userinfo-address{
+  font-size: 28rpx;
+  color: #949494;
+  width: 70rpx;
+}

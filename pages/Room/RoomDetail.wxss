@@ -1,0 +1,146 @@
+/* LdealHome.wxss */
+
+p {
+  display: block;
+}
+
+ul, menu, dir {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.weui-cell__hd {
+  margin-right: 15px;
+}
+
+.my-img {
+  width: 30px;
+  height: 30px;
+  padding-left: 5px;
+}
+
+.weui-navbar__item {
+  font-size: 13px;
+}
+
+.lh_view {
+  margin-top: 10px;
+}
+
+.home-detail-text {
+  margin-left: 4px;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.weui-cell-newline {
+  padding: 1px 15px;
+  font-size: 13px;
+}
+
+.price {
+  font-size: 20px;
+  color: red;
+}
+
+.pay {
+  color: #bcbebe;
+}
+
+.roomtwoline {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.roomdetail text {
+  display: block;
+}
+
+.room-label {
+  font-size: 12px;
+  color: #bcbebe;
+}
+
+.roomdetail text:nth-child(2) {
+  font-family: 'PingFang-SC-Bold';
+  font-size: 15pt;
+  line-height: 23pt;
+  color: #0f0f0f;
+}
+
+.weui-cell::before {
+  left: 0px;
+}
+
+.new-line {
+  display: block;
+}
+
+.floor {
+  font-size: 14px;
+  line-height: 23px;
+  color: #222;
+}
+
+.placeholder {
+  margin: 5px;
+  padding: 0 10px;
+  height: 1.8em;
+  line-height: 1.8em;
+  text-align: center;
+  color: #fff;
+  border: 1px solid #97d54e;
+  border-radius: 9px;
+}
+
+.view-mobile {
+  margin-left: 10px;
+  color: blue;
+  border-bottom: 1px solid blue;
+}
+
+.vote-veiw {
+  display: flex;
+  align-items: center;
+}
+
+.vote {
+  margin: 5px;
+  padding: 0 10px;
+  height: 1.8em;
+  line-height: 1.8em;
+  text-align: center;
+  color: #97d54e;
+  border: 1px solid #97d54e;
+  border-radius: 9px;
+}
+
+.vote-num {
+  color: red;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn {
+  width: 218rpx;
+height: 56rpx;
+line-height: 56rpx;
+  border-radius: 60rpx;
+  text-align: center;
+  box-shadow: 0px 0px 5px #330d07;
+  transition: 0.2s ease-out;
+  background: #82C435;
+  color: white;
+  justify-content: center;
+  font-size: 26rpx;
+}

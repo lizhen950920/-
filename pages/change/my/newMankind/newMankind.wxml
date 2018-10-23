@@ -1,0 +1,31 @@
+ <view class='xx-header'>
+    <text bindtap='near'>附近推荐</text>
+    <image src='/img/search.png'  bindtap='searchCondition'></image>
+  </view>
+   <block wx:for="{{userList}}" wx:key="id" wx:for-index="idx" wx:for-item="user">
+    <view class='userinfo' bindtap='touserdetail' data-uid='{{user.id}}' style="{{idx==0?'margin-top:52px;':''}}" >
+
+  <view class='person-infor'>
+  <view class='person-left'><image class='userinfo-avatar' src='{{user.avatar==""?"/img/noavatar.png":user.avatar}}'></image></view>
+  <view class='person-right'>
+  <view class='right-fir'>
+  <text style='color:#008000;font-weight: bold;'>{{user.username}}</text>
+ <image class='sex-img' src='{{user.sex==1?"/img/my/male.png":"/img/my/female.png"}}'></image>
+  </view>
+   <view class='right-senc'>
+  <text>{{user.profession}} | 魅力值{{user.score}} | {{user.type==1?'有房找室友':(user.type==2?'求房求室友':'爱家生活中')}}</text>
+  </view>
+  </view>
+  </view>
+   <view class='per_introduce'  wx:hidden='{{user.dream_home!=null}}'>{{user.dream_home==null?'':user.dream_home}}</view>
+
+<view class='new-infor'> 
+   <image class='location' src='/img/screen/location.png'></image>
+            <text class="userinfo-address" style='color:#333333;'>{{user.hope_live}}</text>
+            <text  class='userinfo-dist'>{{user.rent_start_k}}Km以内</text>
+                   <!-- <text wx:if="{{user.dist!=null}}" class='userinfo-dist'>3km以内</text> -->
+<text class='rent'>{{user.rent_start}}~{{user.rend_end}}</text>
+<text class='date' style='color:#333333'>{{user.move_start}}-{{user.move_end}}</text>
+</view>
+  </view>
+  </block>

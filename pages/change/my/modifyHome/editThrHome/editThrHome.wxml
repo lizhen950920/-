@@ -1,0 +1,71 @@
+<view class="xx_first">
+    <text style="color:#000000;font-size:30rpx; font-weight: bold;">空间设计安排</text>
+</view>
+<form bindreset="formReset" bindsubmit="formSubmit" reportSubmit="true">
+    <block wx:for="{{rooms}}" wx:key="*this">
+        <view class="border-cell">
+            <view class="weui-cell1">
+                <view class="weui-cell__bd">
+                    <view class="item-inline">
+                        <text style="color:#000000;font-size:30rpx; font-weight: bold;">空间</text>
+                        <input bindinput="input_event" class="xx_border5" cursorSpacing="100" data-idx="{{index}}" data-type="1" name="room_name_{{index}}" placeholder="空间名称" type="text" value="{{item.room_name}}"></input>
+                    </view>
+                </view>
+            </view>
+            <view class="gallery">
+                <view class="item" data-room-imgs="{{room_imgs[index]}}" data-room-index="{{index}}" wx:for="{{item.imgs}}" wx:for-index="idx" wx:key="{{id}}">
+                    <image bindlongtap="setCover" bindtap="previewImg" bindtouchend="bindTouchEnd" bindtouchstart="bindTouchStart" class="{{item.selected?'selected':''}}" data-id="{{index}}" data-idx="{{idx}}" data-type="7" mode="scaleToFill" src="{{item}}" style="width: {{imageWidth}}px; height: {{imageWidth}}px"></image>
+                    <view bindtap="deleteImg" class="delete" data-idx="{{idx}}" data-roomnum="{{index}}" data-type="7" data-url="{{item}}">
+                        <image src="/img/icon_delete.png" style="left: {{imageWidth/2-10}}px;"></image>
+                    </view>
+                </view>
+                <view class="item">
+                    <text class="img_prompt">添加图片</text>
+                    <image bindtap="uploadImg" class="button-upload" data-roomnum="{{index}}" src="/img/add_images.png" style="width: 70px; height: 70px"></image>
+                </view>
+                <view class="weui-textarea-right">{{item.imgs.length}}/3</view>
+            </view>
+            <view class="weui-cell1">
+                <view class="weui-cell__bd1">
+                    <text class="anp" style="color:#000000;font-size:30rpx; font-weight: bold;width:180rpx;">创想设计</text>
+                    <view class="weui-textarea-right">{{introduction_length>0?introduction_length:0}}/120</view>
+                </view>
+            </view>
+            <view style="background:#FFFFFF">
+                <textarea bindinput="input_event" class="weui-textarea" cursorSpacing="100" data-idx="{{index}}" data-type="2" focus="true" maxlength="120" name="room_mark_{{index}}" placeholder="请描述一下这个空间的特点，以及你为什么这么设计" type="text" value="{{item.room_mark}}"></textarea>
+            </view>
+            <view class="cre-prompt">
+                <text style="color:#000000;font-size:30rpx; font-weight: bold;width:180rpx;padding-top:10rpx;">是否开放申请</text>
+                <switch bindchange="switch1Change" checked="{{item.status==1}}" class="selecte" color="#FF9900" data-idx="{{index}}" data-index="{{index}}" name="status{{index}}"></switch>
+            </view>
+            <view class="weui-cell1" wx:if="{{item.status==1}}">
+                <view class="weui-cell__bd">
+                    <view class="item-inline">
+                        <text style="color:#000000;font-size:30rpx; font-weight: bold;width:180rpx;">面积</text>
+                        <input bindinput="input_event" class="xx_border8" cursorSpacing="100" data-idx="{{index}}" data-type="3" name="room_area_{{index}}" placeholder="多少" type="number" value="{{item.room_area}}"></input>
+                        <view class="cr_prompt">平米</view>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cell1" wx:if="{{item.status==1}}">
+                <view class="weui-cell__bd">
+                    <view class="item-inline">
+                        <text style="color:#000000;font-size:30rpx; font-weight: bold;width:180rpx;">价格</text>
+                        <input bindinput="input_event" class="xx_border8" cursorSpacing="100" data-idx="{{index}}" data-type="4" maxlength="9" name="room_price_{{index}}" placeholder="多少" type="digit" value="{{item.room_price}}"></input>
+                        <view class="cr_prompt">元/月</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <text class="line"></text>
+    </block>
+    <view class="weui-cell2">
+        <button bindtap="addShowRoom" class="addspace" size="mini" style="font-size:30rpx; font-weight: bold;" wx:if="{{rooms.length<=5}}">添加空间</button>
+    </view>
+    <view class="com_btn">
+        <navigator url="/pages/change/my/modifyHome/editSenHome/editSenHome">
+            <button class="preview">返回</button>
+        </navigator>
+        <button class="com_release" formType="submit">下一步</button>
+    </view>
+</form>

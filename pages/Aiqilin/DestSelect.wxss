@@ -1,0 +1,28 @@
+/* pages/Aiqilin/DestSelect.wxss */
+
+page{
+  background-color:#f3f6f8;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #f3f6f8;
+} 
+
+.okbtn{
+  background: -webkit-linear-gradient(left, #76EE00,#97d54e);
+   /* -webkit-gradient(linear, right top, right bottom, color-stop(0%,#000000), color-stop(100%,#ffffff)); */
+  background-color: #97d54e;
+  color: white;
+  font-size: 34rpx;
+  margin-top: 10rpx;
+  bottom: 2px;
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  /* box-shadow: 2px 2px 6px 0px rgba(37, 114, 219, 0.3); */
+}

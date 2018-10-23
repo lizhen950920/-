@@ -1,0 +1,128 @@
+
+<form bindsubmit="formSubmit" bindreset="formReset" report-submit="true">
+<view class='house'>
+   <view class="{{selectIndex==3?'backgroud':'default'}}" data-index="3" bindtap="switchSlider">
+    <text>招室友</text>
+  </view> 
+   <view class="{{selectIndex==4?'backgroud':'default'}}" data-index="4" bindtap="switchSlider">
+    <text>出租</text>
+  </view>
+  <view class="{{selectIndex==5?'backgroud':'default'}}" data-index="5" bindtap="switchSlider">
+    <text>转租</text>
+  </view> 
+</view>
+   <view class="input__box">
+    <text class="text">标题</text>
+       <input wx:if="{{selectIndex==3}}" class="input" bindinput="bindinput1" maxlength="40" name="title"  value='{{item.title}}' bindblur="checkUnifyCode" type="text" placeholder="简述下房子的特点和理想室友" /> 
+       <input wx:if="{{selectIndex==4}}" class="input" bindinput="bindinput1" maxlength="18" name="title"  value='{{item.title}}' bindblur="checkUnifyCode" type="text" placeholder="简述下房子特点" /> 
+        <input wx:if="{{selectIndex==5}}" class="input" bindinput="bindinput1" maxlength="18" name="title"  value='{{item.title}}' bindblur="checkUnifyCode" type="text" placeholder="简述下房子特点" /> 
+  </view>
+  <view class="input__box">
+    <text class="text">租金</text>
+    <input class="input1" type='number' name="price" bindinput="syncCode" maxlength="5" bindblur="checkUnifyCode"  placeholder="请正确输入" />
+    <text class='money'>元/月</text>
+  </view>
+  <view class="input__box">
+    <text class="text">位置</text>
+    <text class='location' bindtap='chooseMap'> 
+    <block wx:if="{{!address}}">
+    <text style='color:#999999'>定位房子所在位置</text></block>{{address}}</text>
+  </view>
+  <view class="input__box">
+    <text class="text">期限</text>
+    <picker mode="date" value="{{endDate}}" start="1950-01-01" end="2027-09-01" bindchange="bindDateChange">
+      <view class="date"  wx:if="{{selectIndex==3}}">
+        <block wx:if="{{!endDate}}">
+        <text style='color:#999999'> 招室友截止日期，非必填</text>
+       </block> {{endDate}}
+      </view>
+       <view class="date"  wx:if="{{selectIndex==4}}">
+        <block wx:if="{{!endDate}}">
+          <text style='color:#999999'> 招租截止日期，非必填</text>
+        </block> {{endDate}}
+      </view>
+        <view class="date"  wx:if="{{selectIndex==5}}">
+        <block wx:if="{{!endDate}}">
+          <text style='color:#999999'> 转租截止日期，非必填</text>
+        </block> {{endDate}}
+      </view>
+    </picker>
+  </view>
+  <view class='list_bd' bindtap="detail" >
+
+    <text class='list_title1'>详情</text>
+    <view class='logo'>
+      <block>
+      <text style='color:#000000 overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width:500rpx;' wx:if="{{content}}">{{content}}</text>
+      <text style='color:#a5a5a5'  wx:if="{{!content}}">详细描述，非必填</text>
+        <!-- <text >{{content==null?'详细描述，非必填':content}}</text> -->
+      </block>
+    </view>
+  </view>
+   <view wx:if="{{oppen==true}}" class="contant">
+                    <textarea name="opinion" maxlength='500'  bindinput='Content' value="{{content}}" auto-height placeholder-class="placeholder" placeholder="户型，配套设施，交通入住情况、租期、付款方式、个人简介及对室友的期待等" />
+                </view>
+   <view class="weui-cells" style="margin-top:auto;">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-uploader__hd">
+          <p class="weui-uploader__title1">添加图片</p>    
+            <p class="weui-uploader__title">长按图片可设置为封面</p> 
+          <text>({{charm_imgs.length}}/9)</text>
+        </view>
+
+        <view class="gallery">
+          <view class="item" wx:for="{{charm_imgs}}" wx:for-index="idx" wx:for-item="item">
+            <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src=" {{item.url}}"
+            class="{{item.selected?'selected':''}}" data-idx="{{idx}}" bindtap="previewImg" 
+            bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd"
+            bindlongtap="setCover" data-id="{{item.id}}" mode="scaleToFill" />
+            <view class="delete" bindtap="deleteImg" data-idx="{{idx}}"  data-id="{{item.id}}">
+              <image style="left: {{imageWidth / 2 - 5}}px;" src="/img/icon_delete.png" />
+            </view>
+          </view>
+          <view class="item">
+            <image style="width: 70px; height: 70px" src="/img/add_images.png" data-type="5"  class="button-upload" bindtap="uploadImg" />
+          </view>
+        </view>
+
+      </view>
+      <text class="weui-cell__ft"></text>
+    </view>
+  </view>
+  <view class='stick'>
+    <text>我要置顶 </text>
+    <switch class='selecte'   color="#F90" bindchange="switch2Change" />
+  </view>
+    <view wx:if="{{select==true}}" class='stick' catchtap='select_time'>
+    <text>时间 </text>
+  
+    <view  class="selecte1">
+        <text wx:if="{{!index}}">选择置顶时间</text>  
+          <text class='timeselect' wx:if="{{index}}">{{timeArr[index].time}}</text>  
+    </view>
+  </view>
+<button class='btn' form-type="submit" >发布</button>
+</form>
+ <view  wx:if="{{select_time==true}}" class='select_time'>
+ <view class='seletitle'><text>置顶套餐</text></view>
+<view class='timechoose'>
+
+ <view  class="{{selectTimeIndex==1 ?'nochoose1':'green1'}}"  data-id="1" catchtap='Selecttime'><text>1天9.9元</text></view>
+  <view  class="{{selectTimeIndex==2 ?'nochoose1':'green1'}}"  data-id="2" catchtap='Selecttime'><text>3天27元</text></view>
+   </view>
+   <view class='timechoose'>
+   <view  class="{{selectTimeIndex==3?'nochoose1':'green1'}}"  data-id="3" catchtap='Selecttime'><text>7天56元</text></view>
+    <view  class="{{selectTimeIndex==4 ?'nochoose':'green'}}"  data-id="4" catchtap='Selecttime'><text>15天100元</text></view>
+      </view>
+        <view class='timechoose'>
+     <view  class="{{selectTimeIndex==5?'nochoose2':'green2'}}"  data-id="5" catchtap='Selecttime'><text>30天188元</text></view>
+      <view  class="{{selectTimeIndex==6?'nochoose':'green'}}"  data-id="6" catchtap='Selecttime'><text>60天360元</text></view>
+  </view>
+  <button class='s_cancel' catchtap='s_cancel'>取消</button>
+    <button class='s_comfirm' bindtap='testpay'>确定</button>
+
+ </view>
+ 
+
+

@@ -1,0 +1,67 @@
+<form bindreset="formReset" bindsubmit="formSubmit" reportSubmit="true">
+    <view class="xx_first">
+        <text style="color:#000000;font-size:30rpx; font-weight: bold;">对室友的构想:</text>
+        <input class="xx_border" cursorSpacing="100" maxlength="2" name="male" placeholder="" type="number" value="{{items.male}}"></input>
+        <text style="padding-left:10rpx;width:40rpx;color:#000000;">男</text>
+        <input class="xx_border" cursorSpacing="100" maxlength="2" name="female" placeholder="" type="number" value="{{items.female}}"></input>
+        <text style="padding-left:10rpx;width:40rpx;color:#000000;">女</text>
+        <input class="xx_border" cursorSpacing="100" maxlength="3" name="old" placeholder="" type="number" value="{{items.old}}"></input>
+        <text style="padding-left:10rpx;width:90rpx;color:#000000;"> 岁左右</text>
+    </view>
+    <view class="xx_layout">
+        <view class="xx_title" style="color:#000000;font-size:30rpx; font-weight: bold;">房子布局</view>
+        <view class="area" style="margin-top:90rpx">
+            <input class="xx_border" cursorSpacing="100" maxlength="1" name="room" placeholder="" type="number" value="{{items.room}}"></input>
+            <text style="padding-left:10rpx;width:90rpx;"> 室</text>
+            <input class="xx_border" cursorSpacing="100" maxlength="1" name="hall" placeholder="" type="number" value="{{items.hall}}"></input>
+            <text style="padding-left:10rpx;width:90rpx;">厅</text>
+            <input class="xx_border" cursorSpacing="100" maxlength="1" name="toilet" placeholder="" type="number" value="{{items.toilet}}"></input>
+            <text style="padding-left:10rpx;width:90rpx;"> 卫</text>
+            <input class="xx_border" cursorSpacing="100" maxlength="3" name="kitchen" placeholder="" type="number" value="{{items.kitchen}}"></input>
+            <text style="padding-left:10rpx;width:90rpx;"> 厨</text>
+        </view>
+        <view class="area">
+            <text class="xx_area" style="color:#000000;font-size:30rpx; font-weight: bold;">总面积</text>
+            <input class="xx_border1" cursorSpacing="100" maxlength="3" name="area" placeholder="" type="number" value="{{items.area}}"></input>
+            <text style="padding-left:10rpx;width:90rpx;"> 平米</text>
+        </view>
+        <view class="area1">
+            <text class="xx_area" style="color:#000000;font-size:30rpx; font-weight: bold;">总价</text>
+            <input class="xx_border2" cursorSpacing="100" maxlength="7" name="total_price" placeholder="" type="digit" value="{{items.total_price}}"></input>
+            <text style="padding-left:10rpx;width:90rpx;"> 元</text>
+            <text class="cr_border"></text>
+            <text class="person">人均</text>
+            <input class="xx_border2" cursorSpacing="100" maxlength="9" name="avgprice" placeholder="" type="digit" value="{{items.avgprice}}"></input>
+            <text style="padding-left:10rpx;width:90rpx;"> 元</text>
+        </view>
+        <view class="area1">
+            <text class="xx_area" style="color:#000000;font-size:30rpx; font-weight: bold;">付款方式：</text>
+            <text style="padding-left:10rpx;width:90rpx;"> 押</text>
+            <input class="xx_border" cursorSpacing="100" name="deposit" placeholder="" type="number" value="{{items.deposit}}"></input>
+            <text style="padding-left:10rpx;width:90rpx;">付</text>
+            <input class="xx_border" cursorSpacing="100" name="pay" placeholder="" type="number" value="{{items.pay}}"></input>
+        </view>
+    </view>
+    <view class="xx_ui">
+        <view class="xx_left" style="color:#000000;font-size:30rpx; font-weight: bold;">是否已找到房？</view>
+        <radio-group bindchange="foundChange" class="xx_right">
+            <label class="radio">
+                <radio checked="{{foundChecked==1}}" value="1"></radio>是
+        <radio checked="{{foundChecked==0}}" value="0"></radio>否
+      </label>
+        </radio-group>
+    </view>
+    <view bindtap="chooseMap" class="xx_ui">
+        <view class="xx_left1">位置</view>
+        <view class="xx_right1">
+            <text class="xx_prompt" wx:if="{{!address}}">定位房子所在的位置</text>
+            <text class="xx_prompt" style="color:#000000" wx:if="{{address}}">{{address}}</text>
+        </view>
+    </view>
+    <view class="xx_btn">
+        <navigator url="/pages/change/my/modifyHome/editFirHome/editFirHome">
+            <button class="xx_cs">返回</button>
+        </navigator>
+        <button class="xx_nest" formType="submit">下一步</button>
+    </view>
+</form>

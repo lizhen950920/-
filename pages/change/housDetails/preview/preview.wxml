@@ -1,0 +1,216 @@
+<scroll-view scroll-y style="height: 1000px;">
+<view catchtap='closeMessage' style='height:100%;'>
+<view class='head1'>
+  <view class='person-img '>
+    <image class='avatar1' src='{{user.avatar==""?"/img/noavatar.png":user.avatar}}'></image>
+  </view>
+  <view class='person-info'>
+    <view class='on'>
+      <text class='Nickname'>{{user.username}}</text>
+      <image mode="aspectFit" src='{{user.sex==1?"/img/my/male.png":"/img/my/female.png"}}'></image>
+      <text class='charm'>魅力值{{user.score}}</text>
+    </view>
+    <view class='up'>
+      <text style='color:#999999'>{{user.profession}}</text>
+      <text class='data'>
+      <text wx:if="{{user.universityStr}}">{{user.universityStr}}|</text>
+       <text wx:if="{{user.age}}">{{user.age}}岁|</text>
+       <text wx:if="{{user.marryStr}}">{{user.marryStr}}</text>
+   </text>
+    </view>
+  </view>
+</view>
+<view class='content1'>
+  <text class='state'>{{status[room.state]}}</text>
+  <text class='describe'>{{room.title}}</text>
+</view>
+<block wx:for="{{room.charm_imgs}}" wx:key="id" wx:for-index="idx" wx:for-item="k">
+  <image catchtap='previewImg' data-id="{{k.id}}" class='picture' src="{{k.url}}" data-id="{{k.id}}"></image>
+</block>
+<view class='accord'>
+  <text class='label'>租金 {{room.price}}/月</text>
+  <text class='update'>{{room.create_date}}更新</text>
+</view>
+<view class='address'>
+  <text class='prompt'>位置</text>
+  <text class='distance'>距离你当前{{room.dist}}Km</text>
+  <text class='views'>{{room.viewnum}}</text>
+</view>
+<view class='site' bindtap='navoToDes'>
+  <image class='lacation' src='/img/location1.png'></image>
+  <text class='addre'>{{room.address}}</text>
+  <text class='chart'  >导航</text><image class='navaddress' src='../../../../img/导航.png'></image>
+</view>
+<text class='hint'>点击上面房源定位可打开地图导航过去</text>
+<view class='desc'>
+  <text style='color:#999999; font-weight:bold;'>详述</text>
+  <view class='detail_desc'>
+    {{room.desc}}
+  </view>
+</view>
+<view class='endtime'>
+  <text style='color:#999999;'>招募截止时间</text>
+  <text class='time'>{{room.end}}</text>
+</view>
+<view style='font-size:28rpx;color:#333;padding-left:30rpx;color:#999999;margin-top:60rpx;'>反馈投票</view>
+ <view  class="weui-cells1" style="margin-top:10px;">
+    <!-- <view class="weui-cell"> -->
+      <view class="weui-cell__bd" style="display:flex;flex-wrap:wrap;justify-content:space-between;">
+        <view class="weui-flex" bindtap="voteClick" data-type="1" data-id="{{room.id}}">
+          <view class="weui-flex__item vote-veiw">
+            <view class="{{selectIndex==1?'backgroud':'vote'}}">真房东</view>
+            <text class="vote-num">{{room.voteTrue}}</text>
+          </view>
+        </view>
+        <view class="weui-flex" bindtap="voteClick" data-type="2" data-id="{{room.id}}">
+          <view class="weui-flex__item vote-veiw">
+           <view class="{{selectIndex==2?'backgroud':'vote'}}">假房源</view>
+            <!-- <view class="vote">假房源</view> -->
+            <text class="vote-num">{{room.voteFalse}}</text>
+          </view>
+        </view>
+        <view class="weui-flex" bindtap="voteClick" data-type="3" data-id="{{room.id}}">
+          <view class="weui-flex__item vote-veiw">
+           <view class="{{selectIndex==3?'backgroud':'vote'}}">中介</view>
+            <!-- <view class="vote">中介</view> -->
+            <text class="vote-num">{{room.voteAgent}}</text>
+          </view>
+        </view>
+         <view class="weui-flex" bindtap="voteClick" data-type="4" data-id="{{room.id}}">
+          <view class="weui-flex__item vote-veiw">
+           <view class="{{selectIndex==4?'backgroud':'vote'}}">二房东</view>
+            <!-- <view class="vote">二房东</view> -->
+            <text class="vote-num">{{room.voteSecond}}</text>
+          </view>
+        </view>
+
+      </view>
+
+  </view>
+ <view class='leave'>
+  <text class='compile_text'>留言({{room.comment}})</text>
+  <image  id="nav_pl" catchtap="navClick" data-id="{{room.id}}" class='compile' src='/img/compile.png'></image>
+</view> 
+<view wx:if="{{room.comment ==0}}" class='notmessage' >
+<image class='cry' src='/img/notmessage.png'></image>
+<view style='color:#999999;font-size:30rpx;  font-weight: bold;padding-top:30rpx;'>竟然还没有人留言，我要当第一个！</view>
+</view>
+   <block  class="" wx:for="{{items}}" wx:for-index="idx" wx:for-item="option">
+ <view class='message'>
+<view class='left_hand'>
+  <image class='avatar2' src='{{option.avatar==""?"/img/noavatar.png":option.avatar}}'></image>
+  </view>
+  <view class='right-info'>
+    <view class='right-on'>
+      <text  wx:if="{{room.uid != loginUid}}" class='nickname1'>{{option.username}}</text>
+
+ <text  wx:else class='nickname1'>
+ <text style='#FF9900'>贴主回复</text>{{option.username}}</text>
+     <text class='up_time'>{{option.create_date}}</text>
+       <view wx:if="{{room.uid== loginUid}}"> 
+       <!-- <view bindtap='replayClick' style="display: flex;font-size: 28rpx;" data-id='{{item.id}}' data-uid="{{item.uid}}" data-username="{{item.username}}"> -->
+     <image catchtap='replayClick' style="display: flex;font-size: 28rpx;" data-id='{{option.id}}' data-uid="{{option.uid}}" data-username="{{option.username}}" class='reply' src='/img/reply.png'></image>
+     <text class='reply1'>回复</text>
+      </view> 
+     <!-- </view> -->
+    </view>
+    <view class='content'>{{option.comment}}</view>
+     </view>
+
+</view>
+
+   </block >
+   
+<view wx:if="{{contact}}" class='contact'>
+<view class='contact_title'><text>联系我</text></view>
+<view class='space' >
+<text class='wechat'>我的微信号是 {{user.wechat}}</text>
+  <view class="weui-cell__ft1">
+  <form bindsubmit="copyFormSubmit" report-submit="true">
+  <button data-wechat='{{user.wechat}}'form-type="submit" class='btn' size='mini' >点击复制</button>
+  </form>
+  </view>
+</view>
+<view class='contact_prompt'>添加我时请备注：新新人类乐园</view>
+<view class='space1' >
+<text class='wechat'>我的手机是 {{user.mobile}}</text>
+  <view class="weui-cell__ft1">
+  <form bindsubmit="callFormSubmit" report-submit="true">
+  <button data-mobile='{{user.mobile}}' form-type="submit" class='btn' size='mini' bindtap='call'>一键拨号</button>
+  </form>
+  </view>
+</view>
+<view class='contact_prompt'>给我打电话时请告知我你来自新新人类乐园</view>
+<view class='shut_down' bindtap='shutDown'><text>关闭</text></view>
+</view>
+</view>
+</scroll-view>
+  <view wx:if="{{liuyan==true}}" >
+<form bindsubmit="commentFormSubmit" report-submit="true">
+
+  <view class="comment-view">
+    <view wx:if="{{room.uid != loginUid}}" class='comment-left'>
+    <input value="{{comment}}" adjust-position="{{true}}" cursor-spacing='10' bindfocus='bindfocus' auto-focus confirm-type='send'  maxlength='200' name="comment" focus="{{focus}}" cursor="{{cursor}}" bindblur='bindblur' placeholder='留言：' bindinput="commentInput">
+    </input>
+    </view>
+     <view wx:if="{{room.uid == loginUid}}" auto-focus  class='comment-left'>
+    <input  value="{{comment}}"  maxlength='200' cursor-spacing='10'  bindfocus='bindfocus' adjust-position="{{true}}" confirm-type='send'  name="comment" focus="{{focus}}" cursor="{{cursor}}" placeholder='回复：' bindinput="commentInput">
+    </input>
+    </view>
+    <button form-type="submit"  disabled='{{submit}}' class="comment-submit-btn">发送</button>
+  </view>
+</form>
+</view>
+<view style='height:300rpx;'>
+<view class='nav'  style='background-color:#fff;padding-left:15rpx;'>
+  <view  bindtap="navag"    class="weui-navbar__item ">
+    <view>
+    
+      <image class='logo' src='/img/first_page.png'></image>
+    </view>
+    <text>首页</text>
+  </view>
+  <view id="nav_like"  style='color:#333333;padding-right:70rpx;' bindtap="navLike" data-id="{{room.id}}" class="weui-navbar__item ">
+    <view>
+   
+       <image wx:if="{{room.like==0}}"  class='logo' src='/img/home/like.png'></image>
+        <image wx:if="{{room.like==1}}"  class='logo' src='/img/heat.png'></image>
+      <!-- <image class='logo' src='/img/ldealhome/like-11.png'></image> -->
+       <text style='font-size:28rpx;' class="home-detail-text">{{room.like}}</text>
+    </view>
+    <text>喜欢</text>
+  </view>
+  <view  bindtap="share" style='background:#009900;color:white' class="weui-navbar__item ">
+    <view>
+      <image class='logo' src='/img/f_share.png'></image>
+    </view>
+    <text>分享</text>
+  </view>
+  <view  bindtap="contact" style='background:#FF9900;color:white'  class="weui-navbar__item ">
+    <view>
+      <image class='logo' style='width:' src='/img/c_weixin.png'></image>
+    </view>
+    <text>联系</text>
+  </view>
+</view>
+</view>
+
+ <view wx:if="{{share==true}}" >
+ <view class='h_share' >
+<image class='shutdown' src='/img/shutdown.png' catchtap='shutdown'></image>
+<view class='line_img' catchtap='fenx'>
+<image class='h_img1' src='/img/share5.png'></image>
+</view>
+<image catchtap='kap'  class='h_img2' src='/img/s_phone.jpg'></image>
+<view class='line_text'>
+
+<button class='btn3' open-type="share">转发到群</button>
+<!-- <text class='h_text'  catchtap='fenx'  open-type="share">转发到群</text> -->
+<form bindsubmit="h_shareFormSubmit" report-submit="true">
+<button class='btn4'  form-type="submit" disabled='{{submit}}'>卡片分享</button>
+</form>
+</view>
+</view>
+ </view>
+
+

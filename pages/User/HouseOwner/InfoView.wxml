@@ -1,0 +1,100 @@
+<!--userhomepage.wxml-->
+<view class='InfoView'>
+ <view class='top-title'>
+     <text>让我们携手创造出更好的世界</text>
+    <text>嗨同学你好，欢迎来到爱奇林森林，完善好你的个人资料后，你将开启一段神奇之旅，如果你的资料足够有魅力，那么你将吸引到志趣相投的人一起完成这次精彩旅程</text>
+
+  </view>
+
+  <view class="weui-cell">
+    <view class="weui-cell__hd">
+      <image wx:if="{{userInfo.avatarUrl.length>0}}" src="{{userInfo.avatarUrl}}" style="width:78px;height:78px;border-radius:50%;"></image>
+      <image wx:else src="../../../img/my/liu.jpg" style="width:78px;height:78px;border-radius:50%;"></image>
+    </view>
+    <view class="weui-cell__bd">
+      <p>
+        <text style="font-weight:bold">{{userInfo.nickName}}</text>
+        <image src="../../../img/my/male.png" class="my-img"></image>
+        
+      </p>
+      <p>
+        <text>综合魅力值: {{user.score}} </text>
+        
+      </p>
+    </view>
+  </view>
+
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader__hd">
+        <p class="weui-uploader__title"><text class="hong"></text>个性签名</p>        
+      </view>
+
+      <text class="weui-cell__ft">{{user.signature}}</text>
+    </view>
+    
+  </view>
+
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader__hd">
+        <p class="weui-uploader__title">我的魅力照</p>
+      </view>
+      <view class="weui-uploader__bd" class="userCharmImg">
+        <ul class="weui-uploader__files" id="uploaderFiles" style="display:flex;flex-wrap:wrap;">
+          <view wx:for="{{charm_imgs}}" wx:for-index="idx" wx:for-item="i" style="margin-right:5px;">
+             <image style="width: 80px; height: 80px;" bindtap="previewImg" data-idx="{{idx}}" mode="scaleToFill" src="{{i.url}}"></image>
+           </view> 
+        </ul>
+      
+      </view>
+    </view>
+    <text class="weui-cell__ft"></text>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader__hd">
+        <p class="weui-uploader__title"><text class="hong"></text>魅力简介</p>        
+      </view>
+      <text class='text-info'>{{user.info}}</text>
+    </view>
+  </view>
+  
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <text>电话</text>
+    </view>
+    <p class="weui-cell__ft" style="display:flex;">
+      <text>{{user.mobile}}</text>
+      <view wx:if="{{user.mobile_show == 1}}">
+      <image src="../../../../img/my/secret.png" class="my-img"></image>
+      </view>
+      <view wx:else> 
+         <image src="../../../../img/my/no-secret.png" class="my-img"></image>
+      </view>
+    </p>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <text>微信</text>
+    </view>
+    <p class="weui-cell__ft" style="display:flex;">
+      <text>{{user.wechat}}</text>
+      <view wx:if="{{user.wechat_show == 1}}">
+        <image src="../../../../img/my/secret.png" class="my-img"></image>
+      </view>
+      <view wx:else> 
+         <image src="../../../../img/my/no-secret.png" class="my-img"></image>
+      </view>
+    </p>
+  </view>
+</view>
+<view class="weui-cells" style="margin-bottom: 10px;">
+  <navigator class="weui-cell" url="InfoEdit?id={{uid}}">
+    <view class="weui-cell__bd" style="text-align:center;color:red;">
+      <text>编辑个人资料</text>
+    </view>
+    <text class="weui-cell__ft"></text>
+  </navigator>
+  
+</view>

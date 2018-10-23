@@ -1,0 +1,33 @@
+ <view class="nav bc_white">
+    <view class="{{selectIndex==0?'red':'default'}}" data-index="0" bindtap="switchSlider">首页简单版</view>
+    <view class="{{selectIndex==1?'red':'default'}}" data-index="1" bindtap="switchSlider">未来城高级版</view>
+  </view>
+
+
+ <view hidden="{{selectIndex!=0}}" class="tab-content">
+<view class='house' bindtap='house'>
+<view >
+<image class='house1' src='/img/public/find-house-on1.png'> </image>
+</view>
+<text class='house1-1'>我有房</text>
+</view>
+<view class='nohouse' bindtap='nohouse'>
+<text>我无房</text>
+</view>
+</view>
+ <view hidden="{{selectIndex!=1}}" class="tab-content">
+
+<view class='c_prompt'><text>这个版本主要是提供给未来生活有着美好创想的同学，你可以在这里呼唤朋友、共创你们想要的天地，比如 <text style='color:FF0000'>爱情公寓</text> 、奋斗式loft、小森林、至美民宿、世外桃源...</text>
+</view>
+<view class='c_prompt2'><text>总之，你能想到的美好世界，这里都任由你创造，你若盛开，蝴蝶自来，快开启你的创爱家之旅吧</text>
+</view>
+ <navigator url='/pages/change/create/createFirHome/createFirHome'>
+<view class='c_home' >
+<text>创爱家</text>
+</view>
+</navigator>
+</view>
+<!-- <view class='prompt'>
+<view>中介、高价公寓、托管、职业二房东请绕道，</view>
+<view>你们发布的信息将直接被删除</view>
+</view> -->

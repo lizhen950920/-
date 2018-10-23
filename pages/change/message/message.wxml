@@ -1,0 +1,64 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar" style='position:fixed; z-index:999;background-color:#eee;'>
+      
+        <block wx:for="{{tabs}}" wx:key="*this" wx:item="{{item}}">
+          <view  data-id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="">
+      <view  style="height:{{height}}px;padding-top: 41px;">
+        <view class="" hidden="{{activeIndex != 0 && activeIndex != 1 && activeIndex != 3}}">
+          
+          <block wx:for="{{items}}" wx:key="*this" wx:item="{{item}}">
+            <view class="weui-cells" style="margin-top:auto;">
+              <view class="weui-cell" style='padding:5px 10px;'>
+                <view class="weui-cell__hd">
+                  <image src="{{item.avatar}}" style="width:72px;height:72px;border-radius:50%;"></image>
+                </view>
+                <view class="weui-cell__bd" style="line-height:1.6em;" data-uid="{{item.uid}}" data-id="{{item.id}}" data-senduid="{{item.send_uid}}" data-rel_id="{{item.rel_id}}" data-content="{{item.content}}" data-status="{{item.status}}" data-type="{{item.type}}"
+                  catchtap="clickToDetail" >
+                  <p>
+                    <text style="font-size:12px;font-weight:bold">{{item.username}}</text>
+                  </p>
+                  <text style="font-size:13px;" class="{{detailUnexpand}}">{{item.content}}</text>
+                  <p style="font-size:11px;color:#CECECE;margin-top:1px;">
+                    {{item.create_date}}
+                  </p>
+                </view>
+              </view>
+            </view>
+          </block>
+          
+        </view>
+        <view class="weui-tab__content" hidden="{{items.length != 0}}">无数据</view>
+        <view class="" hidden="{{activeIndex != 2}}">
+          <block wx:for="{{items}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+            <view class="weui-cells" style="margin-top:auto;">
+              <view class="weui-cell">
+                <view class="weui-cell__hd">
+                  <image src="{{item.avatar}}" style="width:72px;height:72px;border-radius:50%;"></image>
+                </view>
+                <view class="weui-cell__bd" style="line-height:1.6em;" data-uid="{{item.uid}}" data-id="{{item.id}}" data-senduid="{{item.apply_uid}}" data-rel_id="{{item.rel_id}}" data-content="{{item.content}}" data-status="{{item.status}}" data-type="{{item.type}}"
+                  bindtap="touserDetail">
+                  <p>
+                    <text style="font-size:12px;font-weight:bold">{{item.username}}</text>
+                  </p>
+                  <text style="font-size:13px;">{{item.universityStr}}，{{item.age}}岁，{{item.marry}},魅力值{{item.score}}</text>
+                  <p style="font-size:11px;color:#CECECE;margin-top:1px;">
+                    {{item.create_date}}
+                  </p>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+      </view>
+    </view>
+  </view>
+</view>

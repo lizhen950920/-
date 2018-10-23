@@ -1,0 +1,156 @@
+Page {
+  background: #fff;
+ 
+  width: 100%;
+}
+
+.h_title {
+  color: #f90;
+  font-size: 32rpx;
+  text-align: center;
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.c_code {
+  text-align: center;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.c_image {
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.c_position {
+  width: 140rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  position: fixed;
+  top: 220rpx;
+  right: 100rpx;
+  color: #999999;
+  text-align: center;
+  align-items: center;
+}
+.c_prompt,.c_prompt1,.c_prompt2,.c_prompt3,.c_prompt4,.c_prompt5,.c_prompt7,.c_prompt6,.c_prompt8,.c_prompt9{
+  text-align: center;
+  align-items: center;
+}
+.c_prompt{
+  color: #666666;
+  font-size: 26rpx;
+  margin-top: 40rpx;
+}
+.c_prompt1{
+ color: #333333;
+  font-size: 28rpx;
+  margin-top: 40rpx;
+}
+.c_prompt2{
+  color: #333333;
+  font-size: 36rpx;
+  margin-top: 60rpx;
+}
+
+.c_prompt3{
+   color: #FF0000;
+  font-size: 28rpx;
+  margin-top: 50rpx;
+}
+.c_prompt4{
+  color: #333333;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+.c_prompt5{
+    color: #333333;
+  font-size: 36rpx;
+  margin-top: 60rpx;
+}
+.c_prompt6{
+  color: #0000FF;
+  font-size: 36rpx;
+  margin-top: 40rpx;
+}
+.c_prompt7,.c_prompt8{
+font-size: 28rpx;
+color: #333333;
+margin-top: 30rpx;
+}
+.c_prompt9{
+color: #FF9900;
+font-size: 32rpx;
+margin-top: 40rpx;
+}
+.c_wech{
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  align-items: center;
+
+}
+.pm{
+    text-align: center;
+  align-items: center;
+  margin-top: 60rpx;
+}
+.c_content{
+line-height: 50rpx;
+margin-top: 30rpx;
+height: 50rpx;
+  width: 700rpx;
+  margin-left: 25rpx;
+}
+.c_content3{
+line-height: 50rpx;
+margin-top: 30rpx;
+height: 50rpx;
+  width: 700rpx;
+  margin-left: 25rpx;
+}
+.c_content2{
+line-height: 50rpx;
+margin-top: 70rpx;
+height: 50rpx;
+  width: 700rpx;
+  margin-left: 25rpx;
+}
+.c_content1{
+  text-align: center;
+  align-items: center;
+line-height: 50rpx;
+margin-top: 30rpx;
+height: 50rpx;
+
+}
+.c_wech{
+  height: 50rpx;
+  margin-top: 80rpx;
+}
+.copy{
+  border: 3rpx #169BD5 solid;
+  border-radius: 40rpx;
+  color: white;
+  background: #169BD5;
+  font-size: 26rpx;
+  position: absolute;
+  right: 40rpx;
+  padding:5rpx 30rpx 5rpx 30rpx;
+}
+.smile{
+  width: 100rpx;
+  height: 100rpx;
+  padding-left: 340rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.c-code-text{
+  position: absolute;
+  width: 120rpx;
+  right: 90rpx;
+  margin-top: 30rpx;
+  color: #666666;
+  line-height: 40rpx;
+}

@@ -1,0 +1,406 @@
+/* LdealHome.wxss */
+
+p {
+  display: block;
+}
+
+.update {
+  height: 50rpx;
+  color: #999999;
+  font-size: 24rpx;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  line-height: 50rpx;
+}
+
+.create_time {
+  float: left;
+  width: 49%;
+}
+
+.update_time {
+  float: right;
+  width: 50%;
+}
+
+.home_main_text {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.del_btn {
+  padding: 4px;
+  border: 1px solid #97d54e;
+  background-color: #97d54e;
+  color: white;
+  border-radius: 5px;
+}
+
+.roommates-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.home_date {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.home_date text {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.viewnumber {
+  flex: 0.5;
+  font-size: 12px;
+  color: #999;
+}
+
+.room-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.roommates-right {
+  width: 85%;
+  padding: 0 10px;
+}
+
+.roommates-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home_main_text text {
+  font-size: 18px;
+  /* font-weight: bold; */
+}
+
+.home-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-price text {
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+}
+
+ul, menu, dir {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.weui-cell__hd {
+  margin-right: 15px;
+}
+
+.my-img {
+  width: 16pt;
+  height: 14pt;
+  padding-left: 5px;
+}
+
+.my-img1 {
+  width: 18pt;
+  height: 14pt;
+  padding-left: 5px;
+}
+
+.my-img2 {
+  width: 15px;
+  height: 15px;
+  padding-right: 12px;
+}
+
+.weui-navbar__item {
+  font-size: 13px;
+  /* border-right: 1px solid #ccc; */
+}
+
+.lh_view {
+  margin-top: 10px;
+}
+
+.home-detail-label {
+  font-size: 12px;
+  color: #666;
+}
+
+.home-detail-text {
+  margin-left: 4px;
+}
+
+.shareView {
+  z-index: 9999;
+  top: 40%;
+  position: fixed;
+  float: right;
+  right: 15rpx;
+}
+
+.shareImg1 {
+  width: 50rpx;
+  height: 50rpx;
+  z-index: 999;
+  padding-left: 30rpx;
+  padding-top: 20rpx;
+}
+
+.share_text {
+  font-size: 24rpx;
+  padding-left: 30rpx;
+  padding-top: 10rpx;
+}
+
+.border {
+  border-radius: 50%;
+  border: 2rpx solid #bcbcbc;
+  height: 110rpx;
+  width: 110rpx;
+  background: #bcbcbc;
+}
+
+.shareLeft {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-left: 1px solid #97d54e;
+  border-top: 1px solid #97d54e;
+  border-bottom: 1px solid #97d54e;
+}
+
+.shareImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px 0 0 5px;
+  z-index: 999;
+}
+
+.imgcls {
+  width: 70px;
+  height: 70px;
+  border-radius: 3px;
+  margin-right: 5px;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.label {
+  font-size: 15px;
+  /* color: #666; */
+}
+
+.btn {
+  width: 218rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  justify-content: center;
+  font-size: 26rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  background: #82c435;
+  color: white;
+}
+
+.weui-cell__hd {
+  margin-right: 15px;
+}
+
+.my-img {
+  width: 11px;
+  height: 11px;
+  padding-left: 5px;
+}
+
+.weui-navbar__item {
+  font-size: 13px;
+}
+
+.lh_view {
+  margin-top: 10px;
+  padding-left: 15rpx;
+}
+
+.home-detail-text {
+  margin-left: 4px;
+}
+
+/*发起人*/
+
+.originator {
+  position: absolute;
+  height: 28rpx;
+  line-height: 28rpx;
+  width: 60rpx;
+  border: 2rpx solid #009900;
+  background: #009900;
+  color: white;
+  font-size: 20rpx;
+  top: 100rpx;
+  left: 50rpx;
+}
+
+.home_title {
+  color: #949494;
+  font-size: 28rpx;
+  /* padding-left: 50rpx; */
+}
+
+.home_name {
+  padding-left: 40rpx;
+  font-size: 32rpx;
+  color: #333333;
+}
+
+.text_align {
+  height: 60rpx;
+  line-height: 80rpx;
+  padding-left: 15rpx;
+}
+
+.weui-uploader__hd {
+  margin-top: 30rpx;
+  padding-left: 15rpx;
+}
+
+.build {
+  padding: 0 20rpx 0 20rpx;
+  border: 2rpx solid #00CCFF;
+  background: #00CCFF;
+  color: white;
+  font-size: 24rpx;
+  padding-left: 20rpx;
+  border-radius: 40rpx;
+}
+
+/*阴影部分*/
+
+.shadow {
+  margin-top: 20rpx;
+  background: #D9D9D9;
+  width: 100%;
+  height: 30rpx;
+}
+
+.shadow1 {
+  margin-top: 20rpx;
+  background: #D9D9D9;
+  width: 100%;
+  height: 15rpx;
+}
+
+/* .weui-cell__bd{
+  padding-left: 15rpx;
+} */
+
+.weui-cell {
+  padding: 10rpx 0 10rpx 0rpx;
+}
+
+.house, .house1 {
+  width: 90%;
+  margin-left: 35rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  height: 60rpx;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+}
+
+.house1 {
+  color: #FF9900;
+  font-size: 30rpx;
+}
+
+/*主次卧*/
+
+.housing, .housing1 {
+  height: 280rpx;
+  width: 100%;
+  border-bottom: 3rpx solid #999;
+}
+
+.first_line, .second_line {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 20rpx;
+}
+
+.phone {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.btn1 {
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  background: #FF9900;
+  color: white;
+  border: 2rpx solid #FF9900;
+  border-radius: 18rpx;
+  margin-left: 450rpx;
+  width: 120rpx;
+}
+
+.describe {
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+  color: #999;
+}
+
+/*位置*/
+
+.prompt {
+  padding-left: 20rpx;
+  font-size: 32rpx;
+  color: #999;
+  padding-top: 0rpx;
+}
+
+.days {
+  padding-left: 200rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.behind {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  padding-top: 20rpx;
+}
+
+.conversion {
+  font-size: 28rpx;
+  color: #999;
+  padding-top: 30rpx;
+}

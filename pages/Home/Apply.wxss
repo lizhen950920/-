@@ -1,0 +1,48 @@
+/* userhomepage.wxss */
+p{
+  display: block;
+  margin-top: 5px;
+}
+.my-img{
+  width:10px;
+  height:10px;
+  padding-left:5px;
+}
+
+.weui-cell__hd{
+  margin-right:15px;
+}
+
+.textarea{
+
+}
+
+.form{
+   width: 100%;
+}
+
+
+.content-right{
+  flex: 3;
+  margin-left:10px;
+
+}
+
+.weui-cells-my{
+  margin-top:0.27647059em !important; 
+
+}
+.home-room{
+ border: 3rpx solid #FF9900;
+  color: white;
+  font-size: 28rpx;
+  border-radius: 60rpx;
+  margin-left: 40rpx;
+  background: #FF9900;
+  padding: 5rpx 20rpx 5rpx 20rpx;
+  line-height: 50rpx;
+
+}
+.weui-media-box__title_in-text {
+padding-top: 10rpx;
+}

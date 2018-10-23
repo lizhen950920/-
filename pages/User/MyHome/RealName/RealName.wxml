@@ -1,0 +1,44 @@
+<!--userreal.wxml-->
+
+<view class="weui-cells" style="margin-top:auto;">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+   
+      <text style="font-weight:bold;font-size:13px;">真实姓名</text>
+    </view>
+    <input type="text" class="weui-cell__ft">嘿嘿嘿</input>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+     
+      <text style="font-weight:bold;font-size:13px;">身份证号码·链接芝麻信用</text>
+    </view>
+    <input type="idcard" class="weui-cell__ft">111111000000</input>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+   
+      <text style="font-size:13px;">注意:填好你的个人身份证号码后,代表你将同时授权新新人类获取你的芝麻信用,芝麻信用也可能采集你在新新人类上的信用数据</text>
+    </view>
+  </view>
+  </view>
+  <view class="weui-cells">
+  <view class="weui-cell weui-cell_vcode">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="number" placeholder="请输入手机号"></input>
+                </view>
+                <view class="weui-cell__ft">
+                    <view class="weui-vcode-btn">获取验证码</view>
+                </view>
+            </view>
+             <view class="weui-cell">
+               
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="number" placeholder="请输入手机验证码"></input>
+                </view>
+            </view>
+</view>
+<view style="margin:0 10px;">
+<view style="font-size:13px;margin:10px 0;">如果你没收到验证码,可能是以上信息填写错误,请重新输入,或者重新验证.</view>
+<button type="primary" style="border-radius:25px;">确定</button>
+</view>

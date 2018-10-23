@@ -1,0 +1,53 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class='container-new'>
+    <view class='search-item'>
+      <input placeholder='姓名/职业' name="keyword" value='{{keyword}}'></input>
+    </view>
+
+        <!--目的地搜索  -->
+    <view class="search-item1">
+      <text style='color:#000000;'>定位找室友：</text>
+      <text class='new-search' bindtap='chooseDest'>{{selectedAddress}}</text>
+    </view> 
+<view style='margin-top:60rpx;'> 
+
+<view style='display:inline-block;height:50rpx;text-align:center;line-height:50rpx;margin-top:10rpx;' wx:for="{{typeArray}}"  wx:for-index="idx" data-idx='{{idx}}' data-id='{{item.id}}'  data-value='{{item.name}}' wx:for-item="item" class="{{selecttype==idx? 'clikhometype':'hometype'}}"  catchtap='typeChange'>{{item.name}}</view>
+
+ </view>
+ <view class='budget'>
+ <text style='width:23.7%;' >预算：</text>
+ <view class='label-view'>
+        <text class='label {{priceIndex==0?"label-selected":""}}' data-priceid='0' data-start='{{0}}'data-end='{{0}}' bindtap='changePriceId'>不限</text>
+        <text class='label {{priceIndex==1?"label-selected":""}}' data-priceid='1' data-start='{{0}}'
+        data-end='{{1000}}'bindtap='changePriceId'>1k以下</text>
+        <text class='label {{priceIndex==2?"label-selected":""}}' data-priceid='2' data-start='{{1000}}' data-end='{{2000}}'bindtap='changePriceId'>1k-2k</text>
+        <text class='label {{priceIndex==3?"label-selected":""}}' data-priceid='3' data-start='{{2000}}' data-end='{{3000}}' bindtap='changePriceId'>2k-3k</text>
+        <text class='label {{priceIndex==4?"label-selected":""}}' data-priceid='4' data-start='{{3000}}' data-end='{{4000}}' bindtap='changePriceId'>3k-4k</text>
+        <text class='label {{priceIndex==5?"label-selected":""}}' data-priceid='5' data-start='{{4000}}' data-end='{{5000}}' bindtap='changePriceId'>4k-5k</text>
+        <text class='label {{priceIndex==6?"label-selected":""}}' data-priceid='6' data-start='{{5000}}' data-end='{{999999}}' bindtap='changePriceId'>5k以上</text>
+      </view>
+      </view>
+
+    <view class='search-item'>
+      <text style='color:#333333'>搬家时段:</text>
+      <view class='item-right'>
+        <picker mode="date" value="{{move_start}}" data-type='1' start="1950-01-01" end="{{move_end}}" bindchange="bindMoveChange">
+          <view class="picker">
+            <block wx:if="{{!move_start}}"> 起始时间 </block> {{move_start}}
+          </view>
+        </picker>
+        <text style='width:6%;'>至</text>
+        <picker mode="date" value="{{move_end}}" data-type='2' start="{{move_start}}" end="2027-09-01" bindchange="bindMoveChange">
+          <view class="picker">
+            <block wx:if="{{!move_end}}"> 结束时间 </block> {{move_end}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class='search-button-view'>
+      <button size='mini' formType="reset" type='warn'>重置</button>
+      <button size='mini' formType="submit" type='primary'>确定</button>
+    </view>
+  </view>
+</form>

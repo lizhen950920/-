@@ -1,0 +1,75 @@
+<form bindreset="formReset" bindsubmit="formSubmit" reportSubmit="true">
+    <view class="loveapartment">
+        <text class="love-prompt">
+   若你创建的是爱情公寓，请选择一个主题</text>
+        <text style="color:#FF9900;">（非必选）</text>
+        <view class="select-love">
+            <view catchtap="select" class="select-border">选择</view>
+            <view style="padding-left:40rpx;color:#FF9900;line-height:45rpx;">{{theme[label].name}}</view>
+        </view>
+    </view>
+    <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <view class="classname" style="display:flex;flex-direction: row;justify-content:space-between;">
+                <view class="weui-textarea Cre-homeimg">添加理想之家封面</view>
+            </view>
+            <view class="gallery">
+                <view class="item" wx:for="{{idea_imgs}}" wx:for-index="idx" wx:key="{{id}}">
+                    <block wx:if="{{item.type==4}}">
+                        <image bindtap="previewImg" bindtouchend="bindTouchEnd" bindtouchstart="bindTouchStart" class="{{item.selected?'selected':''}}" data-id="{{item.id}}" data-idx="{{idx}}" data-type="4" mode="scaleToFill" src="{{item.url}}" style="width: {{imageWidth}}px; height: {{imageWidth}}px"></image>
+                        <view bindtap="deleteImg" class="delete" data-fromuserinfo="{{item.from_user_info}}" data-id="{{item.id}}" data-idx="{{idx}}" data-type="4">
+                            <image src="/img/icon_delete.png" style="left: {{imageWidth/2-10}}px;"></image>
+                        </view>
+                    </block>
+                </view>
+                <view class="item">
+                    <text class="img_prompt">上传照片</text>
+                    <image bindtap="uploadImg" class="button-upload" data-type="4" src="/img/add_images.png" style="width: 70px; height: 70px"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="xx_ui">
+        <view class="xx_left">给你的理想之家取一个温暖的名字</view>
+        <view class="xx_right">{{homename_length>0?homename_length:0}}/8</view>
+    </view>
+    <view class="xx_input">
+        <input bindinput="bindinput1" class="weui-cell__bd" cursorSpacing="100" maxlength="8" name="name" placeholder="如：天空之城" type="text" value="{{items.name}}"></input>
+    </view>
+    <view class="xx_ui">
+        <view class="xx_left">创家宣言</view>
+        <view class="xx_right">{{declaration_length>0?declaration_length:0}}/22</view>
+    </view>
+    <view class="xx_input">
+        <input bindinput="bindinput2" class="weui-cell__bd" cursorSpacing="100" maxlength="22" name="declaration" placeholder="请在此写下你的创家宣言，这样更有力量哦" type="text" value="{{items.declaration}}"></input>
+    </view>
+    <view class="xx_ui">
+        <view class="xx_left1">爱家创想描述</view>
+        <view class="xx_right1">{{desc_length>0?desc_length:0}}/500</view>
+    </view>
+    <view class="xx_input1">
+        <textarea bindinput="bindinput3" class="weui-textarea" cursorSpacing="100" hidden="{{showPickerView}}" maxlength="2000" name="desc" placeholder="" rows="3" style="opacity:1;color:#000000" value="{{items.desc}}"></textarea>
+    </view>
+    <button class="c_btn" formType="submit">下一步</button>
+</form>
+<view wx:if="{{loveApartment}}">
+    <view class="theme">
+        <view class="firline">
+            <text bindtap="selectTheme" class="select-theme" data-id="1">小森林</text>
+            <text bindtap="selectTheme" class="select-theme" data-id="2">萌萌哒</text>
+            <text bindtap="selectTheme" class="select-theme" data-id="3">智能家</text>
+            <text bindtap="selectTheme" class="select-theme" data-id="4">舌尖味</text>
+        </view>
+        <view class="firline">
+            <text bindtap="selectTheme" class="select-theme" data-id="5">学院风 </text>
+            <text bindtap="selectTheme" class="select-theme" data-id="6">健身派</text>
+            <text bindtap="selectTheme" class="select-theme" data-id="7">影视人</text>
+            <text bindtap="selectTheme" class="select-theme" data-id="8">音乐族</text>
+        </view>
+        <view class="firline1">
+            <text bindtap="selectTheme" class="select-theme" data-id="9" style="padding:5rpx 46rpx 5rpx 46rpx;">loft</text>
+            <text bindtap="selectTheme" class="select-theme" data-id="10">欢乐颂</text>
+        </view>
+        <view catchtap="cancel" class="sele-back" wx:if="{{loveApartment}}"></view>
+    </view>
+</view>

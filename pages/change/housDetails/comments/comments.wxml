@@ -1,0 +1,51 @@
+<include src="../../common/alert.wxml" />
+<view>
+  <scroll-view class="scrollView" style="height:{{height}}px;padding-bottom: 72rpx;" scroll-y="true" bindscrolltolower="loadMoreData">
+    <block  class="" wx:for="{{items}}" wx:for-index="idx" wx:for-item="item">
+      <view class="weui-panel weui-panel_access line-top">
+        <view class="weui-panel__bd">
+          <view class="weui-media-box" style='display:flex;padding:6px;' bindtap="roomDetail"
+           data-uid="{{item.uid}}" data-id="{{item.id}}">
+            <view class="weui-media-box__hd" style='flex:1'>
+              <image src="{{item.avatar}}" class='avatar-c'></image>
+            </view>
+
+            <view class="content-right" style='flex:5'>
+              <view class="classname" style='display: flex;justify-content: space-between;'>
+                <text style="font-weight:bold;font-size:12px;">{{item.username}}</text>
+                <text class="weui-cell__ft" style="font-size:11px;float:right">{{item.create_date}}</text>
+              </view>
+
+              <view class="classname">
+                <text style='font-size:13px;color:#97d54e'>{{item.comment}}</text>
+              </view>
+              <view class='operator' wx:if="{{uid != item.uid}}">
+                <view bindtap='replayClick' style="display: flex;font-size: 28rpx;" data-id='{{item.id}}' data-uid="{{item.uid}}" data-username="{{item.username}}">
+                  <image class='like-off' src='/img/ldealhome/replay.png'>回复</image>
+                  <text class="home-detail-text">回复</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block >
+    
+  </scroll-view>
+</view>
+<!--回到爱家详情页  -->
+<view class='home-page-view' style='top:{{height/2}}px' data-homeid='{{home_id}}' data-homeuid="{{home_uid}}" bindtap='toHomeDetail'>
+  <image src='/img/home-page.png' class='home-page-style'></image>
+  <text class='home-text'>去房源</text>
+</view>
+
+<form bindsubmit="commentFormSubmit" report-submit="true">
+  <view class="comment-view">
+    <view class='comment-left'>
+    <!-- <view class='replayUser'>{{replayUser}}</view> -->
+    <input value="{{comment}}" cursor-spacing="10" maxlength='200' name="comment" focus="{{focus}}" cursor="{{cursor}}" placeholder='{{replayUser}}' bindinput="commentInput">
+    </input>
+    </view>
+    <button form-type="submit" size='mini' disabled='{{submit}}' class="comment-submit-btn">提交</button>
+  </view>
+</form>

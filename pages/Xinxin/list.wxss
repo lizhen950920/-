@@ -1,0 +1,131 @@
+/* pages/Xinxin/list.wxss */
+
+/**index.wxss**/
+.xx-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  background-color:#f3f6f8;
+  width:100%;
+  padding:3px 0;
+  position: fixed;
+  top: 0;
+  height: 100rpx;
+  z-index: 6; 
+  font-size: 14px;
+
+}
+.xx-header text{
+  margin-left: 20px;
+  padding:6px 12px;
+  background-color:#FF9900;
+  border-radius:13px;
+  color: white;
+
+}
+.xx-header image{
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  padding:6px 12px;
+}
+
+.userinfo-avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 10rpx;
+  border-radius: 75rpx;
+}
+.userinfo-right{
+  width: 80%;
+}
+.userinfo-foot{
+  padding: 0px 14px;
+}
+.userinfo-line{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin:12rpx 0;
+}
+
+.userinfo-foot-line{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin:5rpx 0;
+  border-bottom:0.5px dashed #ccc;
+
+}
+.userinf-move{
+  justify-content:flex-end;
+
+}
+
+.userinfo-title{
+  font-size: 26rpx;
+  color: #82C435;
+}
+.userinfo-dist{
+  font-size: 24rpx;
+  color: red;
+  padding-right:16rpx;
+}
+.userinfo-address{
+  font-size: 24rpx;
+  color: #82C435;
+  margin-left: 4rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-height:150%;
+}
+.location-view{
+  display:flex;
+align-items:center;
+justify-content:center;
+align-content:center;
+
+}
+.location{
+  width:30rpx;
+  height:30rpx;
+}
+
+.userinfo-intro{
+  /* border-top: 1rpx dashed #ccc; */
+  font-size: 24rpx;
+  color: #382222;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height:118%; /*防止出现底部多一行字*/
+
+}
+
+.label{
+  border: 1rpx solid #82C435;
+  border-radius: 5rpx;
+  margin-right: 15rpx;
+  font-size: 26rpx;
+  padding: 5rpx 8rpx;
+  color: white;
+  background-color: #82C435;
+  
+}
+.userinfo-cell{
+  font-size: 24rpx;
+}
+.btn{
+  margin-top: 100rpx;
+  background: #82C435;
+}

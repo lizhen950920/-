@@ -1,0 +1,57 @@
+/* main.wxss */
+
+.weui-cell__hd {
+  margin-right: 15px;
+}
+
+p {
+  display: block;
+}
+
+ul, menu, dir {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.weui-media-box__hd {
+  margin-right: 10px;
+}
+
+.weui-cell::before {
+  border-top: none;
+}
+
+.weui-cell {
+  padding: 5px 15px;
+}
+
+.weui-media-box {
+  padding: 15px 15px 5px 15px;
+}
+
+.operation {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3px;
+}
+
+.my-img-icon {
+  width: 20px;
+  height: 20px;
+}
+.line{
+  border-bottom:1px solid #E5E5E5;
+}
+
+.edit-cls{
+  display: flex;
+  padding:0px 10px;
+
+}

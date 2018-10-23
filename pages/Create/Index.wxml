@@ -1,0 +1,47 @@
+<!-- <view class='create-view' style='margin-top:{{height/2 - 30}}px'>
+  <navigator url='/pages/CreateHome/CreateHome'>
+    <view class='imgs-view'>
+      <image src="/img/create_home.png"></image>
+      <text>创建爱家</text>
+    </view>
+  </navigator>
+  <navigator url='/pages/User/MyRoomRent/MyRoomRent'>
+    <view class='imgs-view'>
+      <image src='/img/zufang.png'></image>
+      <text>出租房屋</text>
+    </view>
+  </navigator>
+</view>  -->
+
+<view class='create-view' style='height:{{height}}px;'>
+  <text class='create-view-title'>创造美好</text>
+  <view class='create-item'>
+    <navigator url='/pages/CreateHome/CreateHome'>
+      <view class='create-item-top'>
+
+        <text class='create-item-title'>创爱家招室友</text>
+
+        <text class='create-item-body' style='width:{{width/2}}px;'>在这里你可以找到志趣相投的同学，把整套房子租下来弄成共同的家，不仅省钱，还住的开心</text>
+        <image class='create-item-image' src='/img/right.png'></image>
+      </view>
+      </navigator>
+      <text class='create-item-footer'>创好的家将出现在首页的"爱奇林"中</text>
+    
+  </view>
+
+  <view class="line"></view>
+  <view class='create-item'>
+    <navigator url='/pages/User/MyRoomRent/MyRoomRent'>
+      <view class='create-item-top'>
+
+        <text class='create-item-title'>发房源招租客</text>
+
+        <text class='create-item-body' style='width:{{width/2}}px;'>在这里你可以出租、转租自己手上的房子，寻找到高素质的租客</text>
+        <image class='create-item-image' src='/img/right.png'></image>
+      </view>
+      </navigator>
+      <text class='create-item-footer'>创好房源将出现在"寻房"板块中</text>
+    
+  </view>
+
+</view>

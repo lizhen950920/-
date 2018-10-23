@@ -1,0 +1,822 @@
+/* pages/change/my/ideeaHome/ideaHome.wxss */
+
+/* LdealHome.wxss */
+Page{
+  background: #FFFFFF;
+  height: 100%;
+}
+p {
+  display: block;
+}
+
+.update {
+  height: 50rpx;
+  color: #999;
+  font-size: 24rpx;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  line-height: 50rpx;
+  background: #f3f6f8;
+}
+
+.create_time {
+  float: left;
+  width: 49%;
+}
+
+.update_time {
+  float: right;
+  width: 50%;
+}
+
+.home_main_text {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.del_btn {
+  padding: 4px;
+  border: 1px solid #97d54e;
+  background-color: #97d54e;
+  color: white;
+  border-radius: 5px;
+}
+
+.roommates-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.home_date {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.home_date text {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.viewnumber {
+  flex: 0.5;
+  font-size: 12px;
+  color: #999;
+}
+
+.room-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.roommates-right {
+  width: 85%;
+  padding: 0 10px;
+}
+
+.roommates-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home_main_text text {
+  font-size: 18px;
+  /* font-weight: bold; */
+}
+
+.home-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-price text {
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+}
+
+ul, menu, dir {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.weui-cell__hd {
+  margin-right: 15px;
+}
+
+.my-img {
+  width: 16pt;
+  height: 14pt;
+  padding-left: 5px;
+}
+
+.my-img1 {
+  width: 18pt;
+  height: 14pt;
+  padding-left: 5rpx;
+}
+
+.my-img2 {
+  width: 15px;
+  height: 15px;
+  padding-right: 12px;
+}
+
+.weui-navbar__item {
+  font-size: 13px;
+  /* border-right: 1px solid #ccc; */
+}
+
+.lh_view {
+  margin-top: 10px;
+}
+
+.home-detail-label {
+  font-size: 12px;
+  color: #666;
+}
+
+.home-detail-text {
+  margin-left: 4px;
+}
+
+.shareView {
+  z-index: 9999;
+  top: 40%;
+  position: fixed;
+  float: right;
+  right: 15rpx;
+}
+
+.shareImg1 {
+  width: 50rpx;
+  height: 50rpx;
+  z-index: 999;
+  padding-left: 30rpx;
+  padding-top: 20rpx;
+}
+
+.share_text {
+  font-size: 24rpx;
+  padding-left: 30rpx;
+  padding-top: 10rpx;
+}
+
+.border {
+  border-radius: 50%;
+  border: 2rpx solid #bcbcbc;
+  height: 110rpx;
+  width: 110rpx;
+  background: #bcbcbc;
+}
+
+.shareLeft {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-left: 1px solid #97d54e;
+  border-top: 1px solid #97d54e;
+  border-bottom: 1px solid #97d54e;
+}
+
+.shareImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px 0 0 5px;
+  z-index: 999;
+}
+
+.imgcls {
+  width: 70px;
+  height: 70px;
+  border-radius: 3px;
+  margin-right: 5px;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.label {
+  font-size: 15px;
+  /* color: #666; */
+}
+
+.btn {
+  width: 218rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  justify-content: center;
+  font-size: 26rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  background: #82c435;
+  color: white;
+}
+
+.weui-cell__hd {
+  margin-right: 15px;
+}
+
+.my-img {
+  width: 18px;
+  height: 18px;
+  padding-left: 5px;
+}
+
+.weui-navbar__item {
+  font-size: 13px;
+}
+
+.lh_view {
+  margin-top: 10px;
+  padding-left: 15rpx;
+}
+
+.home-detail-text {
+  margin-left: 4px;
+}
+
+.behind {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  padding-top: 20rpx;
+}
+
+.conversion {
+  font-size: 28rpx;
+  color: #999;
+  padding-top: 30rpx;
+}
+
+.weui-cell5 {
+  padding: 10px 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+
+}
+.home_detail{
+  text-align: center;
+  align-items: center;
+ height: 70rpx;
+ line-height: 70rpx;
+
+}
+.home_detail1{
+  text-align: center;
+  align-items: center;
+ height: 70rpx;
+ line-height: 70rpx;
+ margin-top: 50rpx;
+}
+.location2{
+  width: 34rpx;
+  height: 40rpx;
+  padding-left: 30rpx;
+  padding-top: 10rpx;
+}
+.address{
+  padding-left: 10rpx;
+  padding-top: 15rpx;
+   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 490rpx;
+}
+.map_border{
+  width: 100rpx;
+  position: absolute;
+  right: 40rpx;
+  border: 1rpx solid #09f;
+  border-radius: 60rpx;
+  margin-left: 10rpx;
+  font-size: 26rpx;
+  padding: 5rpx 10rpx;
+  color: white;
+  height: 44rpx;
+  line-height: 44rpx;
+  background-color: #09f;
+}
+/* 导航图标 */
+.navaddress{
+  position: relative;
+  top: -2rpx;
+ left: 80rpx;
+  width: 60rpx;
+  height: 60rpx;
+
+}
+/* 点赞的数字 */
+.home-detail-text{
+  font-size: 24rpx;
+  position: relative;
+  top: -7rpx;
+  left: -30rpx;
+}
+.house_border{
+  color: white;
+  background: #333333;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+  position: absolute;
+  left: 30rpx;
+  padding: 10rpx 20rpx 10rpx 20rpx;
+}
+.h_title{
+  color: #999999;
+  font-size: 32rpx;
+ margin-left: 150rpx;
+ margin-top: 10rpx;
+}
+.h_desc{
+  color: #000000;
+  font-size: 28rpx;
+  padding-left: 20rpx;
+  width: 710rpx;
+}
+.h_desc text{
+  height: 50rpx;
+  line-height: 40rpx;
+}
+.h_image{
+  width: 100%;
+  margin-top: 40rpx;
+}
+.descation{
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+}
+.h_name{
+border: 3rpx #333333 solid;
+font-weight: bold;
+color: #333333;
+font-size: 30rpx;
+background: #FFFFFF;
+border-radius: 40rpx;
+padding: 10rpx 30rpx 10rpx 30rpx;
+}
+.h_area{
+  padding-left: 140rpx;
+  color: #999999;
+}
+.h_descation{
+  color: #333333;
+  font-size: 28rpx;
+  margin-top: 60rpx;
+  height: 50rpx;
+  line-height: 40rpx;
+}
+.num_apply{
+  width: 110rpx;
+  height: 30rpx;
+  color:#FFFFFF ;
+  background: #666666;
+  font-size: 26rpx;
+  position: absolute;
+  right: 30rpx;
+margin-top: -55rpx;
+padding-left: 10rpx;
+}
+.apply{
+position: absolute;
+right: 30rpx;
+border: 3rpx solid #FF9900;
+color: white;
+background: #FF9900;
+border-radius: 40rpx;
+font-size: 28rpx;
+padding: 10rpx 30rpx 10rpx 30rpx;
+margin-top: -10rpx
+}
+.h_money{
+  padding-left: 10rpx;
+color: #999999;
+}
+.h_background{
+  height: 30rpx;
+  width: 100%;
+  background: #f3f6f8;
+  margin-top: 60rpx;
+}
+.h-time{
+  padding-left: 30rpx;
+  padding-top: 20rpx;
+}
+.c_time{
+  padding-top: 40rpx;
+  color: #666666;
+
+}
+.p_img{
+  padding-left: 40rpx;
+  display: flex;
+}
+.m_img{
+  width: 45rpx;
+  height: 45rpx;
+  position: absolute;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+
+}
+.idea_home{
+  color: #666666;
+  font-size: 28rpx;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 3rpx solid #666666;
+}
+.idea_left{
+float: left;
+width: 50%;
+border-right: 3rpx solid #666666;
+background: #999999;
+color: white;
+}
+.default{
+float: left;
+width: 50%;
+border-right: 3rpx solid #666666;
+}
+.idea_right{
+  float: right;
+  width: 50%;
+  background: #999999;
+color: white;
+
+}
+.idea_right1{
+  float: right;
+  width: 50%;
+
+}
+.chum{
+  height: 130rpx;
+ 
+  padding-top: 30rpx;
+  border-bottom: 3rpx solid #666666;
+}
+.chum_img{
+float: left;
+width: 20%;
+}
+.chum_fline{
+  height: 50rpx;
+  line-height: 50rpx;
+  position: relative;
+
+  margin-left: 40rpx;
+}
+.sec_line{
+  height: 50rpx;
+  line-height: 50rpx;
+  position: relative;
+  margin-top: 10rpx;
+  margin-left: 30rpx;
+   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chum_func{
+  padding-left: 30rpx;
+  padding-top: 30rpx;
+  height: 140rpx;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  display: flex;
+}
+.func_img{
+  float: left;
+  width: 100rpx;
+  height: 100rpx;
+}
+.func_text{
+  color: #666666;
+margin-right: 30rpx;
+
+}
+.h_prompt{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+
+
+}
+.h_prompt{
+margin-top: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  align-items: center;
+  background: #f3f6f8;
+  margin-bottom: 30rpx;
+}
+.message {
+  width: 100%;
+  height: 140rpx;
+  margin-bottom: 15rpx;
+  background-color: #fff;
+  position: relative;
+  margin-top: 20rpx;
+  border-bottom: 3rpx #666666 solid;
+}
+
+.right-on {
+  font-size: 32rpx;
+}
+
+.left_hand {
+  float: left;
+  width: 10%;
+  margin-left: 20rpx;
+}
+
+.avatar2 {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 60rpx;
+}
+
+.right-info {
+  float: right;
+  width: 85%;
+}
+
+.nickname1 {
+  font-size: 24rpx;
+  color: #0000FF;
+}
+
+.up_time {
+  padding-left: 100rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.reply {
+  position: absolute;
+  right: 50rpx;
+  width: 46rpx;
+  height: 36rpx;
+  top: 0rpx;
+}
+
+.content {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #333333;
+  height: 34rpx;
+  line-height: 34rpx;
+  
+}
+
+.comment-view {
+  position: fixed;
+  bottom: 0rpx;
+  display: inline-flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  width: 96.5%;
+  justify-content: space-between;
+  height: 80rpx;
+  padding: 5rpx 10rpx;
+  border-top: 1px solid #eee;
+  z-index: 999;
+  border: #333333 solid 3rpx;
+  border-radius: 60rpx;
+}
+.comment-view input {
+  /* border: 1px solid #ccc;
+  border-radius: 15rpx;
+  background-color: white; */
+  padding: 0 10rpx;
+  height: 75rpx;
+}
+
+.comment-left {
+  flex: 4;
+}
+
+.b {
+  margin-bottom: 72rpx;
+}
+
+/*留言*/
+.comment-submit-btn{
+  flex: 0.5;
+  /* margin: 10rpx 15rpx; */
+  font-size:28rpx;
+  height: 75rpx;
+  border: 3rpx solid #169BD5;
+line-height: 75rpx;
+background: #169BD5;
+color: white;
+border-radius: 60rpx;
+}
+.reply1{
+  position: absolute;
+font-size: 24rpx;
+color: #333333;
+top: 10rpx;
+right: 10rpx;
+}
+.public{
+background: #CCCCCC;
+border: #CCCCCC 3rpx solid;
+}
+.position1 {
+color: #999999;
+}
+.line_img{
+position: absolute;
+left: 100rpx;
+}
+.h_img1{
+width: 80rpx;
+height: 80rpx;
+margin-top: 50rpx;
+margin-left: 100rpx;
+
+}
+.h_img2{
+position: absolute;
+  width: 160rpx;
+height: 160rpx;
+right: 160rpx;
+}
+.line_text{
+margin-top: 180rpx;
+display: flex;
+}
+.h_share{
+left: 10rpx;
+border-radius: 30rpx;
+  position: fixed;
+border: 3rpx solid #333333;
+  bottom: 0rpx;
+  width: 710rpx;
+  height: 300rpx;
+  padding-left: 20rpx;
+  z-index: 100;
+  background: #FFFFFF;
+}
+.weui-navbar2 {
+z-index: 2;
+}
+.weui-tab {
+  position: relative;
+  height: 300rpx;
+}
+.h_share{
+left: 10rpx;
+border-radius: 30rpx;
+  position: fixed;
+border: 3rpx solid #333333;
+  bottom: 0rpx;
+  width: 710rpx;
+  height: 300rpx;
+  padding-left: 20rpx;
+  z-index: 100;
+  background: #FFFFFF;
+}
+.shutdown{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  border-radius: 50%;
+
+  
+}
+.line_img{
+position: absolute;
+left: 100rpx;
+}
+.h_img1{
+width: 80rpx;
+height: 80rpx;
+margin-top: 50rpx;
+margin-left: 100rpx;
+}
+.h_img2{
+position: absolute;
+  width: 160rpx;
+height: 160rpx;
+right: 180rpx;
+}
+.btn3{
+  width: 190rpx;
+  background-color: #169BD5;
+  color:white;
+  position: absolute;
+ right: 400rpx;
+  font-size: 28rpx;
+  border: 3rpx #169BD5 solid;
+}
+.btn4{
+  width: 190rpx;
+  background-color: #169BD5;
+  color:white;
+  position: absolute;
+right: 160rpx;
+  font-size: 28rpx;
+  border: 3rpx #169BD5 solid;
+}
+swiper{
+  height: 500rpx;
+}
+.delect-title{
+  text-align: center;
+  color: #333333;
+  font-size: 30rpx;
+  height: 100rpx;
+  padding-top: 20rpx;
+}
+
+.delect-roommates{
+  height: 70%;
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+  bottom: 0;
+  background: #FFFFFF;
+  border: 3rpx solid #797979;
+  border-radius: 40rpx;
+
+}
+.prompt{
+position: absolute;
+bottom: 130rpx;
+color: #333333;
+text-align: center;
+align-items: center;
+justify-content: space-between;
+left: 28%;
+font-weight: bold;
+}
+.com-remove{
+position: absolute;
+bottom: 50rpx;
+color: white;
+background: #FF0000;
+text-align: center;
+align-items: center;
+  border: 3rpx solid #FF0000;
+  border-radius: 40rpx;
+  padding: 15rpx 30rpx 15rpx 30rpx;
+  left: 38%;
+}
+.showdown{
+  position: absolute;
+
+  right: 30rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.roommates-infor{
+  border-bottom: 3rpx solid #CCCCCC;
+  justify-content: space-between;
+  display: flex;
+  height: 140rpx;
+  padding-top: 20rpx;
+}
+.select-radio{
+  text-align: center;
+  padding-top: 30rpx;
+  
+}
+.del {
+  width: 50rpx;
+  height: 50rpx;
+margin-right: 30rpx;
+}
+.weui-media-box__info__meta_extra1 {
+  padding-left: 5px;
+
+}

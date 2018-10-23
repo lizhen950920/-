@@ -1,0 +1,73 @@
+<!--pages/Utopia/Index.wxml-->
+
+
+<view class='container-new'>
+  <image class='img' src='/img/utopia/utopia-header.jpg'></image>
+
+  <view class='row-center'>
+    <text class='title'>乌托邦行动</text>
+  </view>
+  <view class='row-center'>
+    <text class='head-info'><text>毕业季，</text>一大批学生将进入社会，租房难度猛增，帮助毕业生避开中介、高价公寓及租房中的坑，让大家租到满意的房，过理想的租住生活，比如爱情公寓式或老友记式或欢乐颂式或奋斗式，即本“乌托邦行动”的出发点。</text>
+  </view>
+</view>
+
+<view class='view-center'>
+  <text class='orang-color'>我们将根据你参与的积极性，给予相应的奖励</text>
+</view>
+
+<view class='utopia-line'>
+  <view class='utopia-item' bindtap='onInvitResult'>
+    <image class='utopia-img' src='/img/utopia/1.jpg'></image>
+    <image class='utopia-lock' wx:if="{{cert==0 }}" src='/img/utopia/lock.png'></image> 
+    <!-- <image class='utopia-lock' wx:if="{{cert==1 }}" src='/img/utopia/unlock.png'></image>  -->
+     <button  class='btn' wx:if="{{cert==1 }}">查看</button>
+    <text class='utopia-text'>
+     <text class='num_color'>1.</text>成功报名，进租房群找室友、找房子</text>
+  </view>
+  <view class='utopia-item' bindtap='onInvitResult5'>
+    <image class='utopia-img' src='/img/utopia/2.png'></image>
+    <image class='utopia-lock' wx:if="{{num<5 }}" src='/img/utopia/lock.png'></image> 
+    <!-- <image class='utopia-lock' wx:if="{{num>=5 }}" src='/img/utopia/unlock.png'></image>  -->
+    <button  class='btn' wx:if="{{num>=5 }}">查看</button>
+    <text class='utopia-text'> <text class='num_color'>2.</text>邀成5名以上同学，租房群+匹配室友</text>
+  </view>
+</view>
+
+<view class='utopia-line'>
+  <view class='utopia-item2' bindtap='onInvitResult10'>
+    <image class='utopia-img' src='/img/utopia/3.jpg'></image>
+   <image class='utopia-lock' wx:if="{{num<10 }}" src='/img/utopia/lock.png'></image> 
+    <!-- <image class='utopia-lock' wx:if="{{num>=10 }}" src='/img/utopia/unlock.png'></image>  -->
+    <button  class='btn' wx:if="{{num>=10 }}">查看</button>
+    <text class='utopia-text'> <text class='num_color'>3.</text>邀成10名以上同学，租房群+匹配室友+匹配房源1次</text>
+  </view>
+  <view class='utopia-item2' bindtap='onInvitResult20'>
+    <image class='utopia-img' src='/img/utopia/4.jpg'></image>
+    <image class='utopia-lock' wx:if="{{num<20 }}" src='/img/utopia/lock.png'></image> 
+     <button  class='btn' wx:if="{{num>=20 }}">查看</button>
+    <!-- <image class='utopia-lock' wx:if="{{num>=20 }}" src='/img/utopia/unlock.png'></image>  -->
+    <text class='utopia-desc'> <text class='num_color'>4.</text>邀成20名以上同学，租房群+匹配室友+匹配房源3次，最高获房租1001元补贴（新人家）</text>
+  </view>
+</view>
+<view class='line'></view>
+
+<view class='row-center'>
+    <text class='head-info'>本活动的特性是参与人越多，互助协作效应越好，得到帮助的人就越多，所以我们欢迎需要租房的同学都来参与这个协作共赢活动</text>
+  </view>
+
+<view class='row-center'>
+  <text class='footer-text'>想了解详情，可关注“爱奇林租房乐园”公众号</text>
+</view>
+
+<view class='row-center'>
+  
+  <checkbox-group  bindchange="checkbox">
+    <checkbox value='1'>已阅</checkbox>
+    <text class='text-underline' bindtap='toRule'>活动规则</text>
+  </checkbox-group>
+</view>
+
+<view class='view-center'>
+  <text class='utopia-button' bindtap='onBasicInfo'>报名</text>
+</view>

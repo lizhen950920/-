@@ -1,0 +1,154 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="width:100%;height:180px;">
+  <block wx:for="{{room.charm_imgs}}" wx:key="*this" >
+    <swiper-item>
+      <image src="{{item.url}}" class="slide-image" bindtap="previewImg" mode="scaleToFill" style="width:100%;height:180px;" />
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<view class="weui-cells" style="margin-top:auto;">
+  <view class="weui-cell">
+    <view class="weui-cell__hd">
+      <text class="font-bold">{{room.title}}</text>
+    </view>
+  </view>
+  <view class="weui-cell-newline">
+    <view class="weui-cell__hd">
+      <text class="price">{{room.price}}</text>元/月
+      <text class="pay">押{{room.deposit}}付{{room.pay}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells" style="margin-top:10px;">
+  <view class="weui-cell roomtwoline">
+    <view class="weui-cell__hd roomdetail">
+      <text class="room-label">户型</text>
+      <text class="font-bold">{{room.room}}室</text>
+    </view>
+
+    <view class="weui-cell__hd roomdetail">
+      <text class="room-label">面积</text>
+      <text class="font-bold">{{room.area}}㎡</text>
+    </view>
+
+    <view class="weui-cell__hd roomdetail">
+      <text class="room-label">出租空间</text>
+      <text class="font-bold">{{room.scope==1?'整租':(room.scope==2?'主卧':'次卧')}}</text>
+    </view>
+  </view>
+  <view class="weui-cell new-line">
+    <view class="weui-cell__hd">
+      <text class="room-label">楼层:</text>
+      <text class="floor">第{{room.floor}}层，共{{room.total_floor}}层</text>
+    </view>
+    <view class="weui-cell__hd">
+      <text class="room-label">能住时间:</text>
+      <text class="floor">{{room.start}} 至 {{room.end}}</text>
+    </view>
+  </view>
+
+</view>
+<view class="weui-cells" style="margin-top:10px;">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <text style="font-weight:bold">配置:</text>
+      <text>{{room.room_config}}</text>
+    </view>
+  </view>
+
+</view>
+<!-- <view class="weui-cells" hidden='{{room.longitude == null}}'>
+  <view class="weui-cell">
+    <map id="myMap"  markers="{{room.markers}}" longitude="{{room.longitude}}" latitude="{{room.latitude}}" scale="16" show-location style="width: 100%; height: 300px; z-index:100;" bindcallouttap="navoToDes"></map>
+  </view>
+</view> -->
+<view class="weui-cells" >
+  <view class="weui-cell">
+     <view class="">地址:
+        <text bindtap='navoToDes'>{{room.address}} > </text>
+      </view>
+  </view>
+</view>
+<view class="weui-cells" style="margin-top:10px;">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="lh_view">临近:
+        <text>{{room.subway}}号线{{room.station}}站</text>
+      </view>
+      <view class="lh_view">房屋优势:
+        <text>{{room.desc}}</text>
+      </view>
+      <view class="lh_view">出租原因:
+        <text>{{room.reason}}</text>
+      </view>
+      <view class="lh_view">对租户要求:
+        <text>{{room.require}}</text>
+      </view>
+      <view class="lh_view">电话:
+        <text wx:if="{{isViewMobile}}">{{room.mobile}}</text>
+        <text wx:if="{{!isViewMobile}}">*******</text>
+        <a class="view-mobile" bindtap="viewMobile">{{viewText}}</a>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader__hd">
+        <view class="weui-uploader__title">对新新人类说：
+          <text style="word-wrap: break-word; word-break: normal; ">{{room.think_talk}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+<button class='btn' bindtap='first'>回到首页</button>
+  <view wx:if="{{room.uid != loginUid}}" class="weui-cells" style="margin-top:10px;">
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd" style="display:flex;flex-wrap:wrap;justify-content:space-between;">
+        <view class="weui-flex" bindtap="voteClick" data-type="1" data-id="{{room.id}}">
+          <view class="weui-flex__item vote-veiw">
+            <view class="vote">真房东</view>
+            <text class="vote-num">{{room.voteTrue}}</text>
+          </view>
+        </view>
+        <view class="weui-flex" bindtap="voteClick" data-type="2" data-id="{{room.id}}">
+          <view class="weui-flex__item vote-veiw">
+            <view class="vote">假房东</view>
+            <text class="vote-num">{{room.voteFalse}}</text>
+          </view>
+        </view>
+        <view class="weui-flex" bindtap="voteClick" data-type="3" data-id="{{room.id}}">
+          <view class="weui-flex__item vote-veiw">
+            <view class="vote">中介</view>
+            <text class="vote-num">{{room.voteAgent}}</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <text class="weui-cell__ft"></text>
+
+  <!-- <view class="weui-tab">
+    <view class="weui-navbar">
+      <view id="nav_like" bindtap="navLike" data-id="{{room.id}}" class="weui-navbar__item ">
+        <image src="{{lh_lv_image}}" class="my-img"></image>
+        <text class="room-detail-text">{{room.like}}</text>
+      </view>
+      <view id="nav_dz" bindtap="applyJoin" data-id="{{room.id}}"  class="weui-navbar__item {{lh_nav_dz}}">
+        <image src="{{lh_dz_image}}" class="my-img"></image>
+        <text class="room-detail-text">{{room.idea}}</text>
+      </view>
+      <view id="nav_pl" bindtap="comment" data-id="{{room.id}}"  class="weui-navbar__item {{lh_nav_pl}}">
+        <image src="{{lh_pl_image}}" class="my-img"></image>
+        <text class="room-detail-text">{{room.comment}}</text>
+      </view>
+    </view>
+    <view class="weui-tab__panel">
+      <view>{{test_text}}</view>
+    </view>
+  </view> -->
+</view>

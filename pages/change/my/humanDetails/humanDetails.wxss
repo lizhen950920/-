@@ -1,0 +1,122 @@
+Page{
+  background: #FFFFFF;
+}
+
+.humanDetail{
+  display: flex;
+  font-size: 28rpx;
+  color: #333333;
+  background: #FFFFFF;
+}
+.humanDetail-left{
+  float: left;
+  width: 20%;
+}
+.userinfo-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  margin: 10rpx;
+  border-radius:50%;
+}
+.humanDetail-right{
+  float: right;
+  width: 80%;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+}
+.right-fir{
+
+}
+.right-secon{
+  display: flex;
+  color: #333333;
+  font-size: 28rpx;
+  justify-content: space-between;
+  width: 450rpx;
+  margin-top: 10rpx;
+}
+.per-img{
+  padding-left: 30rpx;
+  color: #000000;
+  font-size: 28rpx;
+
+}
+.per-infor{
+  background: #FFFFFF;
+  padding-top: 20rpx;
+  margin-bottom: 100rpx;
+
+}
+.userCharmImg{
+  margin-top: 20rpx;
+}
+.my{
+  line-height: 40rpx;
+  color: #333333;
+  font-size: 28rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 30rpx;
+}
+.my1{
+line-height: 40rpx;
+  color: #333333;
+  font-size: 28rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 30rpx;
+}
+.new_title{
+  text-align: center;
+  align-items: center;
+  color: #333333;
+  font-size: 30rpx;
+  border-bottom: 3rpx solid  #666666;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.cre_new{
+  margin-top: 50rpx;
+
+}
+.cre-home{
+  height: 180rpx;
+
+}
+.home-left{
+  float: left;
+  width: 25%;
+}
+.home-right{
+float: right;
+width: 75%;
+margin-top: 20rpx;
+}
+.right-second{
+  margin-top: 30rpx;
+}
+.contact{
+  position: fixed;
+  bottom: 0rpx;
+  height: 80rpx;
+  left: 28%;
+  line-height: 80rpx;
+
+}
+.contact-border{
+border: #FF9900 solid 3rpx;
+  border-radius: 40rpx;
+  background: #FF9900;
+  color: white;
+  padding: 15rpx 120rpx 15rpx 120rpx;
+}
+.new-prompt{
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+  align-items: center;
+  color: 0000FF;
+  height: 50rpx;
+  font-size: 28rpx;
+  border-bottom:  3rpx solid #FF9900;
+}

@@ -1,0 +1,71 @@
+<wxs module="m1">
+  var replaceStr = function(str) {
+    return str.replace(getRegExp("-", "gm"), '.');
+  }
+  module.exports.replaceStr = replaceStr;
+</wxs>
+
+<view class="container-new">
+  <view class='xx-header'>
+    <text bindtap='near'>附近推荐</text>
+    <image src='/img/search.png'  bindtap='searchCondition'></image>
+  </view>
+   <!-- 顶部搜索 -->
+    <!-- <view class="search-top">
+        <image class='top_location_img' mode="aspectFit" src="/img/Aiqilin/location.png"></image>
+        <navigator url="" class="search-nav" hover-class="none" open-type="navigate">{{areaName}} <text wx:if="{{!areaName}}">筛选</text></navigator>
+        <view class="search-img" style='width:71%;'>
+            <icon class="search-icon" type="search" size="14" color="#97d54e"></icon>
+            <input type="text" bindtap='searchCondition' value="{{keyword}}" placeholder-class="searchs" placeholder="点击筛选" />
+        </view>
+    </view>
+     -->
+ 
+     <!-- <button class='btn' bindtap='homepage'>首页</button>       -->
+  <!--列表  -->
+
+  <block wx:for="{{userList}}" wx:key="id" wx:for-index="idx" wx:for-item="user">
+    <view class='userinfo'  style="box-shadow:10px 10px 5px #888888;margin-top:20rpx;{{idx==0?'margin-top:60px;':''}}">
+
+      <view class='userinfo-item' bindtap='touserdetail' data-uid='{{user.id}}'>
+
+        <image class='userinfo-avatar' src='{{user.avatar==""?"/img/noavatar.png":user.avatar}}'></image>
+
+        <view class='userinfo-right'>
+          <view class='userinfo-line'>
+            <view>
+              <text class='userinfo-title'>{{user.username}}</text>
+              <image class='sex-img' src='{{user.sex==1?"/img/my/male.png":"/img/my/female.png"}}'></image>
+            </view>
+
+            <text class='label'>{{user.type==1?'有房找室友':(user.type==2?'求房求室友':'爱家生活中')}}</text>
+          </view>
+          <view class='userinfo-line'>
+            <text wx:if='{{user.profession!=null}}' class='userinfo-cell'>{{user.profession}} </text>
+            <text wx:if='{{user.move_start!=null}}' class="label-plain">{{user.move_start}}~{{user.move_end}}</text>
+
+          </view>
+          <view class='userinfo-line '>
+            <text class='userinfo-cell'>魅力值:{{user.score}}</text>
+            <text class='userinfo-dist'>￥{{user.rent_start_k}}k-{{user.rend_end_k}}k</text>
+
+          </view>
+
+
+        </view>
+      </view>
+
+      <view class='userinfo-foot'>
+        <view class='userinfo-foot-line'>
+          <view class='location-view'>
+            <image class='location' src='/img/screen/location.png'></image>
+            <text class="userinfo-address">{{user.hope_live}}</text>
+          </view>
+          <text wx:if="{{user.dist!=null}}" class='userinfo-dist'>{{user.dist}}km以内</text>
+        </view>
+        <text class='userinfo-intro' wx:hidden='{{user.dream_home!=null}}'>{{user.dream_home==null?'':user.dream_home}}</text>
+      </view>
+    </view>
+  </block>
+
+</view>

@@ -1,0 +1,36 @@
+/* ldealhome.wxss */
+p{
+  display: block;
+  width:100%;
+}
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.weui-media-box{
+  padding: 15px 15px 0 15px;
+}
+
+.item-line{
+  border-bottom:5px solid #ccc;
+}
+.item-between{
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+}
+.edit-opterator{
+  display: flex;
+  align-items: center;
+  padding-left: 10rpx;
+}
+.oper-img{
+  width:15px;height:15px;flex:1
+}

@@ -1,0 +1,15 @@
+<!--pages/User/UserChoose.wxml-->
+<view class="page">
+  <text class='top-title'>让我们更好地服务您，请选择您的身份</text>
+
+  <view>
+    <!--设置监听器，当点击radio时调用-->
+    <radio-group bindchange="listenerRadioGroup">
+      <!--label通常与radio和checkbox结合使用-->
+      <label class='radio-label' wx:for-items="{{array}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+  <button type='primary' bindtap='nextStep' class='nextbtn'>下一步</button>
+</view>

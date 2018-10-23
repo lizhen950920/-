@@ -1,0 +1,15 @@
+<!--pages/Xinxin/detail.wxml-->
+<import src="../../template/userInfo.wxml" />
+<include src="../../common/alert.wxml" />
+
+
+<text class='aboutme'>关于我</text>
+<template is="userInfo" data="{{user}}"></template>
+<text class='footer'>期待我们能成为好朋友、好室友</text>
+<view>
+  <form bindsubmit='agreeConcat'  report-submit="true">
+    <button class='concat-btn' form-type='submit' wx:if="{{agree == 0}}">同意交换联系方式</button>
+    <button class='concat-btn agreeConcat' wx:if="{{agree == 1}}">已同意</button>
+  </form>
+</view>
+

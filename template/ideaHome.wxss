@@ -1,0 +1,23 @@
+.weui-cell__hd {
+  margin-right: 15px;
+}
+
+.my-img {
+  width: 11px;
+  height: 11px;
+  padding-left: 5px;
+}
+
+.weui-navbar__item {
+  font-size: 13px;
+}
+
+.lh_view {
+  margin-top: 10px;
+}
+
+.home-detail-text {
+  margin-left: 4px;
+}
+
+

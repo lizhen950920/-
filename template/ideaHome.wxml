@@ -1,0 +1,174 @@
+<template name="ideaHome">
+  <navigator url="/pages/User/UserInfo?uid={{home.uid}}&isShow={{home.isShow}}" class="weui-cell">
+    <view class="weui-cell__hd">
+      <image wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" style="width:3rem;height:3rem;border-radius:50%;"></image>
+      <image wx:if="{{home.avatar}}" src="{{home.avatar}}" style="width:3rem;height:3rem;border-radius:50%;"></image>
+    </view>
+    <view class="weui-cell__bd" style="line-height:1.6em;">
+      <p>
+        <text style="font-weight:bold;">{{home.username}}</text>
+        <image src="{{home.sex==1?'../../../../img/my/male.png':'../../../../img/my/female.png'}} " class="my-img"></image>
+        <text style="font-size:11px;color:#97d54e;border:1px solid #97d54e;margin-left:40%;">{{home.found == 1 ? '已找到房':'未找到房' }}</text>
+      </p>
+      <p style="margin-top:0.5rem;">
+        <ul class="weui-media-box__info">
+          <li class="weui-media-box__info__meta">{{home.station}}</li>
+          <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{home.age}}岁</li>
+          <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{home.marry==1?'单身':(home.marry == 2?'婚恋':'保密')}}</li>
+          <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">魅力值{{home.score}}</li>
+
+        </ul>
+      </p>
+    </view>
+  </navigator>
+
+  <view class="weui-cell">
+    
+    <view class="weui-cell__bd">
+      <view class='home_date'>
+      <text>创建时间: {{home.creata_date}}</text>
+      <text>修改时间: {{home.update_date}}</text>
+    </view>
+      <view style="font-weight:bold;" class='text-align'>{{home.name}}</view>
+      <view class="lh_view text-align">
+        <text class=''>{{home.declaration}}</text>
+      </view>
+      <view class='line'></view>
+      <view class="lh_view">我对
+        <text class='bold'>{{home.name}}</text>的创想:
+        <text>{{home.desc}}</text>
+      </view>
+      <view class='line'></view>
+      <view class="weui-uploader__hd">
+        <view class="weui-uploader__title">创想图</view>
+        <view class="weui-uploader__title viewnumber" >浏览量:{{home.viewnum}}</view>
+      </view>
+      <view class="weui-uploader__bd">
+        <ul class="weui-uploader__files" id="uploaderFiles">
+          <block wx:for="{{home.charm_imgs}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+            <image wx:if="{{item.type == 4}}" data-type="4" bindtap="previewImg" src="{{item.url}}" class="weui-uploader__file" mode="scaleToFill" class='imgcls' />
+          </block>
+        </ul>
+      </view>
+      <view class='lh_view home_main_text'>
+        <text>{{home.area==null?'χ':home.area}}平米</text>
+        <label>|</label>
+        <text>{{home.room==null?'X':home.room}}室{{home.hall==null?'X':home.hall}}厅{{home.toilet==null?'X':home.toilet}}卫{{home.kitchen==null?'X':home.kitchen}}厨</text>
+        <label>|</label>
+        <text>{{home.male?home.male:"X"}}男{{home.female?home.female:"X"}}女 </text>
+      </view>
+      <view class='line'></view>
+      <view class="lh_view">
+        <label class='label'>地址: </label>
+        <text >{{home.address}}  </text>
+        <text style='color:blue;' bindtap='navoToDes'> 地图》</text>
+      </view>
+      <view class="lh_view">
+        <label class='label'>临近: </label>
+        <text>{{home.subway}}号线{{home.station}}站 </text>
+
+        <text style="margin-left:50rpx;"> 距离其{{home.distance}}米</text>
+      </view>
+      <view class='lh_view home-price'>
+        <text>总价{{home.total_price}}元</text>
+        <text>押{{home.deposit==null?'':home.deposit}}|付{{home.pay==null?'':home.pay}}</text>
+        <text>人均{{home.avgprice}}元</text>
+      </view>
+      <view class="lh_view">
+        <label class='label'>理想室友:</label>
+        <text>{{home.old==null?'X':home.old}}岁左右  {{home.roommate_desc}}</text>
+      </view>
+      <view class="lh_view">
+        <label class='label'>入住时间: </label>
+        <text>{{home.start == null?"X":home.start}}至{{home.end==null?'X':home.end}}</text>
+      </view>
+      <view class="lh_view">
+        <label class='label'>报名截止日期: </label>
+        <text>{{home.apply_end==null?'X':home.apply_end}}</text>
+      </view>
+
+
+      <!-- <view class="lh_view">地理位置(点击房屋位置可导航到目的地)
+      </view>
+      <map id="myMap" markers="{{home.markers}}" longitude="{{home.longitude}}" latitude="{{home.latitude}}" scale="16"  show-location style="width: 100%; height: 300px; z-index:100;" bindcallouttap="navoToDes"></map> -->
+
+    </view>
+  </view>
+  
+  
+  <block wx:for="{{home.rooms}}" wx:key="*this" >
+    <view class="weui-cell" wx:if="{{item.room_name}}">
+    <view class="weui-cell__bd">
+      <view class="room-list">
+        <text>{{item.room_name==null?'X':item.room_name}}</text>
+        <text>{{item.room_area==null?'X':item.room_area}}平米</text>
+        <text>{{item.room_price==null?'X':item.room_price}}元</text>
+      </view>
+      <view class='lh_view'>
+        <text>备注：{{item.room_mark}}</text>
+      </view>
+    </view>
+    </view>
+  </block>
+  
+
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader__hd">
+        <view class="weui-uploader__title">自我介绍：
+          <text style="word-wrap: break-word; word-break: normal; ">{{home.introduction}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader__hd">
+        <view class="weui-uploader__title">个人魅力图</view>
+      </view>
+      <view class="weui-uploader__bd">
+        <ul class="weui-uploader__files" id="uploaderFiles">
+          <block wx:for="{{home.charm_imgs}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+            <image wx:if="{{item.type == 3}}" data-type="3" bindtap="previewImg" src="{{item.url}}" class="weui-uploader__file" mode="scaleToFill" class='imgcls' />
+          </block>
+        </ul>
+      </view>
+    </view>
+  </view>
+  <text class="weui-cell__ft"></text>
+
+
+  <view class="weui-cell" wx:if="{{!home.creatSuccess}}">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader__hd">
+        <view class="weui-uploader__title">已入选室友</view>
+      </view>
+      <block wx:for="{{home.roommates}}" wx:key="id" wx:for-index="idx" wx:for-item="roommate">
+        <navigator class='line' url="/pages/User/UserInfo?uid={{roommate.id}}&isShow=true">
+          <view class="roommates-list">
+
+            <image src="{{roommate.avatar}}" mode="scaleToFill" style="width:40px;height:40px" />
+            <view class='roommates-right'>
+              <view class='roommates-head'>
+                <text class="roomates-name">{{roommate.username}}</text>
+                <view>
+                <image src="{{roommate.sex==1?'../../../../img/my/male.png':'../../../../img/my/female.png'}} " class="my-img2"></image>
+                <text>{{roommate.age}}岁</text>
+                </view>
+                <text>{{roommate.universityStr==null?'':roommate.universityStr}}</text>
+                <text style='color:blue;'>》</text>
+                <!--catch可阻止事件冒泡  -->
+                
+                <text class='del_btn' wx:if="{{home.isShow}}" catchtap='delHomeApply' data-uid="{{roommate.uid}}" data-homeid='{{home.id}}'>删除</text>
+              </view>
+              <view style='display:flex;'>
+                <text class='show-one-line'>{{roommate.comment}}</text>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+    <text class="weui-cell__ft"></text>
+  </view>
+</template>

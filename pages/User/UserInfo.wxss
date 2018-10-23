@@ -1,0 +1,30 @@
+/* userhomepage.wxss */
+p{
+  display: block;
+  margin-top: 5px;
+}
+
+
+.weui-cell__hd{
+  margin-right:15px;
+}
+
+.textarea{
+
+}
+
+.form{
+   width: 100%;
+}
+
+
+.content-right{
+  flex: 3;
+  margin-left:10px;
+
+}
+
+.weui-cells-my{
+  margin-top:0.27647059em !important; 
+
+}

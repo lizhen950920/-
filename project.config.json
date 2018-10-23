@@ -1,0 +1,57 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.0",
+	"appid": "wx4d92181138697963",
+	"projectname": "xxpminiprog",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "扫描进入乌托邦",
+					"pathName": "pages/Utopia/Index",
+					"query": "scene=3",
+					"scene": "1047"
+				},
+				{
+					"id": 1,
+					"name": "进入首页",
+					"pathName": "pages/change/Homepage/Honepage",
+					"query": "",
+					"scene": "1089"
+				},
+				{
+					"id": -1,
+					"name": "创建房屋",
+					"pathName": "pages/change/create/createThrHome/createThrHome",
+					"query": ""
+				}
+			]
+		}
+	}
+}

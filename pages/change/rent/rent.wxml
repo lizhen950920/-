@@ -1,0 +1,67 @@
+<form bindsubmit="formSubmit" bindreset="formReset" report-submit="true">
+<view class='title'> <text>让租住生活美好起来</text> </view>
+<view class='choose'> 
+<view class='question'>现在你是？</view>
+<view class='Movietype'>
+  <view class="{{item.checked==true?'active-tag':''}}" bindtap="select_date"  wx:for="{{Movietype}}" data-key='{{index}}' value="{{typeIndex}}">
+            {{item.value}}
+          </view>
+          <view class="{{item.click==true?'active-tag':''}}" bindtap="select_date1"  wx:for="{{Movietype1}}" data-key='{{index}}'>
+            {{item.value}}
+          </view> 
+           <!-- <picker bindchange="bindTypeChange" value="{{typeIndex}}" range-key="{{'name'}}" range="{{typeArray}}">
+            <view class="picker">
+              {{typeArray[typeIndex].name}}
+            </view>
+          </picker> -->
+</view>
+</view>
+
+  <view wx:if="{{!live}}" class='tishi'>你已有房，不需要填写信息</view>
+ <view wx:else>
+<view class='address'>
+你的理想居住地点是？
+</view>
+<view class='check' bindtap='address'>
+<text>点我定位,方便给你推送房源和室友</text>
+</view>
+<view class='choose_add'>
+<text class='live'>{{hope_live}}</text>
+</view>
+
+<view class='rent'>
+<view class='budget'>房租预算</view>
+<view class='input_content'>
+ <input class='input_rent' type="text" cursor-spacing="100" name="rendt"  bindblur="bindblurs" bindinput='bindtap' value="{{user.rent_start}}" />
+ </view>
+ <text class='prompt'>元/月</text>
+</view>
+<view class='display'>
+ <text class="move">搬家时间</text>
+      <view class="time">
+       <picker mode="date" value="{{user.move_start}}" data-type='1' start="1950-01-01" end="{{user.move_end}}"bindchange="bindMoveChange">
+          <view class="picker">
+            <block wx:if="{{!user.move_start}}"> 起始</block>
+             {{user.move_start}}
+          </view>
+        </picker>
+      </view>
+      <text class='hei'>——</text>
+     <view class="time">
+         <picker mode="date" value="{{user.move_end}}" data-type='2' start="{{user.move_start}}" end="2027-09-01" bindchange="bindMoveChange">
+          <view class="picker">
+            <block wx:if="{{!user.move_end}}"> 结束</block> {{user.move_end}}
+          </view>
+        </picker>
+       </view>
+       </view>
+       <view class='describe'>
+       <text class='home'>理想室友及理想之家（选填，方便匹配室友）</text>
+        <textarea cursor-spacing="100" data-name="dream_home" class="weui-textarea" maxlength="2000" value="{{user.dream_home}}" name="dream_home" placeholder="例：我理想中的室友，最重要的是要有一颗善良的心，善于创造美好，热爱生活热爱这个世界，我想只有这样我们才能一起搭建像爱情公寓那样的家" />
+       </view >
+       <view class='height'>
+         <!-- <button class='btn' bindtap='confirm'>修改</button> -->
+       <button class='btn' form-type="submit">修改</button>
+       </view>
+    </view>
+    </form>

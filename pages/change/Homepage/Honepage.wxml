@@ -1,0 +1,160 @@
+<view class="search_top">
+  <view class="search-nav">
+    <!-- <navigator url='/pages/Aiqilin/Introduction' hover-class="none" open-type="navigate">{{areaName}} -->
+    <navigator url='/pages/change/city/city?type={{2}}' hover-class="none" open-type="navigate">
+      <text wx:if="{{!city}}" class='city'>筛选</text>
+      <text class='city'>{{city}}</text>
+
+    </navigator>
+  </view>
+  <view class="{{house==1?'housing1':'default2'}}" catchtap='house_resource'>
+    <text>房源</text>
+  </view>
+  <view class='border_right'></view>
+  <view class="{{solicite==1?'housing':'default1'}}" catchtap='solicite'>
+    <text>新人</text>
+  </view>
+  <!-- <view class="inputbox">
+    <icon color="#515151" type="search" size="20" />
+    <input bindfocus="searchCondition" placeholder-class="placeholder" placeholder="搜索" />
+  </view> -->
+</view>
+
+<view class="search_nav">
+  <ul>
+    <li bindtap="more" class="{{showMore?'li_show':''}} last_li">
+      <view class="{{showMore?'arrowup':'arrowon'}}">区域
+
+      </view>
+    </li>
+    <li bindtap="workRent" class="{{showRent?'li_show':''}} last_li">
+      <view class="{{showRent?'arrowup':'arrowon'}}">租金
+
+      </view>
+
+    </li>
+    <view bindtap="treatment" class="{{showTreatment?'li_show':''}} last_li1">
+      <view class="{{showTreatment?'arrowup1':'arrowon1'}}">入住时间
+      </view>
+    </view>
+    <li bindtap="sorting" class="{{showsorting?'li_show':''}} last_li">
+      <view class="{{showsorting?'arrowup':'arrowon'}}">排序
+      </view>
+    </li>
+  </ul>
+
+  <!--租金-->
+
+  <view class="{{showRent?'show':''}} s_content">
+    <view bindtap="selectRent" wx:for="{{rent}}" wx:key="id" wx:for-index="idx" data-idx='{{idx}}' class="{{selectconditions == idx ? 'active' :''}} s_list" data-rent="{{item.rent}}" data-id="{{item.id}}">
+      {{item.rent}}
+    </view>
+  </view>
+  <view catchtap='area' class="{{showRent?'show':''}} s_flowindow">
+  </view>
+  <!--入住时间-->
+
+  <view class="{{showTreatment?'show':''}} s_content">
+    <view bindtap="selectTreatment" wx:for="{{treatment}}" wx:key="id" wx:for-index="idx" data-idx='{{idx}}' class="{{selectTime ==idx ? 'active' :''}} s_list1" data-treatment="{{item.treatment}}" data-id="{{item.id}}">
+      {{item.treatment}}
+    </view>
+  </view>
+  <view catchtap='area' class="{{showTreatment?'show':''}} s_flowindow2">
+  </view>
+  <!--排序-->
+
+  <view class="{{showsorting?'show':''}} s_content">
+    <view bindtap="showsorting" wx:for="{{sorting}}" wx:key="id" wx:for-index="idx" data-idx='{{idx}}' class="{{selectShow == idx? 'active' :''}} s_list2" data-sorting="{{item.sorting}}" data-id="{{item.id}}">
+      {{item.sorting}}
+    </view>
+  </view>
+  <view catchtap='area' class="{{showsorting?'show':''}} s_flowindow1">
+  </view>
+  <!--区域-->
+  <!-- <view  class="{{showMore?'show':''}} s_flowindow3">
+        </view> -->
+  <view class="{{showMore?'show':''}} s_more">
+    <view class="left">
+      <!-- <view bindtap="sec_child"  class="{{moreId == item.id?'li_show':''}} left_list"> -->
+      <view class="{{selectIndex==0?'red':'default'}}" data-index="0" bindtap="switchSlider">区县</view>
+      <view class="{{selectIndex==1?'red':'default'}}" data-index="1" bindtap="switchSlider">附近</view>
+      <!-- </view> -->
+      <!-- <view wx:for="{{moreChild}}" bindtap="sec_child" data-id="{{item.id}}" class="{{moreId == item.id?'li_show':''}} left_list">
+                    <view>{{item._type}} <text>{{item.text}}</text></view>
+                  
+                </view> -->
+    </view>
+    <!-- <view class='border'></view> -->
+    <view class="right">
+      <scroll-view scroll-y style="height: 100%;">
+        <view hidden="{{selectIndex!=0}}" class="tab-content">
+          <view wx:for="{{areaList}}" bindtap="county" data-id="{{item.id}}" wx:for-item="item">
+
+            <view class='distance'>{{item.name}}</view>
+          </view>
+        </view>
+        <view hidden="{{selectIndex!=1}}" class="tab-content">
+          <view wx:for="{{distance}}" bindtap="near" data-id="{{item.id}}" wx:for-item="item">
+            <view class='distance'>{{item.name}}</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+  </view>
+  <view catchtap='area' class="{{showMore?'show':''}}  s_flowindow3">
+  </view>
+
+</view>
+
+<view catchtap='showdown' style='height:100%;'>
+
+  <block wx:for="{{roomList}}" wx:key="id" wx:for-index="idx" wx:for-item="user">
+    <view class='userinfo' catchtap='roomDetail' style="{{idx==0?'margin-top:170rpx;':''}}" data-id="{{user.id}}" data-uid="{{user.uid}}">
+      <text class='stick' wx:if="{{user.istop==1&&user.top==1}}">顶</text>
+      <image class='location' src='/img/location.png'></image>
+      <view class='address1'>{{user.l_district}}-{{user.l_street}}</view>
+      <image class='userinfo-avatar' src='{{user.avatar==""?"/img/noavatar.png":user.avatar}}'></image>
+
+      <!-- <view class='userinfo_item' bindtap='touserdetail' data-uid='{{user.id}}'>
+    </view> -->
+
+      <view class='content1'>
+        <view class='state' style="{{user.state==2?'width:140rpx;':''}}">
+          <text>{{status[user.state]}}</text>
+        </view>
+        <view class='describe'>
+          <text>{{user.name}}</text>
+        </view>
+      </view>
+      <block wx:key="id" wx:for-index="idx">
+        <image data-id="{{user.imgs[0].id}}" class='picture' src="{{user.imgs[0].url}}"></image>
+        <image data-id="{{user.imgs[1].id}}" class='picture' src="{{user.imgs[1].url}}"></image>
+        <image data-id="{{user.imgs[2].id}}" class='picture' src="{{user.imgs[2].url}}"></image>
+        <!-- <image  class='picture' src="{{k[1].url}}"></image>
+                        <image  class='picture' src="{{k[2].url}}"></image> -->
+
+      </block>
+      <view class='infor'>
+        <text class='label'>租金 {{user.price}}/月</text>
+        <text class='dist' wx:if="{{user.dist>1}}">距离{{user.dist}}km以内</text>
+        <text class='dist' wx:if="{{user.dist==0}}">距离0米以内</text>
+        <text class='dist' wx:if="{{user.dist<=1 && user.dist !=0}}">距离{{user.dist*1000}}米以内</text>
+        <text class='update'>{{user.create_date_str}}</text>
+      </view>
+    </view>
+  </block>
+  <view class='public' bindtap='searchCondition' data-type="2">
+    <image class='search1' src='/img/search/search1.png'></image>
+    <text class='position1'>定位</text>
+  </view>
+</view>
+<view wx:if="{{!isNoData}}" class='nodata'>
+  <view style='display: flex;justify-content: center;'>
+    <image wx:if="{{!spacing}}" class='nodata_img' src='/img/bad.png'></image>
+  </view>
+  <view class='nodata_prompt'>
+    <text wx:if="{{!spacing}}">新人你搜索的地方暂时没有数据</text>
+  </view>
+  <view class="{{spacing==true? 'recovery1':'recovery'}}" catchtap='recovery'>一键复原</view>
+</view>

@@ -1,0 +1,276 @@
+<include src="../../common/alert.wxml" />
+<!--logs.wxml-->
+ <scroll-view scroll-y style="height: 1400rpx;">
+<view class="container log-list">
+  <form bindsubmit="formSubmit" bindreset="formReset" report-submit="true">
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <input class="weui-cell__bd" name="name" cursor-spacing="100" type="text" bindinput="bindinput1" value="{{items.name}}" maxlength="8" placeholder="给你的理想之家取一个温暖的名字" />
+      </view>
+      <text class="weui-textarea-counter">{{homename_length>0?homename_length:0}}/8</text>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <input class="weui-cell__bd" cursor-spacing="100" name="declaration" bindinput="bindinput2" type="text" value="{{items.declaration}}" maxlength="22" placeholder="写下你的创家宣言" />
+      </view>
+      <text class="weui-textarea-counter">{{declaration_length>0?declaration_length:0}}/22</text>
+    </view>
+
+    <view class="weui-cell">爱家创想文字描述：</view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd textareas">
+        <textarea hidden='{{showPickerView}}' class="weui-textarea" cursor-spacing="100" name="desc" value="{{items.dream_home}}" bindinput="bindinput3" maxlength="2000" placeholder="请在这里对你的理想之家尽情创想，它是怎样的呢？写的越好越容易吸引大家关注哦，/(^o^)/~" style="opacity:0.5;" rows="3"></textarea>
+        <view class="weui-textarea-counter">{{desc_length>0?desc_length:0}}/2000</view>
+      </view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="classname" style="display:flex;flex-direction: row;justify-content:space-between;">
+          <view class="weui-textarea Cre-homeimg">爱家创想图</view>
+          <view class="weui-textarea Cre-homeimg">({{idea_imgs.length}}/9)</view>
+          <view class="weui-textarea Cre-homeimg">长按设置封面</view>
+        </view>
+        <view class="gallery">
+          <view class="item" wx:key="{{id}}" wx:for="{{idea_imgs}}" wx:for-index="idx" wx:for-item="item">
+            <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src="{{item.url}}" data-type="4" class="{{item.selected?'selected':''}}" data-idx="{{idx}}" bindtap="previewImg" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" bindlongtap="setCover"
+              data-id="{{item.id}}" mode="scaleToFill" />
+
+            
+            <view class="delete" bindtap="deleteImg" data-idx="{{idx}}" data-fromuserinfo="{{item.from_user_info}}" data-type="4" data-id="{{item.id}}">
+              <image style="left: {{imageWidth / 2 - 10}}px;" src="/img/icon_delete.png" />
+            </view>
+          </view>
+          <view class="item">
+            <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src="/img/icon_add.png" data-type="4" class="button-upload" bindtap="uploadImg" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="inline">
+        对理想室友构想：
+        <input class="min_width_input" type="number" cursor-spacing="100" name="male" maxlength='2' value="{{none_value}}" placeholder="几" />男
+        <input class="min_width_input" type="number" cursor-spacing="100" name="female" maxlength='2' value="{{none_value}}" placeholder="几" />女
+        <input class="min_width_input" type="number" cursor-spacing="100" name="old" maxlength='3' value="{{none_value}}" placeholder="多少" />岁
+
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        
+        <textarea hidden='{{showPickerView}}' name="roommate_desc" maxlength="200" cursor-spacing="100" value="{{items.hope_roommate}}" class="weui-textarea" bindinput="bindinput4" placeholder="你希望你未来的室友是怎样的呢？描述的越好越容易找到目标室友呢，/(^o^)/~"></textarea>
+        <view class="weui-textarea-counter">{{roommate_desc_length>0?roommate_desc_length:0}}/200</view>
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view class="inline">
+        <input class="min_width_input" cursor-spacing="100" type="number" name="room" maxlength='1' value="{{none_value}}" placeholder="几" />室
+        <input class="min_width_input" cursor-spacing="100" type="number" name="hall" maxlength='1' value="{{none_value}}" placeholder="几" />厅
+        <input class="min_width_input" cursor-spacing="100" type="number" name="toilet" maxlength='1' value="{{none_value}}" placeholder="几" />卫
+        <input class="min_width_input" cursor-spacing="100" type="number" name="kitchen" maxlength='1' value="{{none_value}}" placeholder="几" />厨
+        <input class="min_width_input" cursor-spacing="100" type="number" name="area" maxlength='3' value="{{none_value}}" placeholder="几" />平米
+      </view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>是否有房</text>
+      </view>
+      <radio-group class="radio-group" bindchange="foundChange">
+        <label class="radio">
+          <radio value="1" checked="{{foundChecked==1}}" />是
+          <radio value="0" checked="{{foundChecked==0}}" />否
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="weui-cell" bindtap="openPickerView">
+      <view class="weui-cell__bd">
+        <text>省市区</text>
+      </view>
+      <view class="">
+        <text>{{addressName}}</text>
+        <input hidden="true" cursor-spacing="100" name="province" value="{{provId}}" />
+        <input hidden="true" cursor-spacing="100" name="city_id" value="{{cityId}}" />
+        <input hidden="true" cursor-spacing="100" name="area_id" value="{{areaId}}" />
+      </view>
+
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>地址</text>
+        <text style="float:right;">{{address}}</text>
+      </view>
+      <button bindtap="chooseMap" size="mini">在地图上标记</button>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd inline">
+        <text style="width:120px;">靠近</text>
+        <input class="weui-cell__ft" cursor-spacing="100" type="text" value="{{none_value}}" name="subway" placeholder="几号" />线
+        <input class="weui-cell__ft" cursor-spacing="100" type="text" value="{{none_value}}" name="station" placeholder="哪个" />站
+        <input class="weui-cell__ft" cursor-spacing="100" type="number" value="{{none_value}}" name="distance" placeholder="距离" />米
+      </view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>人均预算</text>
+      </view>
+      <input class="weui-cell__ft" type="digit" cursor-spacing="100" value="{{none_value}}" name="avgprice" maxlength='9' placeholder="" />元/月
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>总价</text>
+      </view>
+      <input class="weui-cell__ft" type="digit" cursor-spacing="100" value="{{none_value}}" name="total_price" maxlength='9' placeholder="" />元
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd inline">
+        <text>押</text>
+        <input class="weui-cell__ft" cursor-spacing="100" type="number" value="{{none_value}}" name="deposit" placeholder="几" />
+        <text style="margin-left:100px;">付</text>
+        <input class="weui-cell__ft" cursor-spacing="100" type="number" value="{{none_value}}" name="pay" placeholder="几" />
+      </view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd inline">
+        <text style="flex:1">入住时间</text>
+        <view style='flex:2;display:flex;'>
+          <picker mode="date" value="{{start}}" start="2015-09-01" end="2027-09-01" bindchange="startDateChange">
+            <view class="picker">
+              <block wx:if="{{!start}}"> 请选择</block> {{start}}
+            </view>
+          </picker>
+          <text style='padding:0 20px;'> 至  </text>
+          <picker mode="date" value="{{end}}" start="2015-09-01" end="2027-09-01" bindchange="endDateChange">
+            <view class="picker">
+              <block wx:if="{{!end}}"> 请选择</block> {{end}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd inline">
+        <text style="flex: 1;">申请截止日期</text>
+        <picker mode="date" value="{{apply_end}}" start="2015-09-01" end="2027-09-01" bindchange="applyDateChange">
+          <view class="picker">
+            <block wx:if="{{!apply_end}}"> 请选择</block> {{apply_end}}
+          </view>
+        </picker>
+      </view>
+    </view>   
+    <block wx:for="{{showRoomArr}}" wx:key="*this">
+      <view class="border-cell">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class='item-inline'>
+              <text>房间{{item}}</text>
+              <input cursor-spacing="100" name="room_name_{{item}}" type='text' placeholder='名字'></input>
+              <input cursor-spacing="100" name="room_area_{{item}}" type='number' placeholder='多少'></input>
+              <text>㎡</text>
+              <input cursor-spacing="100" name="room_price_{{item}}" type='number' placeholder='多少'></input>
+              <text>元</text>
+            </view>
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <text>备注</text>
+          </view>
+          <input type='text' cursor-spacing="100"  name="room_mark_{{item}}" style='flex:2;' placeholder='备注'></input>
+        </view>
+      </view>
+    </block> 
+
+    <view class="weui-cell">
+        <button bindtap='addShowRoom' size='mini' wx:if='{{showRoomArr.length <5}}' >增加房间</button>
+    </view>
+
+
+    <view class="weui-cell">
+      <view wx:if="{{showPickerView}}"></view>
+      <view class="weui-cell__bd" wx:else>
+        <textarea hidden='{{showPickerView}}' class="weui-textarea" cursor-spacing="100" hidden="{{showPickerView}}" value="{{items.introduction}}" name="introduction" bindinput="bindinput5" maxlength="800" placeholder="在这里可以做个精彩的自我介绍哦，比如谈谈你的梦想、爱好、技能、生活习惯、有趣的故事，尤其是梦想，希望你的魅力展示能让我们眼前一亮"
+          rows="3" style="opacity:0.5;"></textarea>
+        <view class="weui-textarea-counter">{{introduction_length>0?introduction_length:0}}/800</view>
+      </view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <p class="weui-textarea Cre-homeimg">个人魅力照 ({{charm_imgs.length}}/9)</p>
+        <view class="weui-textarea-counter">
+          
+
+          <view class="gallery">
+            <view class="item" wx:key="{{id}}" wx:for="{{charm_imgs}}" wx:for-index="idx" wx:for-item="item">
+              <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src=" {{item.url}}" data-type="3" class="{{item.selected?'selected':''}}" data-idx="{{idx}}" bindtap="previewImg" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" data-id="{{item.id}}"
+                mode="scaleToFill" />
+
+
+              <view class="delete" bindtap="deleteImg" data-idx="{{idx}}" data-fromuserinfo="{{item.from_user_info}} 
+            data-type="3"  data-id="{{item.id}}">
+              <image style="left: {{imageWidth / 2 - 5}}px;" src="/img/icon_delete.png" />
+            </view>
+          </view>
+          <view class="item">
+            <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src="/img/icon_add.png" data-type="3"  class="button-upload" bindtap="uploadImg" />
+          </view>
+        </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <input class="weui-cell__bd" type="number" name="mobile" cursor-spacing="100" value="{{user.mobile}}" maxlength='11' placeholder="请输入手机号（只对符合室友标准的开放）"  />
+      </view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <input class="weui-cell__bd" type="text" name="wechat" cursor-spacing="100" maxlength='40' value="{{user.wechat}}" placeholder="请输入微信号（只对符合室友标准的开放）"  />
+      </view>
+    </view>
+
+    <view class="btn-area">
+      <button  form-type="submit" class='btn' >确定并提交</button>
+    </view>
+
+  </form>
+  <!--省市区三级联动-->
+  <block wx:if="{{showPickerView}}">
+  
+  <view  class="picker-view-container">
+    <view class="picker-view-title">
+      <text style="margin-left:10rpx" bindtap="closePickerView">取消</text>
+      <text>选择地址</text>
+      <text style="margin-right:10rpx" bindtap="confirmPickerView">确定</text>
+    </view>
+    <picker-view class="area-picker-view" indicator-class="area-indicator-class" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{provArr}}" wx:key="id" class="picker-view-column">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{cityArr}}" wx:key="id" class="picker-view-column">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{areaArr}}" wx:key="id" class="picker-view-column">{{item.name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+  </block>
+</view>
+ </scroll-view>

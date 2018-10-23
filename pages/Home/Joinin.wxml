@@ -1,0 +1,142 @@
+<!-- <include src="../../common/alert.wxml" />
+<import src="../../template/userInfo.wxml" /> -->
+<!--userhomepage.wxml-->
+
+<form bindsubmit="bindFormSubmit" class="form" report-submit="true">
+
+  <view class="page">
+    <view class="page__bd">
+      <view class="weui-cells-1 weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd1">入住时间</view>
+          <view class="weui-cell__bd">
+            <picker mode="date" value="{{move_start}}" data-type='1' start="1950-01-01" end="2050-01-01" bindchange="bindMoveChange">
+              <view class="picker">
+                <block wx:if="{{!move_start}}"> 请选择</block> {{move_start==null?'':move_start}}
+              </view>
+            </picker>
+          </view>
+          <!-- <view class="weui-cell__bd"> -->
+            <text>至</text>
+          <!-- </view> -->
+          <view class="weui-cell__bd">
+            <picker mode="date" value="{{move_end}}" data-type='2' start="{{move_start}}" end="2027-09-01" bindchange="bindMoveChange">
+              <view class="picker">
+                <block wx:if="{{!move_end}}"> 请选择</block> {{move_end==null?'':move_end}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cells-1 weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd1">申请房间</view>
+          <view class="home" style='width:100%' >
+            <!-- <input class="weui-cell__ft" value="{{home.homeApply.home_room}}" cursor-spacing="100" type="text" name="room" data-name="room" placeholder="申请房间" /> -->
+           <view style='margin-left:10rpx; width:130rpx;display:inline-block;margin-top:5rpx;text-align:center' wx:if="{{item.room_name}}" wx:for="{{home.rooms}}" wx:for-index="idx" data-idx='{{idx}}' data-id='{{item.id}}' data-name='{{item.name}}' wx:for-item="item" name="item.room_name"  class="{{selectidx==idx? 'home-name':'home-name1'}}" catchtap='selectroom'>{{item.room_name}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="titles">自我介绍</view>
+      <view class="weui-cells-1 weui-cells_after-title">
+   
+          <!-- <view class="weui-cell__bd"></view> -->
+     
+   
+             <textarea hidden='{{showPickerView}}' class="weui-textarea" cursor-spacing="100" hidden="{{showPickerView}}"  name="comment" data-name="comment" bindinput="bindinput5" maxlength="800" placeholder="请在这里展现魅力且真实的自己，从而打动发起人喔"
+          rows="3" style="opacity:1;"></textarea>
+      </view>
+    </view>
+    <view class='page__ft' wx:if="{{home.homeApply != null}}">
+  
+      <button class='com-btn' disabled='{{applyStatus}}' form-type="submit"> 确认提交 </button>
+    </view>
+  </view>
+
+</form>
+<view class="weui-cells-2">
+  <navigator class="weui-cell">
+    <text class='title-border'>你的以下资料也将推送给发起人</text>
+  </navigator>
+</view>
+  <view class="page__bd">
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__bd">
+          <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{user.avatar}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-cell">
+                <view class="weui-cell__bd">
+                  <view class="weui-media-box__title">{{user.username}}
+                    <image src="{{home.female==1?'../../../../img/my/male.png':'../../../../img/my/female.png'}} " class="my-img"></image>
+                  </view>
+                </view>
+                <view class="weui-cell__ft">
+                  <view class="weui-media-box__desc">
+                    <ul class="weui-media-box__info">
+                      <li class="weui-media-box__info__meta">{{user.marryStr}}</li>
+                      <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{user.age}}岁</li>
+                      <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">魅力值{{user.score}}</li>
+                    </ul>
+                  </view>
+                </view>
+              </view>
+              <view class="weui-media-box__desc">
+
+                <view class="weui-cell">
+                  <view class="weui-cell__bd" style='color:#333333;'>{{user.constellationStr}}</view>
+                  <view class="weui-cell__ft" style='color:#333333;padding-right:50rpx;'>{{user.universityStr==null?'没填写':user.universityStr}}</view>
+                </view>
+
+              </view>
+            </view>
+          </navigator>
+
+          <view class="weui-cell1">
+            <view class="weui-cell__bd1">
+              <view class="weui-uploader__hd1">
+                <p class="weui-uploader__title" >我的魅力照</p>
+              </view>
+              <view class="weui-uploader__bd" class="userCharmImg" style='margin-top:30rpx;'>
+                <ul class="weui-uploader__files" id="uploaderFiles" style="display:flex;flex-wrap:wrap;">
+                  <view wx:for="{{user.charm_imgs}}" wx:key="id" wx:for-index="idx" wx:for-item="i" style="margin-right:5px;">
+                    <image bindtap='previewImg' data-idx="{{idx}}" style="width: 60px; height:60px;border-radius:4px;" mode="scaleToFill" src="{{i.url}}"></image>
+                  </view>
+                </ul>
+              </view>
+            </view>
+            <text class="weui-cell__ft"></text>
+          </view>
+
+          <view class="weui-media-box1 weui-media-box_text">
+            <text  class="prompt-title">我及我的理想居住空间：</text>
+            <text class="weui-media-box__desc_3">{{user.dream_home==null?'没填写':user.dream_home}}</text>
+          </view>
+          <view class="weui-media-box1 weui-media-box_text">
+            <text  class="prompt-title">理想室友：</text>
+            <text class="weui-media-box__desc_3">{{user.hope_roommate==null?'未填写':user.hope_roommate}}</text>
+          </view>
+          <view class="weui-media-box1 weui-media-box_text">
+            <text class="prompt-title">兴趣爱好：</text>
+            <text  class="weui-media-box__desc_3">{{user.hobbies==null?'未填写':user.hobbies}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+<view class="weui-panel weui-panel_access">
+  <!-- <view class="weui-panel__hd">我的联系方式</view> -->
+  <view class="weui-panel__bd">
+    <view class="weui-media-box1 weui-media-box_text">
+      <text class="prompt-title">微信：</text>
+      <text class="weui-media-box__desc_3" style='color:#000000'>{{user.wechat}}</text>
+    </view>
+    <view class="weui-media-box1 weui-media-box_text">
+      <text class="prompt-title">手机号：</text>
+      <text class="weui-media-box__desc_3" style='color:#000000'>{{user.mobile}}</text>
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,62 @@
+<view class="container">
+
+    <!-- 顶部搜索 -->
+    <!-- <view class="search-top">
+        <image class='top_location_img' mode="aspectFit" src="/img/Aiqilin/location.png"></image>
+        <navigator url="/pages/Room/Search" class="search-nav" hover-class="none" open-type="navigate">{{areaName}}<text wx:if="{{!areaName}}">筛选</text></navigator>
+        <view class="search-img">
+            <icon class="search-icon" type="search" size="14" color="#97d54e"></icon>
+            <input type="text" bindinput='inputTyping' placeholder-class="searchs" placeholder="暂只支持标题搜索" />
+        </view>
+        <view bindtap='searcheBtn'>搜索</view>
+    </view> -->
+
+    <view class="search-top">
+        <view class="search-nav" >
+          <image class='top_location_img' mode="aspectFit" src="/img/Aiqilin/location.png"></image>
+          <!-- <navigator url='' hover-class="none" open-type="navigate">{{areaName}} <text wx:if="{{!areaName}}">筛选</text></navigator> -->
+            <!-- <view bindtap='location' class='quyu'> -->
+            <view  class='quyu'>
+          {{areaName}} <text wx:if="{{!areaName}}">筛选</text></view>
+        </view>
+        <text>{{selectedAddress}}</text>
+        <image class='searche-btn2' src='/img/search2.png'  bindtap='searchCondition'></image>
+    </view>
+    <!-- 列表 -->
+    <view class="search-list">
+
+      <view wx:for="{{roomList}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+      
+          <view class="list-list" catchtap="roomDetail" data-id="{{item.id}}" data-uid="{{item.uid}}">
+            
+              <!-- 头像 -->
+              <view class="list-left">
+                  <image data-gid="{{idx}}" binderror="errImg" src="{{item.url}}"></image>
+              </view>
+              
+              <!-- 详情 -->
+              <view class="list-right">
+                  <view>{{item.name}}</view>
+                  <view>{{item.pca?item.pca:''}}|{{item.station?item.station:''}}</view>
+                  <view>{{item.room}}室{{item.hall?item.hall:'0'}}厅{{item.toilet?item.toilet:'0'}}卫{{item.kitchen?item.kitchen:'0'}}厨</view>
+                  <view>
+                      <text>{{item.price}}</text>元
+                  </view>
+              </view>
+
+              <!-- 底部 -->
+              <view class="list-bottom" catchtap="bindDetails" data-uid="{{item.uid}}">
+                  <image src="{{item.avatar}}"></image>
+                  <text>{{item.username}}</text>
+                  <text wx:if="{{item.dist>1}}">{{item.dist}}km以内</text>
+                  <text wx:if="{{item.dist<=1}}">{{item.dist*1000}}米以内</text>
+                  <text>{{item.create_date_str}}</text>
+              </view>
+
+          </view>
+      
+      </view>
+
+    </view>
+
+</view>

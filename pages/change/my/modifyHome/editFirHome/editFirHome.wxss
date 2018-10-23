@@ -1,0 +1,175 @@
+.Cre-homeimg {
+    margin-bottom: 15px;
+    font-size: 28rpx;
+    color: #333333;
+}
+
+.gallery {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.item {
+    position: relative;
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+
+.weui-cell {
+    margin-top: 20rpx;
+    background: #FFFFFF;
+}
+
+.delete {
+    position: absolute;
+    height: 20px;
+    bottom: 0;
+    width: 100%;
+    background: #ccc;
+    opacity: .8;
+    margin-bottom: 2px;
+}
+
+.delete image {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+
+.xx_ui {
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-top: 20rpx;
+    background: #FFFFFF;
+    border-bottom: 3rpx #CCCCCC solid;
+}
+
+.xx_left {
+    float: left;
+    padding-left: 30rpx;
+    width: 90%;
+}
+
+.xx_right {
+    float: right;
+    width: 10%;
+    padding-left: 10rpx;
+}
+
+.xx_left1 {
+    float: left;
+    padding-left: 30rpx;
+    width: 85%;
+}
+
+.xx_right1 {
+    float: right;
+    width: 15%;
+    padding-left: 10rpx;
+}
+
+.xx_input {
+    height: 100rpx;
+    line-height: 40rpx;
+    background: #FFFFFF;
+    padding-left: 30rpx;
+    padding-top: 10rpx;
+}
+
+.xx_input input {
+    font-size: 24rpx;
+}
+
+.xx_input1 {
+    background: #FFFFFF;
+    padding-left: 30rpx;
+    padding-top: 10rpx;
+}
+
+.weui-textarea {
+    display: block;
+    width: 95%;
+}
+
+.xx_input1 textarea {
+    font-size: 24rpx;
+}
+
+.c_btn {
+    margin-top: 35rpx;
+    width: 430rpx;
+    height: 90rpx;
+    background: #FF9900;
+    color: #FFFFFF;
+    border-radius: 60rpx;
+    margin-bottom: 36rpx;
+}
+
+.select-border {
+    border: 3rpx solid #797979;
+    background: #FFFFFF;
+    color: #333333;
+    font-size: 30rpx;
+    border-radius: 40rpx;
+    padding: 10rpx 40rpx 10rpx 40rpx;
+}
+
+.loveapartment {
+    background: #FFFFFF;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    text-align: center;
+}
+
+.select-love {
+    margin-top: 30rpx;
+    display: flex;
+    padding-left: 40rpx;
+}
+
+.theme {
+    position: fixed;
+    top: 0;
+    background: #F2F2F2;
+    height: 100%;
+    width: 100%;
+    padding-top: 50rpx;
+}
+
+.firline {
+    flex: 1;
+    text-align: center;
+    height: 100rpx;
+}
+
+.firline1 {
+    height: 100rpx;
+    flex: 1;
+    padding-left: 30rpx;
+}
+
+.select-theme {
+    border: 3rpx solid #797979;
+    color: #333333;
+    background: #FFFFFF;
+    border-radius: 40rpx;
+    padding: 5rpx 30rpx 5rpx 30rpx;
+    margin-left: 20rpx;
+}
+
+.sele-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 10;
+}
+
+.img_prompt {
+    position: absolute;
+    margin-top: -82rpx;
+    font-size: 24rpx;
+    margin-left: 20rpx;
+}

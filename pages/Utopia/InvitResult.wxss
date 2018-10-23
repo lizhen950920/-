@@ -1,0 +1,108 @@
+/* pages/Utopia/InvitResult.wxss */
+
+page {
+  background-color: #f90;
+  color: white;
+}
+
+.bg-orange {
+  background-color: #f90;
+  color: white;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+  align-items: center;
+}
+
+.create-item-title {
+  width: 60rpx;
+  margin-right: 5px;
+  background-color: green;
+  border-radius: 61px;
+  border: 6rpx solid white;
+  text-align: center;
+  color: white;
+  padding: 27px 27px;
+  margin: 32rpx 10rpx 32rpx 12r0px;
+}
+
+.header-info {
+  display: flex;
+  justify-content: flex-start;
+  width: 250rpx;
+  line-height: 1.5;
+}
+
+.green-cls {
+  color: green;
+  font-size: 40rpx;
+}
+
+.img {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+}
+
+.wrap-img {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.img-80-100 {
+  width: 154rpx;
+  height: 230rpx;
+}
+
+.margin-top {
+  margin-top: 15px;
+}
+
+.copy {
+  background-color: #3cf;
+  width: 96rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: white;
+  margin-left: 5px;
+  border: 2rpx solid #3cf;
+  border-radius: 12rpx;
+}
+.data{
+  padding-left: 10rpx;
+  font-size: 36rpx;
+}
+.tips {
+  padding: 10px;
+  line-height: 1.5;
+  color: #03f;
+  font-size: 28rpx;
+}
+
+.content {
+  font-size: 28rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.padding {
+  padding-top: 20rpx;
+  display: block;
+  font-size: 32rpx;
+}
+
+.font_color {
+  color: #ffffff;
+  font-size: 28rpx;
+}
+
+.font_size {
+  color: #333;
+  font-size: 22rpx;
+}

@@ -1,0 +1,59 @@
+<import src="../../../template/ideaHome.wxml" />
+<include src="../../../common/alert.wxml" />
+
+<!-- <view class="createsuccess">
+
+   <view class="createsuccess_title" wx:if="{{show}}">
+    <text class="success_congratulation">恭喜你，创家成功！你距离美好生活又近了一步</text>
+  </view> 
+
+  <view class="success_title">
+    <text class="success_share">点击右上角转发并分享给好友</text>
+  </view>
+</view> -->
+
+<view class="weui-cells">
+  <!-- <template is="ideaHome" data="{{home}}" /> -->
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader__hd">
+        <view class="weui-uploader__title">【诚邀共建爱家】
+          <text style="word-wrap: break-word; word-break: normal; ">{{home.introduction}}--{{home.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>  
+
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      
+      <view class="weui-uploader__bd">
+        <ul class="weui-uploader__files" id="uploaderFiles">
+          <block wx:for="{{home.charm_imgs}}">
+            <image wx:if="{{item.type == 4 && item.cover == 1}}" data-type="4" bindtap="previewImg" src="{{item.url}}" class="weui-uploader__file" mode="scaleToFill"/>
+          </block>
+        </ul>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cell">
+    <view class="weui-cell__hd">
+      <image wx:if="{{home.avatar}}" src="{{home.avatar}}" style="width:3rem;height:3rem;border-radius:50%;"></image>
+    </view>
+    <view class="weui-cell__bd" style="line-height:1.6em;" >
+      <view style="display:flex;justify-content:space-between;">
+        <text style="font-weight:bold">{{userInfo.nickName}}</text>
+        <image wx:if="{{home.sex == 1}}" src="../../../../img/my/male.png" class="my-img"></image>
+        <image wx:if="{{home.sex == 2}}" src="../../../../img/my/female.png" class="my-img"></image>
+        <text>{{home.marry==1?'单身':(home.marry == 2?'婚恋':'保密')}}</text>
+        <text>{{home.old}}岁</text>
+        <text>{{home.constellationStr}}</text>
+      </view>
+      <view style="margin-top:0.5rem;display:flex;justify-content:space-between;">
+        <text>魅力值 {{home.score}}</text>
+        <text>{{home.hobbies}}</text>
+      </view>
+    </view>
+  </view>
+</view>

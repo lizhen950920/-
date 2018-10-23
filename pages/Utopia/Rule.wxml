@@ -1,0 +1,27 @@
+<!--pages/Utopia/Rule.wxml-->
+<view class='view-center'>
+  <text class='title'>活动规则</text>
+  
+
+</view>
+<view class='item-view'>
+  <text class='content'>
+  1、成功提交个人有关租房需求信息的同学将本活动页面转发到朋友圈或者两个100人以上应届生群，即报名成功；
+  </text>
+  <text class='content'>
+2、成功报名的同学将和匹配的同学被分到同一个地区的族群，大家可以在导师的引导下竞选族长和盘古，盘古选好后开始带领匹配的室友组建新新人类之家，每个家最好配有树灵、草灵、小太阳，这个由盘古带领家人展开安排，家人身份 选定好后，开启共创爱家之旅~为了防止特殊情况导致部分同学落单，族群内支持成员调换到另外一组参与共建爱家（匹配机会数对应调换机会数）；
+  </text>
+  <text class='content'>
+  3、好房不待人，租房市场一片混乱，大家相聚不易，对于成功入选的同学，当珍惜机会跟组员把握好时间拿下好房共建美家，若一时不成，也别泄气，后面还有机会
+  </text>
+  <text class='content'>
+  4、对于获得1001元/年 房租减免机会的同学，当住不够一年时，按住的月份数算减免额，比如你住了三个月零5天，那么将获得1001元的四分之一房租减免；
+  </text>
+  <text class='content'>
+  5、本活动目前仅对北京、上海、杭州、深圳、广州、成都这几个城市开放，长期有效，活动解释权归新新人类所有。
+  </text>
+</view>
+<view class='view-center'>
+<text class='utopia-button' bindtap='onClose'>关闭</text>
+</view>
+

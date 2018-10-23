@@ -1,0 +1,223 @@
+<template name="applyHome">
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title"></view>
+      <view class="page__desc">用户信息</view>
+    </view>
+    <view class="page__bd">
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__bd">
+          <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{user.avatar}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-cell">
+                <view class="weui-cell__bd">
+                  <view class="weui-media-box__title">{{user.username}}
+                    <image src="{{home.sex==1?'../../../../img/my/male.png':'../../../../img/my/female.png'}} " class="my-img"></image>
+                  </view>
+                </view>
+                <view class="weui-cell__ft">
+                  <view class="weui-media-box__desc">
+                    <ul class="weui-media-box__info">
+                      <li class="weui-media-box__info__meta">{{user.marryStr}}</li>
+                      <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{user.age}}岁</li>
+                      <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">魅力值{{user.score}}</li>
+                    </ul>
+                  </view>
+                </view>
+              </view>
+              <view class="weui-media-box__desc">
+
+                <view class="weui-cell">
+                  <view class="weui-cell__bd">{{user.constellationStr}}</view>
+                  <view class="weui-cell__ft">{{user.universityStr==null?'没填写':user.universityStr}}</view>
+                </view>
+
+              </view>
+            </view>
+          </navigator>
+
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader__hd">
+                <p class="weui-uploader__title">我的魅力照</p>
+              </view>
+              <view class="weui-uploader__bd" class="userCharmImg">
+                <ul class="weui-uploader__files" id="uploaderFiles" style="display:flex;flex-wrap:wrap;">
+                  <view wx:for="{{user.charm_imgs}}" wx:key="id" wx:for-index="idx" wx:for-item="i" style="margin-right:5px;">
+                    <image bindtap='previewImg' data-id="{{i.id}}" style="width: 60px; height:60px;border-radius:4px;" mode="scaleToFill" src="{{i.url}}"></image>
+                  </view>
+                </ul>
+              </view>
+            </view>
+            <text class="weui-cell__ft"></text>
+          </view>
+
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">我及我的理想居住空间</view>
+            <view class="weui-media-box__desc_2">{{user.dream_home==null?'没填写':user.dream_home}}</view>
+          </view>
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">理想室友</view>
+            <view class="weui-media-box__desc">{{user.hope_roommate==null?'未填写':user.hope_roommate}}</view>
+          </view>
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">兴趣爱好</view>
+            <view class="weui-media-box__desc">{{user.hobbies==null?'未填写':user.hobbies}}</view>
+          </view>
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">技能</view>
+            <view class="weui-media-box__desc">{{user.skill==null?'未填写':user.skill}}</view>
+          </view>
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">想学技能</view>
+            <view class="weui-media-box__desc">{{user.hope_skill==null?'未填写':user.hope_skill}}</view>
+          </view>
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">理想居住点</view>
+            <view class="weui-media-box__desc">{{user.hope_live}}</view>
+          </view>
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">房租预算</view>
+            <view class="weui-media-box__desc placeholder-red">￥{{user.rent_start}}-{{user.rend_end}}</view>
+          </view>
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">搬家时间</view>
+            <view class="weui-media-box__desc " style='overflow:inherit;'><text class='label-plain' >{{user.move_start}}-{{user.move_end}}</text></view>
+          </view>
+          
+          <!-- <view class="weui-media-box weui-media-box_text" wx:if="{{user.isShow}}">
+            <view class="weui-media-box__title weui-media-box__title_in-text">电话</view>
+            <view class="weui-media-box__desc " style='overflow:inherit;'><text  selectable="true" >{{user.mobile}}</text></view>
+          </view>
+
+           <view class="weui-media-box weui-media-box_text" wx:if="{{user.isShow}}">
+            <view class="weui-media-box__title weui-media-box__title_in-text">微信</view>
+            <view class="weui-media-box__desc " style='overflow:inherit;'><text  selectable="true" >{{user.wechat}}</text></view>
+          </view> -->
+
+        </view>
+        <!-- <view class="weui-panel__ft">
+          <view class="weui-cell weui-cell_access weui-cell_link">
+            <view class="weui-cell__bd">查看更多</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </view>
+        </view> -->
+      </view>
+
+    </view>
+  </view>
+<!-- 
+  <view class="weui-cells">
+    <view class="weui-cell__hd">
+      <image wx:if="{{user.avatar}}" src="{{home.avatar}}" style="width:3rem;height:3rem;border-radius:50%;"></image>
+    </view>
+    <view class="weui-cell__bd" style="line-height:1.6em;">
+      <p>
+        <text style="font-weight:bold;">{{home.username}}</text>
+
+        <p style="margin-top:0.5rem;">
+
+        </p>
+      </p>
+
+    </view>
+
+    <view class="weui-media-box weui-media-box_appmsg">
+      <view class="weui-media-box__hd">
+        <image src="{{user.avatar}}" style="width:78px;height:78px;"></image>
+      </view>
+
+      <view class="content-right">
+        <view class="classname">
+          <text style="font-weight:bold;font-size:13px;">{{user.username}}</text>
+        </view>
+
+        <view class="classname">
+          <image style='width: 30rpx;height: 30rpx;' src='{{user.sex==1?"/img/my/male.png":"/img/my/female.png"}}'></image>
+          <ul class="weui-media-box__info">
+            <li class="weui-media-box__info__meta">{{user.marryStr}}</li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{user.age}}岁</li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">魅力值{{user.score}}
+            </li>
+          </ul>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>手机号</text>
+      </view>
+      <text class="weui-cell__ft" selectable="true" wx:if="{{user.isShow}}">{{user.mobile}}</text>
+      <text class="weui-cell__ft" wx:if="{{!user.isShow}}">******</text>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>微信号</text>
+      </view>
+      <text class="weui-cell__ft" selectable="true" wx:if="{{user.isShow}}">{{user.wechat}}</text>
+      <text class="weui-cell__ft" wx:if="{{!user.isShow}}">******</text>
+    </view>
+    <view class="weui-cell">
+
+      <view class="weui-cell__bd">
+        <text>签名</text>
+      </view>
+      <text class="weui-cell__ft">{{user.signature}}</text>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>星座</text>
+      </view>
+      <text class="weui-cell__ft">{{user.constellationStr}}</text>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>毕业院校</text>
+      </view>
+      <text class="weui-cell__ft">{{user.universityStr}}</text>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>职业</text>
+      </view>
+      <text class="weui-cell__ft">{{user.profession}}</text>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>兴趣爱好</text>
+      </view>
+      <text class="weui-cell__ft cell-flex-3">{{user.hobbies}}</text>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>技能</text>
+      </view>
+      <text class="weui-cell__ft cell-flex-3">{{user.skill}}</text>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>希望交换的技能</text>
+      </view>
+      <text class="weui-cell__ft cell-flex-3">{{user.hope_skill}}</text>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>理想的居住空间</text>
+      </view>
+      <text class="weui-cell__ft cell-flex-3">{{user.dream_home}}</text>
+    </view>
+
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>理想室友</text>
+      </view>
+      <text class="weui-cell__ft cell-flex-3">{{user.hope_roommate}}</text>
+    </view>
+  </view> -->
+
+
+</template>

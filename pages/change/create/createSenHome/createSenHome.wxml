@@ -1,0 +1,70 @@
+   <form bindsubmit="formSubmit" bindreset="formReset" report-submit="true">
+<view class='xx_first'>
+<view style='color:#000000;font-size:30rpx; font-weight: bold;'>对室友的构想:</view>
+<input class="xx_border" type="number" cursor-spacing="100" name="male" bindinput="bindinput1" maxlength='2' value="{{items.male}}" placeholder="" />
+<text style='padding-left:10rpx;width:40rpx;color:#000000;'>男</text>
+<input class="xx_border" type="number" cursor-spacing="100" name="female" bindinput="bindinput2" maxlength='2' value="{{items.female}}" placeholder="" />
+<text style='padding-left:10rpx;width:40rpx;color:#000000;'>女</text>
+  <input class="xx_border" type="number" cursor-spacing="100" name="old" bindinput="bindinput3" maxlength='3' value="{{items.old}}" placeholder="" />
+<text style='padding-left:10rpx;width:90rpx;color:#000000;'> 岁左右</text>
+</view>
+
+<view class='xx_layout'>
+<view class='xx_title' style='color:#000000;font-size:30rpx; font-weight: bold;'>房子布局</view>
+<view class='area' style='margin-top:90rpx'>
+ <input class="xx_border" cursor-spacing="100" bindinput="bindinput4" type="number" name="room" maxlength='1' value="{{items.room}}" placeholder="" />
+<text style='padding-left:10rpx;width:90rpx;'> 室</text>
+ <input class="xx_border" cursor-spacing="100" type="number" bindinput="bindinput5" name="hall" maxlength='1' value="{{items.hall}}" placeholder="" />
+<text style='padding-left:10rpx;width:90rpx;'>厅</text>
+ <input class="xx_border" cursor-spacing="100" type="number" name="toilet" bindinput="bindinput6" maxlength='1' value="{{items.toilet}}" placeholder="" />
+<text style='padding-left:10rpx;width:90rpx;'> 卫</text>
+<input class="xx_border" cursor-spacing="100" type="number" name="kitchen" bindinput="bindinput7" maxlength='3' value="{{items.kitchen}}" placeholder="" />
+<text style='padding-left:10rpx;width:90rpx;'> 厨</text>
+</view>
+
+<view class='area' >
+<text class='xx_area' style='color:#000000;font-size:30rpx; font-weight: bold;'>总面积</text>
+<input class="xx_border1" cursor-spacing="100" bindinput="bindinput8" type="number" name="area" maxlength='3' value="{{items.area}}" placeholder="" />
+<text style='padding-left:10rpx;width:90rpx;'> 平米</text>
+</view>
+<view class='area1'>
+<text class='xx_area' style='color:#000000;font-size:30rpx; font-weight: bold;'>总价</text>
+<input class="xx_border2" type="digit" cursor-spacing="100" bindinput="bindinput9" value="{{items.total_price}}" name="total_price" maxlength='7' placeholder="" /><text style='padding-left:10rpx;width:90rpx;'> 元</text>
+<text class='cr_border'> </text>
+<text class='person'>人均</text>
+  <input class="xx_border2" type="digit" cursor-spacing="100" bindinput="bindinput10" value="{{items.avgprice}}" name="avgprice" maxlength='9' placeholder="" /><text style='padding-left:10rpx;width:90rpx;'> 元</text>
+</view>
+<view class='area1'>
+<text class='xx_area' style='color:#000000;font-size:30rpx; font-weight: bold;'>付款方式：</text>
+<text style='padding-left:10rpx;width:90rpx;'> 押</text>
+<input class="xx_border" cursor-spacing="100" type="number" bindinput="bindinput11" value="{{items.deposit}}" name="deposit" placeholder="" />
+<text style='padding-left:10rpx;width:90rpx;'>付</text>
+   <input class="xx_border" cursor-spacing="100" type="number" bindinput="bindinput12" value="{{items.pay}}" name="pay" placeholder="" />
+</view>
+</view>
+<view class='xx_ui'>
+<view class='xx_left' style='color:#000000;font-size:30rpx; font-weight: bold;'>是否已找到房？</view>
+<radio-group class="xx_right" bindchange="foundChange">
+        <label class="radio">
+          <radio value="1" checked="{{foundChecked==1}}" />是
+          <radio value="0" checked="{{foundChecked==0}}" />否
+        </label>
+      </radio-group>
+</view>
+<view class='xx_ui' bindtap="chooseMap">
+<view class='xx_left1'>位置</view>
+<view class='xx_right1'>
+
+<text wx:if="{{!address}}" class='xx_prompt' >定位房子所在的位置</text>
+<text wx:if="{{address}}" style='color:#000000' class='xx_prompt' >{{address}}</text>
+</view>
+</view>
+<view class='xx_btn'>
+<!-- <navigator url='/pages/change/create/createFirHome/createFirHome'> -->
+<button class='xx_cs' bindtap='navback'>返回</button>
+<!-- </navigator> -->
+<!-- <navigator url='/pages/change/create/createThrHome/createThrHome'> -->
+<button class='xx_nest' form-type="submit" >下一步</button>
+<!-- </navigator> -->
+</view>  
+     </form>

@@ -1,0 +1,13 @@
+<view class='city_box' style='{{styles}}'>
+<!-- <form bindsubmit="formSubmit" bindreset="formReset"> -->
+      <view class='city_left'>        
+              <view class='new_city'>
+                  <view class='new_city_title'>热门城市</view>
+                  <view class='new_city_box'>
+                      <text class='new_city_text' wx:for='{{newcity}}' wx:key='this' data-types='new' catchtap='cityTap' data-val='{{item}}'>{{item}}</text>
+                  </view>
+              </view>        
+      </view>  
+     
+      <!-- </form>  -->
+  </view> 

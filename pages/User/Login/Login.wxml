@@ -1,0 +1,12 @@
+<include src="../../../common/alert.wxml" />
+<image style='width:350rpx;height:350rpx;border-radius:50%;' class='imglogo' src='../../../img/s_phone.jpg'></image>
+<view class='advertising'> </view>
+
+<view>
+  <view>
+    <button open-type="getPhoneNumber" class='wechatBtn' bindgetphonenumber="getPhoneNumber">
+      <image style='width:50px;height:50px;' src='/img/c_weixin.png'></image>
+      <text style='color:#ffffff;'>微信用户快速登录</text>
+    </button>
+  </view>
+</view>

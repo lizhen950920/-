@@ -1,0 +1,55 @@
+<!--pages/Utopia/Rentstate.wxml-->
+   <form bindsubmit="formSubmit" bindreset="formReset" report-submit="true">
+<view class='container-new'>
+  <text class='head-text'>让租住生活美好起来</text>
+  <view class='line'></view>
+
+  <view class='label-view'>
+  <text class='prompt'>现在你是？</text>
+    <text class='label {{state==1?"label-selected":""}}' data-state='1' bindtap="onState">有房找室友</text>
+    <text class='label {{state==2?"label-selected":""}}' data-state='2' bindtap="onState">求房求室友</text>
+    <text class='label {{state==3?"label-selected":""}}' data-state='3' bindtap="onState">有房出租</text>
+    <text class='label {{state==4?"label-selected":""}}' data-state='4' bindtap="onState">爱家生活中</text>
+  </view>
+  <view wx:if="{{!live}}" class='tishi'>您已有房，不需要填写相关信息</view>
+ <view wx:else>
+  <view class='item-column'>
+    <text class='ideal'>你的理想居住点是？</text>
+     <view class='address-button' bindtap='chooseDest'>点我定位，方便给你推送房源和室友</view>
+    <input class='input-text' value='{{selectedAddress}}' disabled='true' placeholder='例: 北京海淀区西二旗地铁站'></input>
+  </view>
+  <view class='item'>
+    <text class='item-column-text'>房租预算</text>
+    <input class='input-radius-text'  bindinput='inputtext2' value='{{rent_start}}' type='number'></input>
+    <text class='money-prompt'>元/月</text>
+  </view>
+
+<view class='display'>
+ <text class="move" >搬家时间</text>
+      <view class="time">
+       <picker mode="date"  value="{{user.move_start}}" data-type='1' start="1950-01-01" end="{{user.move_end}}"bindchange="bindMoveChange">
+          <view class="picker">
+            <block wx:if="{{!user.move_start}}" > 起始</block>
+            <text class='end_color'>{{user.move_start}}</text> 
+          </view>
+        </picker>
+      </view>
+      <text class='hei'>——</text>
+     <view class="time">
+         <picker mode="date"  value="{{user.move_end}}" data-type='2' start="{{user.move_start}}" end="2027-09-01" bindchange="bindMoveChange">
+          <view class="picker">
+            <block wx:if="{{!user.move_end}}" > 结束</block>
+            <text class='end_color'>{{user.move_end}}</text> 
+          </view>
+        </picker>
+       </view>
+       </view>
+    <view class='item-column'>
+    <text class='textarea-text'>理想室友及理想之家</text>
+    <textarea value='{{user.hope_roommate}}' name="hope_roommate"  bindinput='inputtext' class='textarea-class' placeholder='例：我理想中的室友，最重要的是要有一颗善良的心，善于创造美好，热爱生活热爱这个世界，我想只有这样我们才能一起搭建像爱情公寓那样的家'>
+    </textarea>
+  </view>
+</view>
+  <button class='btn' form-type="submit">完成</button>
+</view>
+     </form>

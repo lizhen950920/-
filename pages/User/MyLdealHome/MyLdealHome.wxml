@@ -1,0 +1,42 @@
+<!--ldealhome.wxml-->
+<scroll-view class="scrollView" style="height:{{height}}px;" scroll-y="true">
+  <view class="item-line" wx:for="{{items}}" wx:for-item="item" wx:for-index="idx">
+    <view class="weui-panel weui-panel_access item-between">
+      <view class="weui-panel__bd" style="flex:2" id="detail" bindtap="toHomeDetail" data-id="{{item.id}}" data-uid="{{item.uid}}">
+        <view class="weui-media-box weui-media-box_appmsg">
+          <view class="weui-media-box__bd" style="line-height:1.8em;" url="userhomepage">
+            <p>
+              <text style="font-weight:bold;font-size:13px;">{{item.name}}</text>
+            </p>
+            <p>
+              <ul class="weui-media-box__info">
+                <li class="weui-media-box__info__meta">{{item.male}}男{{item.female}}女</li>
+                <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.old}}岁左右</li>
+                <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">人均{{item.avgprice}}</li>
+              </ul>
+            </p>
+          </view>
+        </view>
+
+        <view class="weui-panel__ft">
+          <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__bd">
+              <text style="font-size:11px;color:#97d54e;border:1px solid #97d54e;">我创建的</text>
+              <text style="font-size:13px;margin-left:10px;">{{item.create_date}}</text>
+            </view>
+
+          </view>
+        </view>
+      </view>
+      <view class="edit-opterator" wx:if="{{item.uid == uid}}" id="edit" data-id="{{item.id}}" bindtap="editHome">
+        <image src="../../../img/ldealhome/edit.png" class='oper-img'></image>
+        <text>编辑</text>
+      </view>
+      <view class="edit-opterator" wx:if="{{item.uid == uid}}" id="edit" data-id="{{item.id}}" bindtap="showHiddenHome">
+        <image src="{{item.status==0?'../../../img/show.png':'../../../img/hidden.png'}}" class='oper-img'></image>
+        <text wx:if="{{item.status==1}}">隐藏</text>
+        <text wx:if="{{item.status==0}}">显示</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

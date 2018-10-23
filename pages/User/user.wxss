@@ -1,0 +1,234 @@
+/* user.wxss */
+/* 用户名 */
+.container {
+  font-size: 35rpx;
+}
+
+.item-line {
+  height: 40rpx;
+  border-left: 1px solid #8e8e8e;
+  margin-left: 20rpx;
+}
+
+.icon {
+  width: 75rpx;
+  height: 75rpx;
+}
+
+.desc {
+  font-size: 40rpx;
+}
+
+.item-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 28px;
+}
+
+.person-top {
+  width: 100%;
+  height: 240rpx;
+  margin-bottom: 15rpx;
+  background-color: #fff;
+  position: relative;
+}
+
+.person-img {
+  float: left;
+  width: 30%;
+  text-align: center;
+}
+
+.person-img > image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 80rpx;
+  margin-top: 30rpx;
+}
+
+.person-info {
+  float: right;
+  width: 69%;
+}
+
+.info-top {
+  width: 100%;
+  margin: 40rpx 10rpx 30rpx 00;
+  font-weight: bold;
+}
+
+.info-top text {
+  float: left;
+}
+
+.info-top > image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 10rpx;
+}
+
+.info-left {
+  clear: both;
+  margin: 30rpx 0;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-bottom: 1rpx solid #ccc;
+  color: #444;
+  font-size: 27rpx;
+}
+
+.info-right {
+  font-size: 12px;
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+}
+
+.info-right > image {
+  width: 25rpx;
+  height: 25rpx;
+  float: right;
+  margin: 10rpx 10rpx 20rpx 20rpx;
+}
+
+.info-right > text {
+  float: right;
+  margin: 0rpx 0;
+  font-size: 18px;
+}
+
+.person-left {
+  width: 100%;
+  min-height: 80rpx;
+  background-color: #fff;
+}
+
+.person-list {
+  width: 90%;
+  height: 100rpx;
+  border-bottom: 1px solid #f2f2f2;
+  margin: 0 auto;
+}
+
+.person-lists {
+  border: 0px;
+}
+
+.person-list > image {
+  width: 64rpx;
+  height: 57rpx;
+  margin: 23rpx 0;
+  float: left;
+}
+
+.unread-num {
+  border-radius: 50%;
+  background-color: red;
+}
+
+.person-list > text {
+  float: left;
+  line-height: 100rpx;
+  font-size: 16px;
+  color: #8e8e8e;
+  margin-left: 30rpx;
+}
+
+.submit {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #fe0f11;
+  text-align: center;
+  background-color: #fff;
+  margin-top: 15rpx;
+}
+
+.cbutton {
+  float: right;
+  margin: 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+  background-color: #82c435;
+}
+
+.font {
+  color: #fe0f11;
+  float: left;
+  line-height: 100rpx;
+  font-size: 16px;
+  margin-left: 30rpx;
+}
+
+/*未登陆*/
+
+.headed {
+  text-align: center;
+  align-items: center;
+  margin-top: 100rpx;
+  position: relative;
+}
+
+.portrait {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.prompt {
+  margin-top: 50rpx;
+  margin-left: 105rpx;
+  width: 550rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  color: #f90;
+}
+
+button {
+  margin-top: 130rpx;
+  width: 500rpx;
+  background: #82c435;
+  font-size: 36rpx;
+  color: #fff;
+  border-radius: 40rpx;
+}
+
+.heade {
+  text-align: center;
+  align-items: center;
+  margin-top: 170rpx;
+  position: relative;
+}
+
+.heade1 {
+  text-align: center;
+  align-items: center;
+  margin-top: 20rpx;
+  position: relative;
+}
+.code {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.xinxin {
+  font-size: 24rpx;
+  text-align: center;
+  align-items: center;
+  color: #333;
+}
+.focus{
+  margin-top: 20rpx;
+  font-size: 34rpx;
+  color: #f90;
+}
+.public-img{
+  width: 100rpx;
+  height: 100rpx;
+}
+.public1{
+  text-align: center;
+
+}

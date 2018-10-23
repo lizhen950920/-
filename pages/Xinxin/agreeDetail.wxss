@@ -1,0 +1,24 @@
+/* pages/Xinxin/agreeDetail.wxss */
+
+.agreeConcat{
+  color: white;
+  background-color: #82C435;
+}
+
+.aboutme{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding:10px 5px;
+  border-bottom:1rpx solid #ccc;
+
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 16rpx 5rpx;
+  border-bottom: 1rpx solid orange;
+  margin-bottom:10px;
+}

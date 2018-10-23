@@ -1,0 +1,35 @@
+<view class='h_title'>
+<text>哇塞，新新人类，见到你真让人高兴</text>
+</view>
+<view class='pm'>
+<text>我是新新人类产品经理    阿铁</text>
+</view>
+<view class='c_content'>
+<text style='color:#797979;font-size:26rpx;'>新新人类乐园是一个努力让新新人类更好地找室友、找房的无中介公益租房平台</text>
+</view>
+<view class='c_content2'>
+<text style='color:#797979;font-size:26rpx;'>不同于别处，我们希望你能在这里 </text><text style='color:#000000'>追寻诗和远方</text><text style='color:#797979;font-size:26rpx;'>，而不是挣扎在冷漠苟且的租住环境中，你可以在这里寻找志趣相投的室友中，那就大显身手吧！相信会有不少同学喜欢你的创想</text>
+</view>
+<view class='c_content3' style='margin-top:120rpx;'>
+<text style='color:#000000;font-size:26rpx;'>新新人类乐园搭建不久，还远不算上完美，你要是对它感兴趣，欢迎参与共建</text>
+</view>
+
+<view class='c_wech'>
+<text class='wech'>我的微信是</text>
+<text style='padding-left:30rpx;color:#333333;'>{{wechat}}</text>
+<text class='copy' catchtap='copy'>复制</text>
+</view>
+<view class='c_code'>
+<image class='c_image' bindtap="previewImg" src='{{ecro}}'></image>
+<text class='c-code-text'>或者扫一扫添加我微信</text>
+</view>
+<view class='c_prompt1'>请备注：名字+事宜</view>
+<view class='c_prompt2'>你可以</view>
+<view class='c_prompt3'>尽管向我吐槽</view>
+<!-- <view class='c_prompt4'>尽情撩我</view> -->
+<view class='c_prompt5'>头脑风暴向我提出产品建议</view>
+<view class='c_prompt6'>我可以</view>
+<view class='c_prompt7'>拉你进有趣有爱的新新人类聚集群</view>
+<view class='c_prompt8'>有空还可以帮你匹配室友</view>
+<view class='c_prompt9'>每天都要记得微笑哦，你的笑就是阳光</view>
+<image class='smile' src='/img/smile.png'></image>

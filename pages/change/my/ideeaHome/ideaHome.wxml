@@ -1,0 +1,272 @@
+
+<view class='update'>
+  <view class='create_time'>创建日期{{home.creata_date}}</view>
+  <view class='update_time'>更新日期{{home.update_date}}</view>
+</view>
+<scroll-view scroll-y >
+  <view class="weui-cells" style="margin-top:auto;">
+    <navigator url="/pages/User/UserInfo?uid={{home.uid}}&isShow={{home.isShow}}" class="weui-cell5">
+      <view class="weui-cell__hd">
+        <image wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" style="width:3rem;height:3rem;"></image>
+        <image wx:if="{{home.avatar}}" src="{{home.avatar}}" style="width:3rem;height:3rem;"></image>
+        <!-- <text class='originator'>发起人</text> -->
+      </view>
+      <view class="weui-cell__bd" style="line-height:1.6em;">
+        <p>
+          <text style="font-weight:bold;">{{home.username}}</text>
+          <image src="{{home.sex==1?'../../../../img/my/male.png':'../../../../img/my/female.png'}} " class="my-img"></image>
+          <!-- <text style="font-size:11px;color:#97d54e;border:1px solid #97d54e;margin-left:40%;">{{home.found == 1 ? '已找到房':'未找到房' }}</text> -->
+        </p>
+        <p style="margin-top:0.5rem;">
+          <ul class="weui-media-box__info">
+            <li wx:if="{{home.station}}" class="weui-media-box__info__meta">{{home.station}}</li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{home.age==null?'χ':home.age}}岁</li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{home.marry==1?'单身':(home.marry == 2?'婚恋':'保密')}}</li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra1">魅力值{{home.score}}</li>
+
+          </ul>
+        </p>
+      </view>
+    </navigator>
+  </view>
+  <view catchtap='showdown' style='margin-top:20rpx; background: #FFFFFF;'>
+    <view class='home_detail'>
+      <text style='color:#333333;font-size:32rpx;font-weight: bold;' >{{home.name}}</text>
+    </view>
+    <view class='home_detail'>
+      <text style='color:#666666;font-size:28rx;'>{{home.declaration}}</text>
+    </view>
+    <view class='home_detail1'>
+      <text style='color:#333333;font-size:26rpx;margin-top:120rpx;'>{{home.area==null?'χ':home.area}}平米 | {{home.room==null?'χ':home.room}}室{{home.hall==null?'χ':home.hall}}厅{{home.toilet==null?'χ':home.toilet}}卫{{home.kitchen==null?'χ':home.kitchen}}厨 | {{home.male==null?'χ':home.male}}男{{home.female?home.female:"χ"}}女</text>
+    </view>
+    <view class='home_detail'>
+      <text style='color:#666666;font-size:26rpx;'>押 {{home.deposit==null?'χ':home.deposit}}付{{home.pay==null?'χ':home.pay}} | 人均{{home.avgprice==null?'χ':home.avgprice}}元/月</text>
+      <text> 浏览量:{{home.viewnum}}</text>
+    </view>
+    <view bindtap='navoToDes' style='display:flex;margin-top:30rpx;height:70rpx;'>
+      <image class='location2' src='/img/Aiqilin/location2.png'></image>
+      <view class='address' style='font-weight: bold;'>{{home.address}}</view>
+      <text class='map_border'>导航</text><image class='navaddress' src='../../../../img/导航.png'></image>
+    </view>
+    <view style='display:flex;margin-top:30rpx;background:#FFFFFF;height:80rpx;'>
+      <text class='house_border'>有房</text>
+      <view class='h_title' >我的创家理念</view>
+    </view>
+    <view class='h_desc'>
+      <text wx:if="{{home.desc}}">{{home.desc}}</text>
+    </view>
+    <!-- <image class='h_image' mode="aspectFill" src='/img/default.jpg'></image> -->
+    <!-- <view class='descation'>
+<text class='h_name'>客厅</text>
+<view class='h_descation'>顶层复式楼顶层复式楼顶层复式楼顶层复式楼顶层复式楼顶层复式楼顶层复式楼顶层复式楼顶层复式楼顶层复式楼</view>
+</view> -->
+    <view  wx:for="{{home.rooms}}"  wx:for-item="item"  wx:key="id" wx:for-index="idx" wx:for-item="item" style='margin-top:40rpx;' wx:if="{{item.status==1}}" >
+
+      <view>
+
+            <swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}  height={{250}}">
+  <block  wx:if="{{spacelength>0}}" wx:for="{{home.rooms[idx].imgs}}" wx:for-item="img" >
+    <swiper-item>
+      <image src='{{img}}' catchtap='previewImg' data-id="{{item.id}}" class='h_image'  mode="aspectFill" width="355" height="250"/>
+      
+    </swiper-item>
+  </block>
+    <block wx:if="{{spacelength==0}}" wx:for="{{home.charm_imgs}}" wx:for-item="img" >
+    <swiper-item>
+      <image    wx:for-index="idx" class='h_image' mode="aspectFill" src='{{img.url}}'></image>
+      
+    </swiper-item>
+  </block>
+   
+</swiper>
+      
+        <text class='num_apply'>{{roommate_num}}人申请</text>
+      </view>
+      <view class='descation'>
+        <text class='h_name' wx:if="{{item.room_name}}" > {{item.room_name}}</text>
+        <text wx:if="{{item.room_area}}" class='h_area'>{{item.room_area}}平方米</text>
+        <text wx:if="{{item.room_area}}" style='padding-left:10rpx;'>|</text>
+        <text class='h_money' wx:if="{{item.room_price}}">{{item.room_price}}元</text>
+        <text class='apply'  catchtap='aplay' data-room_id="{{item.id}}" data-id="{{home.id}}" data-homeuid="{{home.uid}}" data-name="{{item.room_name}}" data-idx="{{idx}}"  wx:for-index="idx">申请</text>
+        <view class='h_descation'>{{item.room_mark}}</view>
+      </view>
+    </view>
+    <view class='h_background'></view>
+    <view class='h-time'>
+      <view class='c_time'> 能住时间：{{home.start}}-{{home.end}}</view>
+      <view class='c_time'>
+        <text wx:if="{{home.apply_end}}" style='color:#666666'>报名截止时间：{{home.apply_end}}</text>
+        <text style='padding-left:140rpx;color:#333333;font-size:28rpx;'>剩余{{endDay}}天</text>
+      </view>
+    </view>
+    <view class='h_background'></view>
+    <view style='height:200rpx;'>
+      <view style='float:left;width:20%;padding-left:30rpx;height:180rpx;padding-top:20rpx;'>
+        <image wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" style="width:3rem;height:3rem;border-radius: 50%;"></image>
+        <image wx:if="{{home.avatar}}" src="{{home.avatar}}" style="width:3rem;height:3rem;border-radius: 50%;"></image>
+      </view>
+      <view style='padding-top:20rpx;'>
+        <text style="padding-top:20rpx;color:#000000;">{{home.username}}</text>
+      </view>
+      <view style='height:50rpx;line-height:40rpx;color:#666666;font-size:26rpx;'>{{home.introduction}}</view>
+    </view>
+    <view style='display:flex;'>
+      <block wx:for="{{home.charm_imgs}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+        <image class='p_img' wx:if="{{item.type == 3}}"  catchtap='previewImg' data-id="{{item.id}}" data-type="3" src="{{item.url}}" style="width:3rem;height:3rem;"></image>
+      </block>
+    </view>
+    <view class='h_background'></view>
+    <view class='idea_home'>
+      <view bindtap='switchSlider' class="{{selectIndex==0?'idea_left':'default'}}" data-index="0">
+        <text>已入选室友({{homelength}})</text> </view>
+      <view bindtap='switchSlider' class="{{selectIndex==1?'idea_right':'idea_right1'}}" data-index="1">
+        <text>留言({{home.comment}})</text>
+        <image wx:if="{{selectIndex==1}}" catchtap='navClick1' class='m_img' src='/img/compile1.png'></image>
+        <!-- <image class='m_img' src='/img/public/message1.png'></image> -->
+      </view>
+    </view>
+    <!-- 入住室友 -->
+    <view wx:if="{{selectIndex==0}}">
+      <view class='chum' wx:for="{{home.roommates}}"  wx:for-item="item">
+         <navigator  url="/pages/User/UserInfo?uid={{item.id}}&isShow=true">
+  
+        <view class='chum_img'>
+          <image class='p_img'  src="{{item.avatar}}" style="width:3rem;height:3rem;"></image>
+        </view>
+        <view class='chum_fline'>
+          <text style="color:#000000;padding-left:30rpx;">{{item.username}}</text>
+          <image src="{{item.sex==1?'../../../../img/my/male.png':'../../../../img/my/female.png'}} " class="my-img"></image>
+          <text style='padding-left:20rpx;'>{{item.universityStr}}</text>
+        </view>
+        <view class='sec_line'>
+          <text style="padding-left:30rpx;">{{item.content}}</text>
+        </view>
+   </navigator>
+      </view>
+      <view wx:if="{{home_uid == loginUid}}"  class='chum_func'>
+        <image class='func_img' src='/img/reduce.png' catchtap='delect' ></image>
+        <!-- <view class='func_text'>
+          <text  style='text-decoration: underline;'>转换家长</text>
+        </view> -->
+      </view>
+       <view class='h_prompt'>
+      <text style='font-size：28rpx;color:#FF9900'>Tips:喜欢我的创想就可以申请加入和我共建美家喔~</text>
+    </view>
+    </view>
+
+    <view wx:if="{{selectIndex==1}}">
+     <block  class="" wx:for="{{items}}" wx:for-index="idx" wx:for-item="option">
+ <view class='message'>
+<view class='left_hand'>
+  <image class='avatar2' src='{{option.avatar==""?"/img/noavatar.png":option.avatar}}'></image>
+  </view>
+  <view class='right-info'>
+    <view class='right-on'>
+      <text  wx:if="{{home.uid != loginUid}}" class='nickname1'>{{option.username}}</text>
+
+ <text  wx:else class='nickname1'>
+ <text style='#FF9900'>贴主回复</text>{{option.username}}</text>
+     <text class='up_time'>{{option.create_date}}</text>
+       <view wx:if="{{home.uid==loginUid}}" catchtap='replayClick' data-id='{{option.id}}' data-uid="{{option.uid}}" data-username="{{option.username}}"> 
+       <!-- <view bindtap='replayClick' style="display: flex;font-size: 28rpx;" data-id='{{item.id}}' data-uid="{{item.uid}}" data-username="{{item.username}}"> -->
+     <image  style="display: flex;font-size: 28rpx;" data-id='{{option.id}}' data-uid="{{option.uid}}" data-username="{{option.username}}" class='reply' src='/img/reply.png'></image>
+     <text class='reply1'>回复</text>
+      </view> 
+     <!-- </view> -->
+    </view>
+    <view class='content'>{{option.comment}}</view>
+     </view>
+</view>
+   </block >
+    
+    
+    
+    </view>
+
+   
+  </view>
+</scroll-view>
+<view  class="weui-tab">
+  <view class="weui-navbar2" style='background-color:#fff;'>
+    <view id="nav_dz" bindtap="navClick" data-id="{{home.id}}" data-homeuid="{{home.uid}}" class="weui-navbar__item {{lh_nav_dz}}">
+      <view>
+        <!-- <image src="{{lh_dz_image}}" class="my-img"></image> -->
+        <!-- <text class="home-detail-text">{{home.idea}}</text> -->
+        <image src="/img/first_page.png" class="my-img1"></image>
+      </view>
+      <text class='home-detail-label'>首页</text>
+    </view>
+    <view id="nav_like" bindtap="navClick" data-id="{{home.id}}" class="weui-navbar__item ">
+      <view>
+     
+          <image wx:if="{{home.isLiked==0}}"  class='my-img' src='/img/home/like.png'></image>
+        <image wx:if="{{home.isLiked==1}}"  class='my-img' src='/img/heat.png'></image>
+        <text class="home-detail-text">{{home.like}}</text>
+      </view>
+      <text class='home-detail-label'>点赞</text>
+    </view>
+
+    <view id="nav_pl" bindtap="share" data-id="{{home.id}}" data-homeuid="{{home.uid}}" class="weui-navbar__item {{lh_nav_pl}}">
+      <view>
+        <image src="{{lh_pl_image}}" class="my-img"></image>
+      </view>
+      <text class='home-detail-label'>分享</text>
+    </view>
+    <view id="nav_joinin" bindtap="join" data-id="{{home.id}}" data-homeuid="{{home.uid}}" class="weui-navbar__item {{lh_nav_bj}}">
+      <view>
+        <image src="{{lh_joinin_image}}" class="my-img"></image>
+      </view>
+      <text class='home-detail-label' data-id="{{home.id}}" data-homeuid="{{home.uid}}" data-name="{{}}">申请加入</text>
+    </view>
+
+  </view>
+</view>
+
+ <view wx:if="{{liuyan==true}}" >
+<form bindsubmit="commentFormSubmit" report-submit="true">
+  <view class="comment-view">
+    <view wx:if="{{home.uid != loginUid}}" class='comment-left'>
+    <input value="{{comment}}" adjust-position="{{true}}" cursor-spacing="10" confirm-type='send' maxlength='200' name="comment" focus="{{focus}}" cursor="{{cursor}}" placeholder='留言：' bindinput="commentInput">
+    </input>
+    </view>
+     <view wx:if="{{home.uid == loginUid}}" class='comment-left'>
+    <input value="{{comment}}" cursor-spacing="10"  maxlength='200' adjust-position="{{true}}" confirm-type='send'  name="comment" focus="{{focus}}" cursor="{{cursor}}" placeholder='回复：' bindinput="commentInput">
+    </input>
+    </view>
+    <button form-type="submit"  disabled='{{submit}}' class="comment-submit-btn">发送</button>
+  </view>
+</form>
+</view>
+
+ <view wx:if="{{share==true}}" >
+ <view class='h_share' >
+<image class='shutdown' src='/img/shutdown.png' bindtap='shutdown'></image>
+<view class='line_img' catchtap='fenx'>
+<image class='h_img1' src='/img/share5.png'></image>
+</view>
+<image catchtap='kap'  class='h_img2' src='/img/s_phone.jpg'></image>
+<view class='line_text'>
+<button class='btn3' open-type="share">转发到群</button>
+<!-- <text class='h_text'  catchtap='fenx'  open-type="share">转发到群</text> -->
+<button class='btn4' bindtap='toShare'>卡片分享</button>
+</view>
+</view>
+ </view>
+
+<view wx:if="{{delect==true}}" class='delect-roommates'>
+<view class='delect-title'>
+<text>移出室友</text>
+<image class='showdown' src='/img/shutdown.png' catchtap='close'></image>
+</view>
+<scroll-view scroll-y style='height:264px;'>
+
+<view wx:for="{{home.roommates}}" wx:key="id" wx:for-index="idx" wx:for-item="item" class='roommates-infor'>
+ <image class='p_img'  src="{{item.avatar}}" style="width:3rem;height:3rem;"></image>
+  <image  wx:if="{{home.isShow}}" catchtap='delHomeApply' data-uid="{{item.uid}}" data-idx="{{idx}}" data-id="{{home.id}}" class='del' src='/img/my/del.png'></image>
+</view>
+</scroll-view>
+<view class='prompt'>
+<text >相聚不易，移出室友需谨慎！</text></view>
+<!-- <text class='com-remove'>确定移出</text> -->
+</view>

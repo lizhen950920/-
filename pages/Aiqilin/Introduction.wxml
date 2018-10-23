@@ -1,0 +1,21 @@
+<!--pages/Aiqilin/Introduction.wxml-->
+<view class='intro-view'>
+  <text>我们在爱奇林大家庭等你共建美家</text>
+  <video style='width:98%;' poster="/img/utipia/2.png" src='{{url}}'></video>
+  <text>新新人类，为你而来</text>
+  <text class='text-cls'>让人类在地球上居住的更好是新新人类的愿景。新新人类一直在致力于帮助年轻人跟志趣相投的人走到一起，然后辅助大家共同打造属于自己的理想之家。我们希望在新新人类的努力下，城市里的居住空间变得更富有生命气息、更加温暖、更适宜人类居住，人们在里面生活的更加愉快，邻里之间不再冷漠，年轻人的社交空间更加丰富多彩。
+</text>
+  <text>当下，面对杂乱的租房市场，新新人类希望通过创新租房模式，团结起房东和租客，让大家远离黑中介的坑害，尽可能让租房这件事变得简单、美好起来，真正实现我们不是租的房，而是创造一个个美家。
+
+    </text>
+  <text class='text-cls'>
+      但是，要实现这个目标并不容易，它需要更多的人团结进来，才能避免黑中介利用信息不对等坑骗大家，你愿意为此出一份力吗？如果你愿意，可以把本页面分享出去，谢谢</text>
+  <button open-type='share'>
+    <image style='width:50px;height:50px' src='/img/share.png'>
+    </image>
+  </button>
+  <text style='color:blue;'>分享，我们一起创造一个更好的世界</text>
+  <image style='width:200px;height:200px' src='/img/erweima.jpg'></image>
+  <text>新新人类乐园，创我想要的世界
+</text>
+</view>

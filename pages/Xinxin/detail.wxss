@@ -1,0 +1,28 @@
+/* pages/Xinxin/detail.wxss */
+
+.button-cls {
+  position: fixed;
+  bottom: 0px;
+  width: 40%;
+  background: #82c435;
+  color: #fff;
+  right: 30rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  font-size: 26rpx;
+}
+
+.btn {
+  position: fixed;
+  bottom: 10rpx;
+  left: 30rpx;
+  width: 218rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  justify-content: center;
+  font-size: 26rpx;
+  border-radius: 100rpx;
+  text-align: center;
+  background: #82c435;
+  color: white;
+}

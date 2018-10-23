@@ -1,0 +1,8 @@
+ <form bindsubmit="formSubmit">
+ <view class="contant_wrap">
+                <view class="contant">
+                    <textarea name="opinion"   bindinput='Content' value="{{content}}" auto-height placeholder-class="placeholder" placeholder="户型，配套设施，交通入住情况、租期、付款方式、个人简介及对室友的期待等" />
+                </view>
+            </view>
+             <button class='btn' formType="submit" hover-class="none"  bindtap='comfirm'>确定</button>
+             </form>

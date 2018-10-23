@@ -1,0 +1,65 @@
+  <form bindsubmit="formSubmit" bindreset="formReset" report-submit="true">
+<view class='xx_time'>
+    <view class='inTime'>
+    <text style='padding-left:20rpx;padding-top:10rpx;'>可住时间</text>
+      <picker mode="date" value="{{item.start}}" start="2015-09-01" end="2027-09-01" bindchange="startDateChange">
+            <view class="xx_border2">
+              <block wx:if="{{!start}}"> 请选择</block> {{start}}
+            </view>
+          </picker>
+          <text style='padding-left:10rpx;padding-top:10rpx;'>至</text>
+          <picker mode="date" value="{{end}}" start="2015-09-01" end="2027-09-01" bindchange="endDateChange">
+            <view class="xx_border2">
+              <block wx:if="{{!end}}"> 请选择</block> {{end}}
+            </view>
+          </picker>
+    </view>
+    <view class='inTime'>
+    <text style='padding-left:20rpx;padding-top:10rpx;' >申请共建截止时间</text>
+     <picker mode="date" value="{{apply_end}}" start="2015-09-01" end="{{end}}" bindchange="applyDateChange">
+          <view class="xx_border2">
+            <block wx:if="{{!end}}"> 请选择</block> {{apply_end}}
+          </view>
+        </picker>
+    </view>
+    </view>
+     <view class="weui-cell4">
+      <view class="weui-cell__bd" style='padding-top:20rpx;'>
+        <p class="weui-textarea1 Cre-homeimg" style="padding-left:30rpx;">个人魅力展示   ({{charm_imgs.length}}/9)</p>
+        <view class="weui-textarea-counter">
+          <view class="gallery">
+            <view class="item" wx:key="{{id}}" wx:for="{{charm_imgs}}" wx:for-index="idx" wx:for-item="item">
+              <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src=" {{item.url}}" data-type="3" class="{{item.selected?'selected':''}}" data-idx="{{idx}}" bindtap="previewImg" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" data-id="{{item.id}}"
+                mode="scaleToFill" />
+              <view class="delete" bindtap="deleteImg" data-idx="{{idx}}" data-fromuserinfo="{{item.from_user_info}} 
+            data-type="3"  data-id="{{item.id}}">
+              <image style="left: {{imageWidth / 2 - 5}}px;" src="/img/icon_delete.png" />
+            </view>
+          </view>
+          <view class="item">
+           <text class='img_prompt'>添加图片</text>
+            <image style="width: 70px; height: 70px" src="/img/add_images.png" data-type="3"  class="button-upload" bindtap="uploadImg" />
+          </view>
+        </view>
+        </view>
+      </view>
+    </view>
+   <view class='cr_prompt'>
+      <text>个人简介</text>
+       <view class="weui-textarea-counter1">{{introduction_length>0?introduction_length:0}}/300</view>
+      </view>
+     <view class="weui-cell1">
+      <view wx:if="{{showPickerView}}"></view>
+      <view class="weui-cell__bd3" wx:else>
+        <textarea hidden='{{showPickerView}}' class="weui-textarea" cursor-spacing="100" hidden="{{showPickerView}}" value="{{items.introduction}}" name="introduction" bindinput="bindinput5" maxlength="300" placeholder="在此做魅力自我简介"
+          rows="3" style="opacity:1;"></textarea>       
+      </view>
+    </view>
+     <view class='com_btn'>
+  <!-- <navigator url='/pages/change/create/preview/preview'>
+    <button class='preview'>预览</button>
+    </navigator> -->
+    <button class='com_release' form-type="submit" >完成并发布</button>  
+    </view>
+    </form>
+    

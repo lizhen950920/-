@@ -1,0 +1,181 @@
+/* pages/Utopia/Invitation.wxss */
+.container-new {
+ 
+  width: 700rpx;
+  margin-left: 20rpx;
+  background-color: #ffffff;
+  border: 2rpx solid #333;
+  border-radius: 40rpx;
+  margin-top: 20rpx;
+}
+page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #333333;
+  border-top: 2rpx solid #ffffff;
+}
+.border1{
+  width: 700rpx;
+  border: 2rpx solid #333;
+  border-radius: 40rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+.shape{
+  width: 700rpx;
+ 
+  background-color: #ffffff;
+  border: 2rpx solid #333;
+  border-radius: 40rpx;
+  margin-top: 20rpx;
+   margin-left: 20rpx;
+}
+
+.success-head {
+  width: 100%;
+  height: 140rpx;
+  /* background-color: #fff; */
+  position: relative;
+}
+
+.people_img {
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+
+.picture {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 80rpx;
+  margin-top: 10rpx;
+}
+
+.success_info {
+  float: right;
+  width: 79%;
+}
+
+.head_first {
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #00f;
+  font-size: 28rpx;
+  width: 100%;
+  margin-top: 10rpx;
+}
+
+.head_first text {
+  float: left;
+}
+
+.matter {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: -22rpx;
+}
+
+.matter text {
+  height: 30rpx;
+  line-height: 30rpx;
+}
+
+.position_info {
+  width: 700rpx;
+  height: 250rpx;
+  overflow: hidden;
+}
+
+.struggle {
+  font-size: 60rpx;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
+}
+
+.description {
+  width: 560rpx;
+  font-size: 48rpx;
+  color: #f90;
+  font-weight: bold;
+  /* text-align: center; */
+  align-items: center;
+  margin: 20rpx 30rpx 10rpx 75rpx;
+}
+
+.scanning {
+  width: 370rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  /* text-align: center; */
+  align-items: center;
+  margin: 20rpx 100rpx 10rpx 175rpx;
+}
+
+.qr_code {
+  margin-top: 50rpx;
+  text-align: center;
+  align-items: center;
+}
+
+.qr {
+  width: 250rpx;
+  height: 250rpx;
+}
+
+.view-center {
+  margin-top: 15rpx;
+  color: #666;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.item image {
+  width: 80rpx;
+  height: 80rpx;
+  padding-left: 10rpx;
+}
+
+.item text {
+  padding-left: 20rpx;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+.footer {
+  width: 100%;
+  /* background-color: #fff; */
+  position: relative;
+  height: 150rpx;
+  color: #ffffff;
+}
+
+
+
+.share {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  float: right;
+  margin-top: 10rpx;
+
+}
+
+.share image {
+  width: 80rpx;
+  height: 80rpx;
+  padding-left: 100rpx;
+}
+
+.share text {
+  padding-left: 110rpx;
+}

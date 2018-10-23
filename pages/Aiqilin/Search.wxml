@@ -1,0 +1,64 @@
+
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class='container-new'>
+    <view class='search-item3'>
+      <input class='search1' placeholder='暂时只支持爱家名字搜索' name="keyword" style='flex:1' value='{{keyword}}'></input>
+    </view>
+   
+    <text class='prompt'>点击下面蓝框可以定位你的目的地，系统会推送附近消息</text>
+    <view class='search-item1'>
+      <!-- <text>目的地：</text> -->
+      <text class='dest-view'  bindtap='chooseDest'> <block wx:if="{{!selectedAddress}}"> 请点击选择 </block> {{selectedAddress}}</text>
+    </view>
+     <view class='search-item2'>
+      <view class='room-label-view'>
+        <view class='{{roomId==0?"label-selected1":"label1"}}' data-roomid='0' bindtap='changeRoomId'>
+        <text >不限</text>
+        </view>
+        <view class='  {{roomId==2?"label-selected1":"label1"}}'  data-roomid='2' bindtap='changeRoomId'>
+        <text >两室</text>
+        </view>
+        <view class='  {{roomId==3?"label-selected1":"label1"}}' data-roomid='3' bindtap='changeRoomId'>
+        <text >三室</text>
+        </view>
+        <view class='  {{roomId==4?"label-selected1":"label1"}}' data-roomid='4' bindtap='changeRoomId'>
+        <text >四室以上</text>
+        </view>
+      </view>
+    </view>
+    <!-- <view class='search-item'>
+      <text style='width:23.7%;'>租金：</text>
+      <view class='label-view'>
+        <text class='label {{priceId==0?"label-selected":""}}' data-priceid='0' bindtap='changePriceId'>不限</text>
+        <text class='label {{priceId==1?"label-selected":""}}' data-priceid='1' bindtap='changePriceId'>1k以下</text>
+        <text class='label {{priceId==2?"label-selected":""}}' data-priceid='2' bindtap='changePriceId'>1k-2k</text>
+        <text class='label {{priceId==3?"label-selected":""}}' data-priceid='3' bindtap='changePriceId'>2k-3k</text>
+        <text class='label {{priceId==4?"label-selected":""}}' data-priceid='4' bindtap='changePriceId'>3k-4k</text>
+        <text class='label {{priceId==5?"label-selected":""}}' data-priceid='5' bindtap='changePriceId'>4k-5k</text>
+        <text class='label {{priceId==6?"label-selected":""}}' data-priceid='6' bindtap='changePriceId'>5k以上</text>
+      </view>
+    </view> -->
+    <view class='search-item3'>
+      <text>入住时间: </text>
+      <view class='item-right'>
+        <picker mode="date" value="{{move_start}}" data-type='1' start="1950-01-01" end="{{move_end}}" bindchange="bindMoveChange">
+          <view class="picker">
+            <block wx:if="{{!move_start}}"> 选择</block> {{move_start}}
+          </view>
+        </picker>
+         <!-- <text style='width:6%;'>至</text>
+        <picker mode="date" value="{{move_end}}" data-type='2' start="{{move_start}}" end="2027-09-01" bindchange="bindMoveChange">
+          <view class="picker">
+            <block wx:if="{{!move_end}}"> 请选择 </block> {{move_end}}
+          </view>
+        </picker>  -->
+      </view>
+    </view>
+
+    <view class='search-button-view'>
+      <button size='mini' formType="reset" type='warn'>重置</button>
+      <button size='mini' formType="submit" type='primary'>确定</button>
+    </view>
+  </view>
+</form>

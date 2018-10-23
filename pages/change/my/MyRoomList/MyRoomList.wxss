@@ -1,0 +1,159 @@
+/* main.wxss */
+page{
+  width: 100vw;
+  height: 100vh;
+}
+.weui-cell__hd {
+  margin-right: 15px;
+}
+
+p {
+  display: block;
+}
+
+ul, menu, dir {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.weui-media-box__hd {
+  margin-right: 10px;
+}
+
+.weui-cell::before {
+  border-top: none;
+}
+
+.weui-cell {
+  padding: 5px 15px;
+}
+
+.weui-media-box {
+  padding: 15px 15px 5px 15px;
+}
+
+.operation {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3px;
+}
+
+.my-img-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.line {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.edit-cls {
+  position: absolute;
+  right: 50rpx;
+  top: 20rpx;
+}
+
+.selecte {
+position: absolute;
+top: 5rpx;
+right: 180rpx;
+}
+
+.weui-panel_fl {
+  display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.wrong {
+ position: absolute;
+ right: 300rpx;
+}
+
+.weui-panel {
+  margin-top: 20rpx;
+}
+
+.label {
+  /* border: 1rpx solid #f90; */
+  border-radius: 60rpx;
+  right: 30rpx;
+  top: 50rpx;
+  font-size: 26rpx;
+  /* padding: 10rpx 18rpx 10rpx 38rpx; */
+  color: #f90;
+  width: 200rpx;
+  /* background-color: #f90; */
+  margin-left: 0rpx;
+}
+
+.add {
+  font-size: 24rpx;
+  color: #f90;
+  padding-left: 10rpx;
+    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 300rpx;
+}
+
+.del {
+  width: 50rpx;
+  height: 50rpx;
+  top: 35rpx;
+ left: 200rpx;
+  position: absolute;
+}
+/* 影藏背景色 */
+.f_back{
+  background: #E4E4E4;
+}
+.f-ge{
+  display: flex;
+  padding-top: 0rpx;
+}
+.weui-cell__ft {
+  text-align: right;
+  color: #999999;
+   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+width: 200rpx;
+}
+.nav {
+  /* width: 100%; */
+  height: 85rpx;
+  display: flex;
+  flex-direction: row;
+background-color:#eee;
+   /* border-bottom: 2rpx solid #ea5514;  */
+}
+
+.default {
+  line-height: 85rpx;
+  text-align: center;
+  flex: 1;
+  color: #000000;
+  /* font-weight: bold; */
+  font-size: 28rpx;
+}
+
+.red {
+  line-height: 85rpx;
+  text-align: center;
+  color:white;
+  flex: 1;
+  /* font-weight: bold; */
+  font-size: 28rpx;
+   background:#FF9900;
+ /* background:  #989cb5; */
+  /* border-bottom: 2px solid #e58026; */
+   border-bottom: 2px solid #FF9900;
+}

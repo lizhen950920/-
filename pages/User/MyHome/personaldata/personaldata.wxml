@@ -1,0 +1,127 @@
+<include src="../../../../common/alert.wxml"></include>
+<form bindreset="formReset" bindsubmit="formSubmit" reportSubmit="true">
+    <view class="top-title">
+        <text class="title-body">个人资料越完善，魅力值越高，搭建理想之家成功率越高</text>
+    </view>
+    <view>
+        <!-- <view class="weui-cell3">
+            <view class="free_layout">
+                <text class="name">
+                    <text class="hong"></text>昵称</text>
+            </view>
+            <p class="weui-cell3__ft1">
+                <input class="school" disabled='disabled' cursorSpacing="100" data-name="username" name="username" placeholder="请输入昵称" type="text" value="{{user.username}}"></input>
+            </p>
+        </view> -->
+        <view class="weui-cell3s" style="margin-top:auto;">
+            <view class="weui-cell3">
+                <view class="free_layout">
+                    <text>
+                        <text class="hong"></text>年龄</text>
+                </view>
+                <picker bindchange="bindBirthChange" end="2027-09-01" mode="date" start="1950-01-01" value="{{birth}}">
+                    <view class="picker">
+                        <block wx:if="{{!birth}}">请选择</block>{{age}}
+          </view>
+                </picker>
+            </view>
+            <view class="weui-cell3">
+                <view class="free_layout">
+                    <text class="name">
+                        <text class="hong"></text>院校</text>
+                </view>
+                <p class="weui-cell3__ft1">
+                    <input class="school" cursorSpacing="100" data-name="universityStr" name="universityStr" placeholder="你现在就读或已经毕业的院校" type="text" value="{{user.universityStr}}"></input>
+                </p>
+            </view>
+            <view class="weui-cell3">
+                <view class="free_layout">
+                    <text class="name">
+                        <text class="hong"></text>职业</text>
+                </view>
+                <input class="school" cursorSpacing="100" data-name="profession" name="profession" placeholder="请填写职业" type="text" value="{{user.profession}}"></input>
+            </view>
+            <view class="weui-cell3">
+                <view class="free_layout">
+                    <text>
+                        <text class="hong"></text>情感</text>
+                </view>
+                <p class="weui-cell3__ft">
+                    <picker bindchange="bindMarryChange" range="{{marryArray}}" rangeKey="{{'name'}}" value="{{marryIndex}}">
+                        <view class="picker">
+              {{marryArray[marryIndex].name}}
+            </view>
+                    </picker>
+                </p>
+            </view>
+            <view class="weui-cell3s" style="margin-top:30rpx">
+                <view class="weui-cell3">
+                    <view class="free_layout">
+                        <text class="name">
+                            <text class="hong"></text>电话</text>
+                    </view>
+                    <p class="school" style="display:flex;">
+                        <input cursorSpacing="100" name="mobile" type="text" value="{{user.mobile}}"></input>
+                    </p>
+                </view>
+                <view class="weui-cell3">
+                    <view class="free_layout">
+                        <text class="name">
+                            <text class="hong"></text>微信</text>
+                    </view>
+                    <p class="school" style="display:flex;">
+                        <input cursorSpacing="100" name="wechat" placeholder="请填写可被搜索到的微信号" type="text" value="{{user.wechat}}"></input>
+                    </p>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell4">
+            <view bindtap="onChangeShowState" class="menu_head">
+                <image class="menu" src="/img/menu.png"></image>
+                <text class="title-tips">更好的展现自己增加魅力值</text>
+            </view>
+        </view>
+        <view wx:if="{{click==true}}">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="weui-uploader__hd">
+                        <p class="weui-uploader__title">
+                            <text class="hong"></text>个人魅力生活照</p>
+                        <text>({{charm_imgs.length}}/9)</text>
+                    </view>
+                    <view class="" style="display:flex;flex-wrap:wrap;">
+                        <view wx:for="{{charm_imgs}}" wx:for-index="idx">
+                            <view class="positions">
+                                <image bindtap="previewImg" bindtouchend="bindTouchEnd" bindtouchstart="bindTouchStart" data-id="{{item.id}}" data-idx="{{idx}}" data-type="1" mode="scaleToFill" src="{{item.url}}" style="width:80px;height:80px;margin-right: 2px;"></image>
+                                <view bindtap="deleteImg" class="delete" data-id="{{item.id}}" data-idx="{{idx}}" data-type="1">
+                                    <image src="/img/icon_delete.png" style="left: {{imageWidth/2-10}}px;"></image>
+                                </view>
+                            </view>
+                        </view>
+                        <view bindtap="uploadImg" class="weui-uploader__input-box" data-type="1"></view>
+                    </view>
+                </view>
+                <text class="weui-cell__ft"></text>
+            </view>
+            <view class="weui-cells">
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">
+                        <view class="weui-uploader__hd">
+                            <p class="weui-uploader__title">
+                                <text class="hong"></text>个人魅力展
+              <view class="describe">在这里可以谈谈你的梦想、有趣的故事、生活习惯、兴趣爱好技能及交换的技能</view>
+                            </p>
+                        </view>
+                        <textarea class="weui-textarea" cursorSpacing="100" data-name="dream_home" maxlength="2000" name="dream_home" placeholder="请输入个人魅力内容" value="{{user.dream_home}}"></textarea>
+                    </view>
+                    <text class="weui-cell__ft"></text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="base">
+        <view class="submit-btn-cls">
+            <button formType="submit" size="mini" style="width:88%;margin:45rpx;line-height:3.3;border-radius: 40rpx;  text-align: center;box-shadow:0px 0px 5px #FF9900;transition: 0.2s ease-out; background:#FF9900;color:white;">ok,我确定更有魅力了</button>
+        </view>
+    </view>
+</form>

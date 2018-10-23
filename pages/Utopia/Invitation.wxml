@@ -1,0 +1,64 @@
+<!-- <view class='container-new'> -->
+<!-- <view class='shape'>
+<view class='box'>
+  <view class='success-head'>
+    <view class='people_img'>
+      <image src='{{userinfo.avatarUrl}}' class='picture'></image>
+    </view>
+    <view class='success_info'>
+      <view class='head_first'>
+        <text>{{userinfo.nickName}}</text>
+      </view>
+      <view class='matter'>
+        <text>
+我发现了一个神奇的地方，它除了可以找爱情公寓，竟然还可以匹配室友随心造美家！
+</text>
+      </view>
+    </view>
+  </view>
+  <view>
+    <image src='/img/utopia/mark.png' class='position_info'></image>
+  </view>
+  <view class='struggle'>
+    <text>为了更好的打拼</text>
+  </view>
+  <view class='description'>
+    <text>我在爱奇林安家，房东直租还能减1001元房租，需要你的助力！</text>
+  </view>
+
+  <view class='scanning'>
+    <text>扫码进入报名，既帮助了我，也为你预备了一个好去处</text>
+  </view>
+</view>
+<view class='qr_code'>
+   <image src='/img/erweima.jpg' class='qr'></image> 
+
+</view>
+<view class='view-center'>
+  <text>@爱奇林，你的奋斗守护者</text>
+</view>
+</view>
+   <canvas style="width: 100%;height: {{windowHeight-70}}px;" canvas-id="mycanvas" /> 
+<view class='footer'>
+  <view class='item' bindtap='saveImg'>
+    <image src='/img/utopia/save1.png'></image>
+    <text>保存到相册</text>
+  </view>
+  <view class='share' bindtap='onShareAppMessage'>
+    <image src='/img/utopia/share1.png'></image>
+    <text>分享</text>
+  </view>
+
+
+</view> -->
+<!-- </view> -->
+<!-- <view class='shape'> -->
+<view class='border1'>
+  <canvas style="width: 700rpx;  border: 2rpx solid #333;border-radius: 40rpx;height: {{windowHeight-80}}px;" canvas-id="mycanvas" />
+</view>
+ <view class='footer'>
+    <view class='item' bindtap='saveImg'>
+      <image src='/img/utopia/save1.png'></image>
+      <text>保存</text>
+    </view>
+  </view>

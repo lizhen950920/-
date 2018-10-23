@@ -1,0 +1,51 @@
+.love-head{
+  height: 60rpx;
+  text-align: center;
+  align-items: center;
+  font-size: 30rpx;
+  background: #FFFFFF;
+}
+.love-infor{
+  margin-top: 30rpx;
+background: #FFFFFF;
+padding-top: 30rpx;
+
+}
+.love-title{
+  text-align: center;
+  align-items: center;
+margin-top: 30rpx;
+}
+.title{
+  border: 3rpx solid #666666;
+  border-radius: 20rpx;
+  color: white;
+  background: #666666;
+  font-size: 28rpx;
+  padding: 10rpx 20rpx 10rpx 20rpx; 
+}
+.num{
+  border: 3rpx solid #666666;
+  color: #666666;
+  background: #FFFFFF;
+  border-radius: 50rpx;
+  margin-left: 20rpx;
+  padding: 5rpx 15rpx 5rpx 15rpx;
+}
+.select-num{
+  color: white;
+  background: #FF9900;
+ border: 3rpx solid #FF9900;
+
+  border-radius: 50rpx;
+  margin-left: 20rpx;
+  padding: 5rpx 15rpx 5rpx 15rpx;
+}
+.love-prompt{
+  margin-top: 30rpx;
+  color: #666666;
+  font-size: 28rpx;
+  width: 90%;
+padding-left: 5%;
+height: 150rpx;
+}

@@ -1,0 +1,52 @@
+/* Screen.wxss */
+
+
+.Scr-citypostion {
+  margin-top: 0;
+}
+
+.Scr-location image {
+  width: 0.8rem;
+  height: 0.8rem;
+  float: left;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.Scr-city {
+  float: left;
+}
+
+.Scr-change {
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-right: 5px;
+}
+
+.Scr-fontmagin {
+  margin-left: 0.3rem;
+  display: block;
+}
+
+
+.placeholder {
+    margin: 5px;
+    padding: 0 10px;
+    height: 1.8em;
+    line-height: 1.8em;
+    text-align: center;
+    
+    border:1px solid #97d54e;
+    border-radius:9px;
+}
+
+.choose {
+  color: #4e9000;
+  border: 1px solid #4e9000;
+  border-radius: 9px;
+  background-color: #baf971;
+}
+
+.weui-cell p.weui-cell__ft{
+  flex: 3;
+}

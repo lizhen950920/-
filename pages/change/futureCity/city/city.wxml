@@ -1,0 +1,15 @@
+<view class='city_box' style='{{styles}}'>
+      <view class='city_left'>
+          <scroll-view scroll-y style='width:100%;height:100%;' scroll-with-animation scroll-into-view='{{cityListId}}'>
+              <view class='new_city'>
+                  <view class='new_city_title'>热门城市</view>
+                  <view class='new_city_box'>
+                  <text class="{{item.checked==true?'new_city_text1':'new_city_text'}}" wx:for-index="idx"  data-idx='{{idx}}'  wx:for='{{newcity}}'    bindtap='hot' data-val='{{item}}'>{{item.name}}</text>
+                      <!-- <text class="{{background==true?'new_city_text1':'new_city_text'}}" wx:for-index="idx"  data-idx='{{idx}}' style='color:{{color}};background:{{background}}' wx:for='{{newcity}}'    bindtap='hot' data-val='{{item}}'>  
+                   {{item.name}}</text> -->
+                  </view>
+              </view>
+              
+          </scroll-view>
+      </view>
+  </view> 

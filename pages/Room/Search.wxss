@@ -1,0 +1,139 @@
+/* pages/Xinxin/search.wxss */
+
+Page {
+  background: #fff;
+}
+
+.container-new {
+  background: #fff;
+}
+
+.search-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1rpx solid #ccc;
+  padding: 10rpx 16rpx;
+  border-radius: 60rpx;
+  margin-top: 30rpx;
+  width: 90%;
+}
+
+.search-item3 {
+  height: 50rpx;
+  line-height: 50rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1rpx solid #ccc;
+  padding: 10rpx 16rpx;
+  border-radius: 60rpx;
+  margin-top: 30rpx;
+  width: 90%;
+}
+
+.search1 {
+  padding-left: 160rpx;
+  font-size: 28rpx;
+}
+
+.search-item1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1rpx solid #ccc;
+  padding: 10rpx 16rpx;
+  border-radius: 20rpx;
+  margin-top: 10rpx;
+  width: 90%;
+  background-color: #09f;
+}
+
+.search-item2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10rpx;
+  width: 90%;
+  background-color: #fff;
+}
+
+.prompt {
+  padding-top: 20rpx;
+  font-size: 28rpx;
+  /* color: #FF9900; */
+  color: red;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.search-button-view {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10rpx 16rpx;
+  border-radius: 10rpx;
+  margin-top: 30rpx;
+  width: 90%;
+  height: 30px;
+}
+
+.label-selected1 {
+  font-size: 28rpx;
+  margin: 10rpx 15rpx;
+  border: 1rpx solid #82c435;
+  border-radius: 40rpx;
+  background-color: #82c435;
+  color: #fff;
+  padding: 10rpx 20rpx;
+}
+
+.label {
+  border: 1rpx solid #888;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  margin: 10rpx 15rpx;
+  padding: 10rpx 20rpx;
+}
+
+.label1 {
+  border: 1rpx solid #888;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  margin: 10rpx 15rpx;
+  padding: 10rpx 20rpx;
+  background: #ccc;
+}
+
+.dest-view {
+  border: 1rpx solid #09f;
+  border-radius: 20px;
+  padding: 10rpx 20rpx;
+  margin-left: 160rpx;
+  color: #fff;
+  font-size: 13px;
+  background-color: #09f;
+}
+
+.dest-title {
+  border: 1rpx solid #ccc;
+  border-radius: 20px;
+  padding: 10rpx 20rpx;
+  color: #fff;
+  font-size: 13px;
+  background-color: #ccc;
+}
+
+.item-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 78rpx;
+}
+
+.room-label-view {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

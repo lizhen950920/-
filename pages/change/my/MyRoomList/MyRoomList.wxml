@@ -1,0 +1,89 @@
+  <view class="nav bc_white">
+    <view class="{{selectIndex==0?'red':'default'}}" data-index="0" bindtap="switchSlider">首页信息</view>
+    <view class="{{selectIndex==1?'red':'default'}}" data-index="1" bindtap="switchSlider">理想之家</view>
+  </view>
+<view hidden="{{selectIndex!=0}}" class="tab-content">
+<scroll-view class="scrollView" style="height:{{height}}px" scroll-y="true" bindscrolltolower="loadMoreData">
+  <block hidden="{{selectIndex!=0}}" class="" wx:for="{{items}}" wx:for-index="idx" data-idx="{{idx}}" wx:for-item="item">
+    <view class="weui-panel weui-panel_access line">
+      <view class="weui-panel__bd">
+         <view class='weui-panel_fl'>
+    <text style='color:#333333;font-size:28rpx;padding-left:30rpx;'>{{state[item.state]}}</text>
+    <image bindtap='delete' data-uid="{{item.uid}}" data-idx="{{idx}}" data-id="{{item.id}}" class='del' src='/img/my/del.png'></image>
+     <view class="edit-opterator" wx:if="{{item.uid == uid}}" id="edit" data-id="{{item.id}}" bindtap="showHiddenHome">
+    <text  wx:if="{{item.status==1}}" class='wrong'>开放</text>
+    <text wx:if="{{item.status==0}}" class='wrong'>关闭</text>
+    <switch class='selecte' checked='{{onoff[item.status]}}'  data-idx="{{idx}}" data-id='{{item.id}}'  color="#FF9900" bindchange="switch2Change" />
+    </view>
+     <view class="edit-cls" id="edit" bindtap="roomedit" data-state="{{item.state}}" data-id="{{item.id}}" data-uid="{{item.uid}}">
+                <image src="../../../../img/ldealhome/edit.png"  class="my-img-icon"></image>  
+              </view>
+    </view>
+        <view class="weui-media-box weui-media-box_appmsg" id="detail" bindtap="roomDetail" data-uid="{{item.uid}}" data-id="{{item.id}}">
+          <view class="weui-media-box__hd">
+            <image src="{{item.url}}" style="width:78px;height:78px;"></image>
+          </view>
+          <view style="line-height:24px;">
+            <view class="classname">
+              <text style="font-weight:bold;font-size:13px;padding-left:20rpx">{{item.title}}</text>
+            </view>
+  <view class='label'>租金 {{item.price}}/月</view>
+              <view class='f-ge'>
+              <image style='width:40rpx;height:30rpx;padding-top:10rpx;' src='/img/location.png'></image>
+              <text class='add'>{{item.address}}</text>
+                <text class="weui-cell__ft" style="font-size:11px;">{{item.create_date}}</text>
+              </view>
+              <view class="edit-cls" id="edit" bindtap="roomedit" data-id="{{item.id}}" data-uid="{{item.uid}}">
+                <!-- <image src="../../../../img/ldealhome/edit.png"  class="my-img-icon"></image>
+                <text>编辑</text> -->
+              </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  
+</scroll-view>
+</view>
+<view hidden="{{selectIndex!=1}}" class="tab-content">
+<scroll-view class="scrollView" style="height:{{height}}px" scroll-y="true" bindscrolltolower="loadMoreData">
+<block class="" wx:for="{{idealHome}}" wx:for-index="idx" wx:for-item="idealHome">
+    <view class="weui-panel weui-panel_access line" >
+      <view class="weui-panel__bd">
+         <view class='weui-panel_fl'>
+    <text style='color:#333333;font-size:28rpx;padding-left:30rpx;'>理想之家</text>
+    <image bindtap='deleteHome' data-uid="{{idealHome.uid}}" data-idx="{{idx}}" data-id="{{idealHome.id}}" class='del' src='/img/my/del.png'></image>
+     <view class="edit-opterator" wx:if="{{idealHome.uid == uid}}" id="edit" data-id="{{idealHome.id}}" bindtap="showHiddenHome">
+    <text  wx:if="{{idealHome.status==1}}" class='wrong'>显示</text>
+    <text wx:if="{{idealHome.status==0}}"  class='wrong'>隐藏</text>
+    <switch class='selecte' checked='{{onoff[idealHome.status]}}' data-idx="{{idx}}" data-id='{{idealHome.id}}'  color="#FF9900" bindchange="real" />
+    </view>
+     <view class="edit-cls" id="edit" catchtap="editHome" data-id="{{idealHome.id}}" data-uid="{{idealHome.uid}}">
+                <image src="../../../../img/ldealhome/edit.png"  class="my-img-icon"></image>  
+              </view>
+    </view>
+        <view class="weui-media-box weui-media-box_appmsg" id="detail" bindtap='toHomeDetail'  data-uid="{{idealHome.uid}}" data-id="{{idealHome.id}}">
+          <view class="weui-media-box__hd">
+            <image src="{{idealHome.url}}" style="width:78px;height:78px;"></image>
+          </view>
+          <view style="line-height:24px;">
+            <view class="classname">
+              <text style="font-weight:bold;font-size:13px;padding-left:20rpx">{{idealHome.name}}</text>
+            </view>
+  <view class='label'>租金 {{idealHome.avgprice}}/月</view>
+              <view class='f-ge'>
+              <image style='padding-top:10rpx;width:40rpx;height:30rpx;' src='/img/location.png'></image>
+              <text class='add'>{{idealHome.address}}</text>
+                <text class="weui-cell__ft" style="font-size:11px;">{{idealHome.create_date}}</text>
+              </view>
+              <view class="edit-cls" id="edit" bindtap="roomedit" data-id="{{idealHome.id}}" data-uid="{{idealHome.uid}}">
+                <!-- <image src="../../../../img/ldealhome/edit.png"  class="my-img-icon"></image>
+                <text>编辑</text> -->
+              </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  </scroll-view>
+  </view>

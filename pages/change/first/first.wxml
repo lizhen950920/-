@@ -1,0 +1,258 @@
+
+<view class='house'>
+  <view class="{{selectIndex==0?'backgroud':'default'}}" data-index="0" bindtap="switchSlider">
+    <text>招室友</text>
+  </view>
+  <view class="{{selectIndex==1?'backgroud':'default'}}" data-index="1" bindtap="switchSlider">
+    <text>出租</text>
+  </view>
+  <view class="{{selectIndex==2?'backgroud':'default'}}" data-index="2" bindtap="switchSlider">
+    <text>转租</text>
+  </view>
+</view>
+<view hidden="{{selectIndex!=0}}" class="tab-content">
+<form bindsubmit="formSubmit" bindreset="formReset" report-submit="true"> 
+  <view class="input__box">
+    <text class="text">标题</text>
+    <input class="input" bindinput="syncCode" maxlength="18" name="title1" bindblur="checkUnifyCode" type="text" placeholder="请阐述下房子的特点和理想的室友" />
+  </view>
+  <view class="input__box">
+    <text class="text">租金</text>
+    <input class="input1" name="price" bindinput="syncCode" maxlength="5" bindblur="checkUnifyCode" type="text" placeholder="请正确输入" />
+    <text class='money'>元/月</text>
+  </view>
+  <view class="input__box">
+    <text class="text">位置</text>
+    <text class='location' bindtap='address'> <block wx:if="{{!address}}">请选择房子所在位置</block>{{address}}</text>
+  </view>
+  <view class="input__box">
+    <text class="text">期限</text>
+    <picker mode="date" value="{{endDate}}" start="1918-07-01" end="2067-09-01" bindchange="bindDateChange">
+      <view class="date">
+        <block wx:if="{{!endDate}}">招室友截止日期，非必选</block> {{endDate}}
+      </view>
+    </picker>
+  </view>
+  <view class='list_bd' bindtap='detail' data-id="{{0}}">
+    <text class='list_title1'>详情</text>
+    <!-- <text class='logo' bindtap='detail'>详细描述</text> -->
+    <view class='logo'>
+      <block>
+        <text wx:if="{{!content}}">详细描述(个人简介及对室友的期待等)，非必填</text>
+      </block>{{content}}
+    </view>
+  </view>
+    <view class="weui-cells" style="margin-top:auto;">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-uploader__hd">
+          <p class="weui-uploader__title">添加图片</p>
+          <!-- <p class="weui-uploader__title">长按图片可设置为封面</p> -->
+          <text>({{charm_imgs.length}}/9)</text>
+        </view>
+
+        <view class="gallery">
+          <view class="item" wx:for="{{charm_imgs}}" wx:for-index="idx" wx:for-item="item">
+            <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src=" {{item.url}}"
+            class="{{item.selected?'selected':''}}" data-idx="{{idx}}" bindtap="previewImg" 
+            bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd"
+            bindlongtap="setCover" data-id="{{item.id}}" mode="scaleToFill" />
+            
+            <!-- 删除按钮 -->
+            <view class="delete" bindtap="deleteImg" data-idx="{{idx}}"  data-id="{{item.id}}">
+              <image style="left: {{imageWidth / 2 - 5}}px;" src="/img/icon_delete.png" />
+            </view>
+          </view>
+          <view class="item">
+            <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src="/img/icon_add.png" data-type="5"  class="button-upload" bindtap="uploadImg" />
+          </view>
+        </view>
+
+      </view>
+      <text class="weui-cell__ft"></text>
+    </view>
+  </view>
+  <view class='stick'>
+    <text>我要置顶 </text>
+    <switch class='selecte' color="#F90" bindchange="switch2Change" />
+  </view>
+
+ <view class='stick'>
+    <text>时间 </text>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="selecte1">
+      <block>
+        <text wx:if="{{!index}}">选择置顶时间</text>
+      </block>{{array[index]}}
+    </view>
+  </picker>
+  </view>
+   <button class='btn' bindtap='prompt' formType="submit" hover-class="none">发布</button>
+  </form>
+</view>
+<view hidden="{{selectIndex!=1}}" class="tab-content">
+<form bindsubmit="formSubmit" bindreset="formReset" report-submit="true"> 
+  <view class="input__box">
+    <text class="text">标题</text>
+     <!-- <input cursor-spacing="100" style="flex: 4;" type="text" bindinput='bindinput1' placeholder="6-30字" value='{{item.title}}' name="title" class="weui-cell__ft"></input> -->
+    <input class="input" bindinput="bindinput1" maxlength="18" name="title"  value='{{item.title}}' bindblur="checkUnifyCode" type="text" placeholder="阐述下房子特点" />
+  </view>
+  <view class="input__box">
+    <text class="text">租金</text>
+    <input class="input1" name="price" bindinput="syncCode" maxlength="5" bindblur="checkUnifyCode" type="text" placeholder="请正确输入" />
+    <text class='money'>元/月</text>
+  </view>
+  <view class="input__box">
+    <text class="text">位置</text>
+    <text class='location' bindtap='chooseMap'> <block wx:if="{{!address}}">请选择房子所在位置</block>{{address}}</text>
+  </view>
+  <view class="input__box">
+    <text class="text">期限</text>
+    <picker mode="date" value="{{endDate}}" start="1950-01-01" end="2027-09-01" bindchange="bindDateChange">
+      <view class="date">
+        <block wx:if="{{!endDate}}">招租截止日期，非必选</block> {{endDate}}
+      </view>
+    </picker>
+  </view>
+  <view class='list_bd' bindtap="detail" data-id="{{1}}">
+    <text class='list_title1'>详情</text>
+    <view class='logo'>
+      <block>
+        <text wx:if="{{!content}}">详细描述(个人简介及对室友的期待等)，非必填</text>
+      </block>{{content}}
+    </view>
+  </view>
+    <view class="weui-cells" style="margin-top:auto;">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-uploader__hd">
+          <p class="weui-uploader__title">添加图片</p>
+          <!-- <p class="weui-uploader__title">长按图片可设置为封面</p> -->
+          <text>({{charm_imgs.length}}/9)</text>
+        </view>
+
+        <view class="gallery">
+          <view class="item" wx:for="{{charm_imgs}}" wx:for-index="idx" wx:for-item="item">
+            <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src=" {{item.url}}"
+            class="{{item.selected?'selected':''}}" data-idx="{{idx}}" bindtap="previewImg" 
+            bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd"
+            bindlongtap="setCover" data-id="{{item.id}}" mode="scaleToFill" />
+            
+            <!-- 删除按钮 -->
+            <view class="delete" bindtap="deleteImg" data-idx="{{idx}}"  data-id="{{item.id}}">
+              <image style="left: {{imageWidth / 2 - 5}}px;" src="/img/icon_delete.png" />
+            </view>
+          </view>
+          <view class="item">
+            <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src="/img/icon_add.png" data-type="5"  class="button-upload" bindtap="uploadImg" />
+          </view>
+        </view>
+
+      </view>
+      <text class="weui-cell__ft"></text>
+    </view>
+  </view>
+  <view class='stick'>
+    <text>我要置顶 </text>
+    <switch class='selecte'  color="#F90" bindchange="switch2Change" />
+  </view>
+   <view class='stick'>
+    <text>时间 </text>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="selecte1">
+      <block>
+        <text wx:if="{{!index}}">选择置顶时间</text>
+      </block>{{array[index]}}
+    </view>
+  </picker>
+  </view>
+  <button class='btn' bindtap='prompt' formType="submit" hover-class="none">发布</button>
+  </form>
+</view>
+
+<view hidden="{{selectIndex!=2}}" class="tab-content">
+ <form bindsubmit="formSubmit" bindreset="formReset" report-submit="true"> 
+  <view class="input__box">
+    <text class="text">标题</text>
+  
+       <input class="input" bindinput="bindinput1" maxlength="18" name="title"  value='{{item.title}}' bindblur="checkUnifyCode" type="text" placeholder="请阐述下理想房子的特点" /> 
+  </view>
+  <view class="input__box">
+    <text class="text">租金</text>
+    <input class="input1" name="price" bindinput="syncCode" maxlength="5" bindblur="checkUnifyCode" type="text" placeholder="请正确输入" />
+    <text class='money'>元/月</text>
+  </view>
+  <view class="input__box">
+    <text class="text">位置</text>
+    <text class='location' bindtap='chooseMap'> <block wx:if="{{!address}}">请选择房子所在位置</block>{{address}}</text>
+  </view>
+  <view class="input__box">
+    <text class="text">期限</text>
+    <picker mode="date" value="{{endDate}}" start="1950-01-01" end="2027-09-01" bindchange="bindDateChange">
+      <view class="date">
+        <block wx:if="{{!endDate}}">转租截止日期，非必填</block> {{endDate}}
+      </view>
+    </picker>
+  </view>
+  <!-- <view class='list_bd' bindtap="toCompIndustrySelect"> -->
+  <view class='list_bd' bindtap="detail" data-id="{{2}}">
+
+    <text class='list_title1'>详情</text>
+    <view class='logo'>
+      <block>
+        <text wx:if="{{!content}}">详细描述(个人简介及对室友的期待等)，非必填</text>
+      </block>{{content}}
+    </view>
+
+  </view>
+  <!-- <view class='addimage'>
+    <view class='prompt'>添加图片</view>
+    <image class="add" src='/img/icon_add.png'></image>
+  </view> -->
+   <view class="weui-cells" style="margin-top:auto;">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-uploader__hd">
+          <p class="weui-uploader__title">添加图片</p>
+          <!-- <p class="weui-uploader__title">长按图片可设置为封面</p> -->
+          <text>({{charm_imgs.length}}/9)</text>
+        </view>
+
+        <view class="gallery">
+          <view class="item" wx:for="{{charm_imgs}}" wx:for-index="idx" wx:for-item="item">
+            <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src=" {{item.url}}"
+            class="{{item.selected?'selected':''}}" data-idx="{{idx}}" bindtap="previewImg" 
+            bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd"
+            bindlongtap="setCover" data-id="{{item.id}}" mode="scaleToFill" />
+            
+            <!-- 删除按钮 -->
+            <view class="delete" bindtap="deleteImg" data-idx="{{idx}}"  data-id="{{item.id}}">
+              <image style="left: {{imageWidth / 2 - 5}}px;" src="/img/icon_delete.png" />
+            </view>
+          </view>
+          <view class="item">
+            <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src="/img/icon_add.png" data-type="5"  class="button-upload" bindtap="uploadImg" />
+          </view>
+        </view>
+
+      </view>
+      <text class="weui-cell__ft"></text>
+    </view>
+  </view>
+  <view class='stick'>
+    <text>我要置顶 </text>
+    <switch class='selecte'   color="#F90" bindchange="switch2Change" />
+  </view>
+    <view class='stick'>
+    <text>时间 </text>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="selecte1">
+      <block>
+        <text wx:if="{{!index}}">选择置顶时间</text>
+      </block>{{array[index]}}
+    </view>
+  </picker>
+  </view>
+<button class='btn' bindtap='prompt' formType="submit" hover-class="none">发布</button>
+ </form> 
+</view>

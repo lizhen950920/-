@@ -1,0 +1,14 @@
+/* userhomepage.wxss */
+p{
+  display: block;
+  margin-top: 5px;
+}
+.my-img{
+  width:10px;
+  height:10px;
+  padding-left:5px;
+}
+
+.weui-cell__hd{
+  margin-right:15px;
+}

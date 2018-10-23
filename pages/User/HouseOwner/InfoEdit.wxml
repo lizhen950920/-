@@ -1,0 +1,152 @@
+<include src="../../../common/alert.wxml" />
+<!--roomforrent.wxml-->
+
+<form bindsubmit="formSubmit" bindreset="formReset" report-submit="true">
+  <view class='top-title'>
+    <text>让我们创造出更好的世界</text>
+    <text class='title-body'>嗨同学你好，欢迎来到爱奇林森林，完善好你的个人资料后，你将开启一段神奇之旅，如果你的资料足够有魅力，那么你将吸引到志趣相投的人一起完成这次精彩旅程</text>
+  </view>
+  <view>
+    <text class='title-tips'>开启梦幻旅程-完成必填项</text>
+  </view>
+  <view class="weui-cells" style="margin-top:auto;">
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+        <text style="font-weight:bold">基本信息</text>
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text>昵称</text>
+      </view>
+
+
+      <block wx:if="{{user.username}}">
+        <input class="weui-cell__ft" cursor-spacing="100" type="text" name="username" data-name="username" value="{{user.username}}" placeholder="请输入昵称" />
+      </block>
+      <block wx:else>
+        <input class="weui-cell__ft" cursor-spacing="100" type="text" name="username" data-name="username" value="{{userinfo.nickName}}" placeholder="请输入昵称" /> </block>
+
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-uploader__hd">
+          <p class="weui-uploader__title">
+            <text class="hong"></text>签名</p>
+          <text>({{user.signature.length}}/50)</text>
+        </view>
+        <textarea cursor-spacing="100" style='width:100%' data-name="signature" auto-height="true" maxlength="50" value="{{user.signature}}" name="signature" placeholder="请输入签名" />
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text><text class="hong"></text>性别</text>
+      </view>
+
+      <p class="weui-cell__ft">
+        <picker bindchange="bindSexChange" value="{{sexIndex}}" range-key="{{'name'}}" range="{{sexArray}}">
+          <view class="picker">
+            {{sexArray[sexIndex].name}}
+          </view>
+        </picker>
+      </p>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text><text class="hong">*</text>生日</text>
+      </view>
+      <picker mode="date" value="{{birth}}" start="1950-01-01" end="2027-09-01" bindchange="bindBirthChange">
+        <view class="picker">
+          当前选择: {{birth}}
+        </view>
+      </picker>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text><text class="hong"></text>毕业院校</text>
+      </view>
+      <p class="weui-cell__ft">
+        <input class="weui-cell__ft" cursor-spacing="100" type="text" name="universityStr" data-name="universityStr" value="{{user.universityStr}}" placeholder="请输入毕业院校" />
+      </p>
+    </view>
+
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-uploader__hd">
+          <p class="weui-uploader__title">
+            <text class="hong">*</text>我的魅力照</p>
+          <text>({{charm_imgs.length}}/9)</text>
+        </view>
+        <view class="" style="display:flex;flex-wrap:wrap;">
+          <view wx:for="{{charm_imgs}}" wx:for-item="item" wx:for-index="idx">
+            <view class="positions">
+              <image src="{{item.url}}" data-idx="{{idx}}" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" data-type="1" bindtap="previewImg" data-id="{{item.id}}" style="width:80px;height:80px;margin-right: 2px;" mode="scaleToFill"></image>
+              <view class="delete" bindtap="deleteImg" data-idx="{{idx}}" data-type="1" data-id="{{item.id}}">
+                <image style="left: {{imageWidth / 2 - 10}}px;" src="/img/icon_delete.png" />
+              </view>
+            </view>
+          </view>
+          <view class="weui-uploader__input-box" data-type="1" bindtap="uploadImg"></view>
+        </view>
+      </view>
+      <text class="weui-cell__ft"></text>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-uploader__hd">
+          <p class="weui-uploader__title">
+            <text class="hong"></text>魅力简介</p>
+          <text>({{user.info.length == 0 ? 0 : user.info.length}}/2000)</text>
+        </view>
+        <textarea cursor-spacing="100" data-name="info" class="weui-textarea" maxlength="2000" value="{{user.info}}" name="info" placeholder="在这里可以介绍一下您自己，尽展魅力，说不定新人租客会被您的魅力折服,抢着租您家房子O(∩_∩)O~" />
+      </view>
+      <text class="weui-cell__ft"></text>
+    </view>
+  </view>
+
+  <view class="weui-cells">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text style="font-weight:bold">联系方式</text>
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text><text class="hong">*</text>电话</text>
+      </view>
+      <p class="weui-cell__ft" style="display:flex;">
+        <input type="text" cursor-spacing="100" name="mobile" value="{{user.mobile}}" />
+        <view wx:if="{{user.mobile_show == 1}}">
+          <image src="../../../../img/my/secret.png" class="my-img"></image>
+        </view>
+        <view wx:else>
+          <image src="../../../../img/my/no-secret.png" class="my-img"></image>
+        </view>
+      </p>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <text><text class="hong">*</text>微信</text>
+      </view>
+      <p class="weui-cell__ft" style="display:flex;">
+        <input type="text" cursor-spacing="100" name="wechat" value="{{user.wechat}}" />
+        <view wx:if="{{user.wechat_show == 1}}">
+          <image src="../../../../img/my/secret.png" class="my-img"></image>
+        </view>
+        <view wx:else>
+          <image src="../../../../img/my/no-secret.png" class="my-img"></image>
+        </view>
+      </p>
+    </view>
+  </view>
+  <view class="weui-cells">
+    <view class="weui-cell">
+      <view class="weui-cell__bd" style="text-align:center;color:red;">
+        <button type="primary" form-type="submit" style="border-radius:5px;margin-top:5px;background-color:#82C435;">确认修改</button>
+      </view>
+
+      <text class="weui-cell__ft"></text>
+    </view>
+  </view>
+</form>

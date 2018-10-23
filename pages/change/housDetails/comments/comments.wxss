@@ -1,0 +1,138 @@
+.operator_btn {
+  margin-top: 5px;
+  flex-direction: row;
+  float: right;
+  display:flex;
+  align-items: center;
+}
+.operator_btn button{
+  margin-left: 10px;
+}
+
+.replayUser{
+  position: absolute;
+  margin-top:4px;
+}
+.home-page-view{
+  position: fixed;
+  right: 2rpx;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+}
+.home-page-style{
+  width: 40px;
+  height: 40px;
+  
+}
+.home-text{
+  font-size:24rpx;
+margin-top:-5px;
+color:#01c701;
+
+}
+
+/* .operator_btn button {
+  margin-top: 5px;
+  height: 35px;
+  line-height: 35px;
+} */
+
+.bottom_btn {
+  margin-top: 3px;
+  padding: 5px;
+  width: 100%;
+}
+
+.bottom_btn textarea {
+  border: 1rpx solid #97d54e;
+  width:100%;
+  padding:10rpx;
+  margin-left:-6px;
+  height:40px;
+
+}
+
+.my-img-icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.content-right {
+  line-height: 20px;
+  padding-left: 10px;
+}
+
+.bottom-time {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.operation {
+  margin-top: 3px;
+  margin-left: 10px;
+}
+
+.weui-textarea Cre-describe {
+  opacity: 0.5;
+}
+
+.avatar-c {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.like-off {
+  
+  width: 15pt;
+  height: 15pt;
+  margin-left: 30rpx;
+  
+}
+.operator{
+  padding:5rpx;margin-top:-10px;float: right;
+  display: flex;
+}
+.line-top{
+  border-top:1rpx solid #ccc;
+}
+
+.comment-view{
+  position:fixed;
+  bottom: 0px;
+  display: inline-flex;
+  align-items: center;
+  background-color: #F7F7F7;
+  width: 100%;
+  justify-content: space-between;
+  height:80rpx;
+  padding: 5rpx 10rpx;
+  border-top: 1px solid #EEEEEE;
+
+}
+.comment-view input{
+  border:1px solid #ccc;
+  border-radius: 15rpx;
+  background-color: white;
+  padding:0 10rpx;
+  height: 75rpx;
+}
+.comment-left{
+  flex: 4;
+  
+}
+.b{
+  margin-bottom: 72rpx;
+}
+.comment-submit-btn{
+  flex: 0.5;
+  margin: 0 15rpx;
+  font-size:15px;
+  
+  height: 75rpx;
+
+}

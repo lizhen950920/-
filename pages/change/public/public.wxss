@@ -1,0 +1,115 @@
+/* pages/change/public/public.wxss */
+page{
+  width: 100vw;
+  height: 100vh;
+}
+.house {
+  border: 2rpx solid #FF9900;
+  border-radius: 50%;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  top: 260rpx;
+  left: 230rpx;
+  color: white;
+  background: #FF9900;
+  width: 312rpx;
+  height: 312rpx;
+  line-height: 312rpx;
+  font-size: 56rpx;
+  
+}
+.house1{
+  width: 70rpx;
+  height: 70rpx;
+  position: relative;
+top: -50rpx;
+  left: 5rpx;
+}
+.house1-1{
+    position: relative;
+top: -280rpx;
+  left: 5rpx;
+}
+.nohouse {
+  border: 2rpx solid #333333;
+  border-radius: 50%;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  top: 300rpx;
+  left: 230rpx;
+  color: #333333;
+  width: 312rpx;
+  height: 312rpx;
+  line-height: 312rpx;
+   font-size: 56rpx;
+}
+.prompt{
+position: fixed;
+top: 960rpx;
+left: 100rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+.prompt view{
+  height: 50rpx;
+  line-height: 50rpx;
+}
+/*页签效果*/
+.nav {
+  /* width: 100%; */
+  height: 85rpx;
+  display: flex;
+  flex-direction: row;
+  /* background:  #292b46;  */
+   /* border-bottom: 2rpx solid #ea5514;  */
+}
+
+.default {
+  line-height: 85rpx;
+  text-align: center;
+  flex: 1;
+  border-right: 2rpx solid #ea5514;
+  color: #333333;
+  /* font-weight: bold; */
+  font-size: 28rpx;
+  background: #E4E4E4;
+}
+
+.red {
+  line-height: 85rpx;
+  text-align: center;
+  flex: 1;
+  border-right: 1px solid #ea5514;
+  /* font-weight: bold; */
+  font-size: 28rpx;
+  background:  #2a2c47;
+  background:  #FF9900; 
+  color: white;
+   /* border-bottom: 2px solid #ea5514; */
+}
+.c_prompt,.c_prompt1,.c_prompt2{
+font-size: 32rpx;
+color: #797979;
+padding-top: 50rpx;
+line-height: 40rpx;
+width: 660rpx;
+margin-left:60rpx;
+
+}
+.c_home{
+  border: 2rpx solid #FF9900;
+  border-radius: 50%;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  top: 50rpx;
+  left: 220rpx;
+  color: white;
+  background: #FF9900;
+  width: 312rpx;
+  height: 312rpx;
+  line-height: 312rpx;
+  font-size: 56rpx;
+}

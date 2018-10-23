@@ -1,0 +1,12 @@
+<!--pages/Utopia/Success.wxml-->
+<view class=''>
+<view class='body'>
+
+
+  <text class='heade-text'>好棒！</text>
+  <text class='body-text'>恭喜你顺利地完成了第一步，可以享受到第一阶段的福利，如果你想要开启更多福利，那接下来你就要努力发挥你的魅力，号召并邀请更多同学参与进来，既是帮助了更多同学，也是帮助了你自己。</text>
+  <text class='footer-text'>现在就去</text>
+
+  <text class='utopia-button' bindtap='onComplete'>邀请小伙伴</text>
+  </view>
+</view>

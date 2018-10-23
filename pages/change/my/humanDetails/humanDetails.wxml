@@ -1,0 +1,61 @@
+<view class='humanDetail'>
+<view class='humanDetail-left'>
+<image class='userinfo-avatar' src='{{user.avatar}}'></image>
+</view>
+<view class='humanDetail-right'>
+<view class='right-fir'>
+<text>{{user.username}}</text>
+ <image class='sex-img' src='{{user.sex==1?"/img/my/male.png":"/img/my/female.png"}}'></image>
+ <text style='line-height:50rpx;'>{{emotional[user.marry]}} | 魅力值{{user.score}} | {{user.type==1?'有房找室友':(user.type==2?'求房求室友':'爱家生活中')}}</text>
+</view>
+<view class='right-secon'>
+<text>{{user.constellationStr}}</text>
+<text>{{user.universityStr}}</text>
+</view>
+</view>
+</view>
+<view class='per-infor'>
+<text class='per-img'>我的魅力照</text>
+<view class="weui-uploader__bd" class="userCharmImg">
+                <ul class="weui-uploader__files" id="uploaderFiles" style="display:flex;flex-wrap:wrap;">
+                  <view wx:for="{{user.charm_imgs}}" wx:key="id" wx:for-index="idx" wx:for-item="i" >
+                    <image bindtap='previewImg' data-idx="{{idx}}" style="width: 80px; height:80px;border-radius:4px;padding-left:18rpx;" mode="scaleToFill" src="{{i.url}}"></image>
+                  </view>
+                </ul>
+              </view>
+
+              <view class='my'>我及我的理想居住空间：{{user.dream_home}}</view>
+              <view class='my'> 理想室友：{{user.hope_roommate}}</view>
+              <view class='my1' style='margin-top:50rpx;'>兴趣爱好：{{user.hobbies}}</view>
+               <view class='my1'>技能：{{user.skill}}</view>
+                        <view class='my1'>想学技能：{{user.hope_skill}}</view>
+                        <view class='my1' style='margin-top:50rpx;'>理想居住点：{{user.hope_live}}</view>
+                           <view class='my1'>租房预算：<text style='color:#FF0000;' >￥</text><text style='color:#FF9900;'>{{user.rent_start}}~{{user.rend_end}}</text> </view>
+                              <view class='my1'>搬家时间：{{user.move_start}}-{{user.move_end}}</view>
+
+                             <!-- <view class='new-prompt' style='color:#0000FF'><text>期待我们能成为好朋友、好室友</text></view> -->
+
+
+                              <!-- <view class='cre_new'>
+                              <view class='new_title'><text>我创建的</text></view>
+                              <view class='cre-home'>
+                              <image  class='home-left' src='/img/default.jpg'  style="width: 80px; height:80px;border-radius:4px;padding-left:18rpx;" mode="scaleToFill" ></image>
+                              <view class='home-right'>
+                              <view class='right-fir'>仙女屋：寻一两名小仙女，共建我们的小窝</view>
+                              
+                              </view>
+                              <view class='right-second'>
+                              <text style='color:#FF9900;font-size:28rpx;'>四人应征</text>
+                              <text style='color:#333333;font-size:28rpx;padding-left:50rpx;'>0男3女 | 22岁 | 2000元</text>
+                              
+                              </view>
+                              </view>
+                              
+                              
+                              </view> -->
+</view>
+
+
+<view class='contact'>
+<text class='contact-border'>互换名片</text>
+</view>

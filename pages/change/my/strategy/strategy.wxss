@@ -1,0 +1,66 @@
+.str_head {
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+  border-bottom: 3rpx #390 solid;
+  width: 650rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  align-items: center;
+}
+
+.str_first, .str_second, .str_third, .str_fourth {
+  background: #fff;
+}
+
+.str_second, .str_third, .str_fourth {
+  margin-top: 20rpx;
+}
+
+.se_head {
+  margin-left: 3%;
+  width: 90%;
+  padding-left: 30rpx;
+  color: #333;
+  font-size: 36rpx;
+  border-bottom: 3rpx #868686 solid;
+}
+
+.se_title {
+  line-height: 60rpx;
+  color: #333;
+  font-size: 36rpx;
+}
+
+.se_fir {
+  margin-left: 30rpx;
+  color: #868686;
+  line-height: 40rpx;
+  margin-top: 30rpx;
+}
+
+.se_sec {
+  margin-left: 30rpx;
+  color: #868686;
+  line-height: 40rpx;
+  margin-top: 30rpx;
+  height: 150rpx;
+}
+.declaration{
+  margin-top: 40rpx;
+  line-height: 50rpx;
+  font-size: 36rpx;
+  color: #999999;
+  text-align: center;
+  align-items: center;
+}
+.declaration1{
+line-height: 50rpx;
+motion-path: 20rpx;
+font-size: 36rpx;
+text-decoration: underline;
+color: #0066FF;
+  text-align: center;
+  align-items: center;
+  margin-top: 20rpx;
+}

@@ -1,0 +1,22 @@
+
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class='s_prompt'><text >以下两种搜索方式，选择适合你的一种</text></view>
+
+  <view class='container-new'>
+   <text class='serial'>1</text>
+    <view class='search-item'>
+   
+      <input placeholder='暂时只支持标题关键字搜索' name="keyword" style='flex:1' value='{{keyword}}'></input>
+    </view>
+    <text class='serial2'>2</text>
+    <text class='prompt'>
+    点击下面蓝框定位目标地，系统会推送附近信息
+    </text>
+      <view class='dest-view'  bindtap='chooseDest'> <block wx:if="{{!selectedAddress}}"> 请点击选择 </block> {{selectedAddress}}</view>
+    <view class='search-button-view'>
+      <button  formType="reset" style=' border-radius: 40rpx;border:3rpx #333333 solid;padding:0rpx 40rpx 0rpx 40rpx;color:#333333;  height: 60rpx;line-height: 60rpx;font-size: 26rpx;}' >重置</button>
+      <button  formType="submit" class='btn'>确定</button>
+    </view>
+  </view>
+</form>

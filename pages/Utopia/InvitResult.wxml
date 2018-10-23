@@ -1,0 +1,34 @@
+<!--pages/Utopia/InvitResult.wxml-->
+<view class='container-new bg-orange'>
+  <view class='header' bindtap='onInvation'>
+    <text class='create-item-title'>邀请新人</text>
+    <text class='header-info'>点击可生成邀请卡片，邀请人数越多，获得奖励越大</text>
+  </view>
+  <view class='view-center' style='padding:10px 0;'>
+    <text class='green-cls'>你已经邀请了</text>
+    <text class='data' decode='true' space='true'> {{users.length}} 位同学</text>
+  </view>
+  <view class='view-center wrap-img'>
+    <block wx:for="{{users}}" wx:key="avatar" wx:for-index="idx" wx:for-item="item">
+      <image class='img' src='{{item.avatar == "" ? "/img/default.png": item.avatar }}'></image>
+    </block>
+  </view>
+  <view class='content' style='margin-top:20px;'>
+    <text>恭喜,你入选了</text>
+    <text space='true' decode='true' class='padding'  >乌托邦计划</text>
+  </view>
+  <view class='view-center margin-top'>
+    <image class='img-80-100' src='{{ercode}}'></image>
+  </view>
+  <view class='view-center margin-top'>
+    <text class='font_size'>长按二维码进入你的族群</text>
+  </view>
+
+   <view class='view-center margin-top'>
+    <text class='font_color'>进不了群可加导师微信 qingsongxuexi  </text>
+    <text class='copy' bindtap='onCopy'>复制</text>
+  </view>
+  <view class='view-center margin-top'>
+    <text class='tips'>提示：对于达到2、3、4项激励标准的同学，可将本页截图发给导师，他会给予相应奖励</text>
+  </view>
+</view>

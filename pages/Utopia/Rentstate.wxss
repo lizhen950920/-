@@ -1,0 +1,177 @@
+/* pages/Utopia/Rentstate.wxss */
+
+.head-text {
+  /* color: #f90; */
+  color: #FF0000;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  text-align: center;
+  align-items: center;
+}
+.prompt{
+  font-size: 28rpx;
+  color: #333;
+  padding-left: 30rpx;
+  padding-top: 20rpx;
+}
+.line {
+  border-bottom: 1rpx solid #666;
+  width: 95%;
+  margin:0pr 0px 6rpx 0px;
+}
+
+.input-text {
+  padding-left: 20rpx;
+  border-bottom: 1rpx solid #333;
+  width: 90%;
+  color: #666;
+}
+
+.input-radius-text {
+  border: 1rpx solid #333;
+  border-radius: 18px;
+  justify-content: flex-start;
+  padding: 2px 9px;
+  width: 380rpx;
+  text-align: center;
+  align-items: center;
+
+}
+.ideal{
+  padding-left: 20rpx;
+  color: #333;
+  font-size: 28rpx;
+  padding-bottom: 10rpx;
+}
+.item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20rpx 16rpx;
+  border-radius: 10rpx;
+  width: 96%;
+  height: 30px;
+}
+
+.item-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20rpx 25rpx;
+  border-radius: 10rpx;
+  width: 96%;
+}
+.item-column text{
+  color: #333;
+}
+.address-button {
+  border: 1px solid #169bd5;
+  border-radius: 20px;
+  padding: 1.5% 4%;
+  margin: 4px 4px;
+  background-color: #169bd5;
+  color: white;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.item-column-text {
+  width: 24%;
+  font-size: 30rpx;
+  color: black;
+}
+
+.textarea-class{
+  border: 1rpx solid #bbb;
+  border-radius: 14px;
+  justify-content: flex-start;
+  padding: 20rpx;
+  width: 93%;
+  margin-top:20rpx;
+
+}
+.display {
+  display: flex;
+  margin-top: 10rpx;
+  width: 96%;
+}
+.tishi{
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+}
+.picker{
+  color: #A1A1A1;
+}
+.time {
+  margin-left: 20rpx;
+  border: 2rpx solid #333;
+  border-radius: 40rpx;
+  width: 200rpx;
+  padding:2px 9px;
+  text-align: center;
+  align-items: center;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #333;
+}
+.end_color{
+  color: #333;
+}
+.hei {
+  margin-left: 20rpx;
+  color: #333;
+  margin-top: 10rpx;
+}
+
+.move {
+ width: 130rpx;
+  margin-top: 15rpx;
+  padding-left: 20rpx;
+}
+
+.btn {
+  width: 264rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  border-radius: 60rpx;
+  text-align: center;
+  /* box-shadow: 0px 0px 5px #330d07; */
+  transition: 0.2s ease-out;
+  /* background: #82c435; */
+  background: #f90;
+  color: white;
+  justify-content: center;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+      border: 1px solid #f90;
+}
+.describe{
+  margin-top: 30rpx;
+}
+.home{
+  margin-left: 30rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.weui-textarea {
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  border: 2rpx solid #666;
+  border-radius: 30rpx;
+  padding: 30rpx;
+  width: 630rpx;
+}
+.height{
+  height: 100rpx;
+}
+.utopia-button{
+  margin-top: 20rpx;
+}
+.label{
+  margin: 10rpx 70rpx 10rpx 35rpx;
+}
+.money-prompt{
+  color: #000000;
+  padding-left: 20rpx;
+}

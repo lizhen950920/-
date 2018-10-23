@@ -1,0 +1,332 @@
+<include src="../../../../common/alert.wxml" />
+<!--roomforrent.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset" report-submit="true">
+  <view class='top-title'>
+    <text>让我们创造出更好的世界</text>
+    <text class='title-body'>嗨同学你好，欢迎来到新新人类乐园，完善好你的个人资料后，你将开启一段神奇之旅，如果你的资料足够有魅力，那么你将吸引到志趣相投的人，然后和你一起完成这次精彩旅程</text>
+  </view>
+  <view>
+    <text class='title-tips'>开启梦幻旅程</text>
+  </view>
+  <view>
+    <view class="weui-cells" style="margin-top:auto;">
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <text style="font-weight:bold">基本信息</text>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text class='name'>昵称</text>
+        </view>
+        <block wx:if="{{user.username}}">
+          <input class="weui-cell__ft" cursor-spacing="100" type="text" name="username" data-name="username" value="{{user.username}}" placeholder="请输入昵称" />
+        </block>
+        <block wx:else>
+          <input class="weui-cell__ft" cursor-spacing="100" type="text" name="username" data-name="username" value="{{userinfo.nickName}}" placeholder="请输入昵称" /> </block>
+
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text><text class="hong">*</text>情感状况</text>
+        </view>
+        <p class="weui-cell__ft">
+          <picker bindchange="bindMarryChange" value="{{marryIndex}}" range-key="{{'name'}}" range="{{marryArray}}">
+            <view class="picker">
+              {{marryArray[marryIndex].name}}
+            </view>
+          </picker>
+        </p>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text><text class="hong">*</text>生日</text>
+        </view>
+        <picker mode="date" value="{{birth}}" start="1950-01-01" end="2027-09-01" bindchange="bindBirthChange">
+          <view class="picker">
+            <block wx:if="{{!birth}}">请选择</block> {{birth}}
+          </view>
+        </picker>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text><text class="hong">*</text>年龄</text>
+        </view>
+        <text>{{age}}</text>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text><text class="hong">*</text>星座</text>
+        </view>
+
+        <p class="weui-cell__ft">
+          <picker bindchange="bindConstellationChange" value="{{constellationIndex}}" range-key="{{'name'}}" range="{{constellationArray}}">
+            <view class="picker">
+              {{constellationArray[constellationIndex].name}}
+            </view>
+          </picker>
+        </p>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text class='name'><text class="hong">*</text>毕业院校</text>
+        </view>
+        <p class="weui-cell__ft">
+          <input class="weui-cell__ft" cursor-spacing="100" type="text" name="universityStr" data-name="universityStr" value="{{user.universityStr}}" placeholder="请输入毕业院校" />
+        </p>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text><text class="hong">*</text>性别</text>
+        </view>
+
+        <p class="weui-cell__ft">
+          <picker bindchange="bindSexChange" value="{{sexIndex}}" range-key="{{'name'}}" range="{{sexArray}}">
+            <view class="picker">
+              {{sexArray[sexIndex].name}}
+            </view>
+          </picker>
+        </p>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text class='name'><text class="hong">*</text>职业</text>
+        </view>
+        <input type="text" cursor-spacing="100" class="weui-cell__ft" placeholder="请填写职业" name="profession" data-name="profession" value="{{user.profession}}" />
+      </view>
+      <view class="weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <text style="font-weight:bold">联系方式</text>
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <text class='name'><text class="hong">*</text>电话</text>
+          </view>
+          <p class="weui-cell__ft" style="display:flex;">
+            <input type="text" cursor-spacing="100" name="mobile" value="{{user.mobile}}" />
+            <view wx:if="{{user.mobile_show == 1}}">
+              <image src="../../../../img/my/secret.png" class="my-img"></image>
+            </view>
+            <view wx:else>
+              <image src="../../../../img/my/no-secret.png" class="my-img"></image>
+            </view>
+          </p>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <text class='name'><text class="hong">*</text>微信</text>
+          </view>
+          <p class="weui-cell__ft" style="display:flex;">
+            <input type="text" cursor-spacing="100" name="wechat" value="{{user.wechat}}" />
+            <view wx:if="{{user.wechat_show == 1}}">
+              <image src="../../../../img/my/secret.png" class="my-img"></image>
+            </view>
+            <view wx:else>
+              <image src="../../../../img/my/no-secret.png" class="my-img"></image>
+            </view>
+          </p>
+        </view>
+      </view>
+
+
+    </view>
+
+
+    <view class="weui-cells">
+      <view>
+        <text class='title-tips'>新新人类租房状态标识，让租房生活美好起来</text>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text><text class="hong"></text>类型</text>
+        </view>
+        <p class="weui-cell__ft">
+          <picker bindchange="bindTypeChange" value="{{typeIndex}}" range-key="{{'name'}}" range="{{typeArray}}">
+            <view class="picker">
+              {{typeArray[typeIndex].name}}
+            </view>
+          </picker>
+        </p>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader__hd">
+            <p class="weui-uploader__title">
+              <text class="hong">*</text>你希望住在哪？</p>
+            <!-- <text>({{user.hope_live.length}}/200)</text> -->
+            <button bindtap="chooseMap" size="mini" class='btn'>在地图上标记</button>
+          </view>
+          <input cursor-spacing="100" data-name="hope_live" class="weui-textarea" maxlength="200" value="{{hope_live}}" name="hope_live" placeholder="可以写上具体的地址，方便大家找对人" />
+        </view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text class='name'><text class="hong">*</text>最低月租预算</text>
+        </view>
+        <view class="weui-cell__ft">
+          <input type="text" cursor-spacing="100" name="rent_start" data-ctype="1" bindinput='bindtap1' value="{{user.rent_start}}" />
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text class='name'><text class="hong">*</text>最高月租预算</text>
+        </view>
+        <view class="weui-cell__ft">
+          <input type="text" cursor-spacing="100" name="rend_end" data-ctype="2" bindblur="bindblurs" bindinput='bindtap1' value="{{user.rend_end}}" />
+        </view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text><text class="hong"></text>搬家开始时间</text>
+        </view>
+        <picker mode="date" value="{{user.move_start}}" data-type='1' start="1950-01-01" end="{{user.move_end}}"bindchange="bindMoveChange">
+          <view class="picker">
+            <block wx:if="{{!user.move_start}}"> 当前选择:</block> {{user.move_start}}
+          </view>
+        </picker>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text><text class="hong"></text>搬家结束时间</text>
+        </view>
+        <picker mode="date" value="{{user.move_end}}" data-type='2' start="{{user.move_start}}" end="2027-09-01" bindchange="bindMoveChange">
+          <view class="picker">
+            <block wx:if="{{!user.move_end}}"> 当前选择:</block> {{user.move_end}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <!--以下是自由发挥，对提升魅力值很有帮助  -->
+
+    <view class="weui-cells">
+      <view>
+        <text class='title-tips'>以下是自由发挥，对提升魅力值很有帮助</text>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader__hd">
+            <p class="weui-uploader__title">
+              <text class="hong">*</text>我的魅力照</p>
+            <text>({{charm_imgs.length}}/9)</text>
+          </view>
+          <view class="" style="display:flex;flex-wrap:wrap;">
+            <view wx:for="{{charm_imgs}}" wx:for-item="item" wx:for-index="idx">
+              <view class="positions">
+                <image src="{{item.url}}" data-idx="{{idx}}" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" data-type="1" bindtap="previewImg" data-id="{{item.id}}" style="width:80px;height:80px;margin-right: 2px;" mode="scaleToFill"></image>
+                <view class="delete" bindtap="deleteImg" data-idx="{{idx}}" data-type="1" data-id="{{item.id}}">
+                  <image style="left: {{imageWidth / 2 - 10}}px;" src="/img/icon_delete.png" />
+                </view>
+              </view>
+            </view>
+            <view class="weui-uploader__input-box" data-type="1" bindtap="uploadImg"></view>
+          </view>
+        </view>
+        <text class="weui-cell__ft"></text>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader__hd">
+            <p class="weui-uploader__title">
+              <text class="hong"></text>签名</p>
+            <text>({{user.signature.length}}/50)</text>
+          </view>
+          <textarea class='weui-textarea' cursor-spacing="100" data-name="signature" auto-height="true" maxlength="50" value="{{user.signature}}" name="signature" placeholder="请输入签名" />
+        </view>
+      </view>
+
+
+
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text class='name'><text class="hong">*</text>家乡</text>
+        </view>
+        <p class="weui-cell__ft">
+          <input class="weui-cell__ft" cursor-spacing="100" type="text" data-name="hometownStr" value="{{user.hometownStr}}" name="hometownStr" placeholder="请输入家乡" />
+        </p>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text class='name'><text class="hong"></text>兴趣爱好</text>
+        </view>
+        <input type="text" cursor-spacing="100" class="weui-cell__ft" placeholder="请填写兴趣爱好" name="hobbies" data-name="hobbies" value="{{user.hobbies}}" />
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text class='name'><text class="hong">*</text>技能</text>
+        </view>
+        <input type="text" cursor-spacing="100" class="weui-cell__ft" placeholder="技能" name="skill" data-name="skill" value="{{user.skill}}" />
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <text class='name'><text class="hong"></text>希望交换的技能</text>
+        </view>
+        <input type="text" cursor-spacing="100" class="weui-cell__ft" placeholder="希望交换技能" name="hope_skill" data-name="hope_skill" value="{{user.hope_skill}}" />
+      </view>
+    </view>
+    <view class="weui-cells">
+      <view>
+        <text class='title-tips'>让生活来点诗意</text>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader__hd">
+            <p class="weui-uploader__title">
+              <text class="hong"></text>关于我和我的理想生活</p>
+            <text>({{user.dream_home.length}}/2000)</text>
+          </view>
+          <textarea cursor-spacing="100" data-name="dream_home" class="weui-textarea" maxlength="2000" value="{{user.dream_home}}" name="dream_home" placeholder="在这里可以谈谈你的梦想、有趣的故事、生活习惯以及你的梦想家园，尤其是梦想" />
+        </view>
+        <text class="weui-cell__ft"></text>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader__hd">
+            <p class="weui-uploader__title">
+              <text class="hong"></text>理想空间照</p>
+            <text>({{live_imgs.length}}/9)</text>
+          </view>
+
+          <view class="" style="display:flex;flex-wrap:wrap;">
+            <view wx:for="{{live_imgs}}" wx:for-item="item" wx:for-index="idx">
+              <view class="positions">
+                <image src="{{item.url}}" bindlongtap="imgDel" data-idx="{{idx}}" data-type="2" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" bindtap="previewImg" data-id="{{item.id}}" style="width:80px;height:80px;margin-right: 2px;" mode="scaleToFill"></image>
+                <view class="delete" bindtap="deleteImg" data-idx="{{idx}}" data-type="2" data-id="{{item.id}}">
+                  <image style="left: {{imageWidth / 2 - 10}}px;" src="/img/icon_delete.png" />
+                </view>
+              </view>
+            </view>
+            <view class="weui-uploader__input-box" data-type="2" bindtap="uploadImg"></view>
+          </view>
+        </view>
+        <text class="weui-cell__ft"></text>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader__hd">
+            <p class="weui-uploader__title">
+              <text class="hong">*</text>理想室友</p>
+            <text>({{hope_roommate.length}}/200)</text>
+          </view>
+          <textarea cursor-spacing="100" data-name="hope_roommate" bindinput='bindinput' class="weui-textarea" maxlength="200" value="{{hope_roommate}}" name="hope_roommate" placeholder="写的越好越容易吸引你的理想室友哦，O(∩_∩)O~" />
+        </view>
+      </view>
+    </view>
+    <view>
+      <text class='title-tips'>我愿意做一个美好的新新人类</text>
+    </view>
+  </view>
+  <view class="submit-btn-cls">
+  <button type="primary" size='mini' form-type="submit" style=" width: 48%; margin: 5rpx;line-height:2.9; border-radius: 5px; text-align: center;box-shadow: 0px 0px 5px #330d07;transition: 0.2s ease-out;" bindtap='first'>回到首页</button>
+    <button type="primary" size='mini' form-type="submit" style="width:48%;margin:5rpx;line-height:2.9;border-radius: 5px;  text-align: center;box-shadow:0px 0px 5px #330D07;transition: 0.2s ease-out;">确认修改</button>
+    
+  </view>
+</form>

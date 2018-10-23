@@ -1,0 +1,43 @@
+<view wx:if="{{!public}}">
+<view class='str_first'>
+  <view class='str_head'>
+    <text style='color：#333333;font-size:40rpx;'>怎么玩转</text>
+    <text style='color:#FF9900;font-size:40rpx;padding-left:20rpx;'>新新人类乐园</text>
+    <text style='color：#333333;font-size:40rpx;'>？</text>
+  </view>
+
+  <view style='color:#868686;font-size:28rpx;width:700rpx;margin-left:25rpx;line-height:50rpx;margin-top:40rpx;'>这里不仅仅是租房，更是年轻人追逐梦想天地的乐园</view>
+  <view style='color:#868686;font-size:28rpx;width:700rpx;margin-left:25rpx;margin-top:40rpx;line-height:50rpx;margin-bottom:30rpx;'>
+    如果外面的世界让你脚步变得更快，那么这里就是让你的世界慢下来的地方
+  </view>
+</view>
+
+<view class='str_second'>
+  <view class='se_head'>
+    <text class='se_title'> 简单版租房</text>
+  </view>
+  <view class='se_fir'>1.在乐园首页，有很多同学发布房源和求租信息，你可以根据需要沟通联系；</view>
+  <view class='se_sec'>2.如果你有房源出租或者需要求租，你也可以创贴发布，回帖，帖子会跟新靠前，曝光率提高</view>
+</view>
+<view class='str_third'>
+<view  class='se_head' ><text class='se_title'>高级帅气版.创理想世界</text></view>
+<view class='se_fir'>1.在“未来城”里有热爱生活的同学创建的各种理想之家，你喜欢哪个就可以申请加入共建</view>
+
+<view class='se_sec'>2.如果你觉得你有魅力的理想之家构想你也可以选择高级模式把它创建出来，魅力尽展后就可以吸引志趣相投的同学来助阵</view>
+
+</view>
+<view class='str_fourth'>
+<view class='se_head' ><text class='se_title'>撩新新人类</text></view>
+<view  class='se_fir'>1，在新新人类大本营，隐藏着多姿多彩的新人类，你要是觉得哪个适合当室友，请礼貌勾搭；</view>
+<view class='se_sec'>
+2.撩新新人类的最高级形式，帮转发他们的发布、帮找房源、寻室友，那么，你进入了新人类圈
+</view>
+
+</view>
+<view class='declaration'><text>一网打进</text> </view>
+<view class='declaration1' catchtap='public'><text>宇宙最强租房攻略
+
+</text> </view>
+</view>
+<web-view wx:if="{{public}}" src="https://mp.weixin.qq.com/s/zyJB2zx0A-8b-2jgwQbYMA">
+</web-view>

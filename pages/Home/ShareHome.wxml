@@ -1,0 +1,34 @@
+<!--pages/Home/ShareHome.wxml-->
+<!-- <view>
+<text class='title'>嗨！住一起好吗？</text>
+  <view class='share-bg'>
+  
+    <view class='share-body'>
+      
+      <text class='font28'>{{home.name}}</text>
+      <text class='blue13'>{{home.declaration}}</text>
+      <image class='cover' src='{{coverImg}}'></image>
+      <view class='ercodeView'>
+        <view class='t1'>
+        <text >创我所想</text>
+        <text >心动生活</text>
+        </view>
+        <image class='ercode' src='{{ercodeImg}}'></image>
+        <text class='t2'>一起搭建我们想要的小天地</text>
+      </view>
+      
+      <button size='mini' plain="true" style='line-height:50rpx;height:50rpx;border-radius:50rpx;font-size:11px;'>长按图片识别小程序扫码进入</button>
+      <text>无论你能不能跟我一起</text>
+      <text class='font18'>求转发，求推荐！帮我找到对的室友</text>
+      <text class='red'>也许那个对的室友，就在身边</text>
+    </view>
+    
+    
+  </view>
+
+</view> -->
+
+<view class="canvas-box">
+  <canvas style="width: 100%;height: {{windowHeight-40}}px;" canvas-id="mycanvas" />
+</view>
+<button type='primary' style='height:40px;' bindtap='saveImg'>生成卡片</button>

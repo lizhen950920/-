@@ -1,0 +1,23 @@
+.contant_wrap {
+  background-color: #fff;
+}
+
+.contant {
+  width: 94%;
+  margin: 0 auto;
+}
+
+textarea {
+  min-height: 300rpx;
+  padding: 10rpx 0;
+  width: 100%;
+  font-size: 26rpx;
+  /* color: #a5c2eb; */
+  color: #333;
+}
+.btn{
+  width: 70%;
+   margin-top: 60rpx;
+  background-color: #FF9900;
+  color: #fff;
+}

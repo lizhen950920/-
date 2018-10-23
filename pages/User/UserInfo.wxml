@@ -1,0 +1,4 @@
+<import src="../../template/userInfo.wxml" />
+<include src="../../common/alert.wxml" />
+
+<template is="userInfo" data="{{user}}"></template>

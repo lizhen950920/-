@@ -1,0 +1,180 @@
+
+<scroll-view scroll-y >
+  <view class="weui-cells" style="margin-top:auto;">
+    <navigator url="/pages/User/UserInfo?uid={{home.uid}}&isShow={{home.isShow}}" class="weui-cell5">
+      <view class="weui-cell__hd">
+        <image  src="{{user.avatar}}" style="width:3rem;height:3rem;"></image>
+        <!-- <image wx:if="{{home.avatar}}" src="{{home.avatar}}" style="width:3rem;height:3rem;"></image> -->
+        <!-- <text class='originator'>发起人</text> -->
+      </view>
+      <view class="weui-cell__bd" style="line-height:1.6em;">
+        <p>
+          <text style="font-weight:bold;">{{user.username}}</text>
+          <image src="{{user.sex==1?'../../../../img/my/male.png':'../../../../img/my/female.png'}} " class="my-img"></image>
+          <!-- <text style="font-size:11px;color:#97d54e;border:1px solid #97d54e;margin-left:40%;">{{home.found == 1 ? '已找到房':'未找到房' }}</text> -->
+        </p>
+        <p style="margin-top:0.5rem;">
+          <ul class="weui-media-box__info">
+            <!-- <li wx:if="{{home.station}}" class="weui-media-box__info__meta">{{user.station}}</li> -->
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{user.age}}岁</li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{user.marry==1?'单身':(home.marry == 2?'婚恋':'保密')}}</li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra1">魅力值{{user.score}}</li>
+
+          </ul>
+        </p>
+      </view>
+    </navigator>
+  </view>
+  <view catchtap='showdown' style='margin-top:20rpx; background: #FFFFFF;'>
+    <view class='home_detail'>
+      <text style='color:#333333;font-size:32rpx;font-weight: bold;' >{{items.name}}</text>
+    </view>
+    <view class='home_detail'>
+      <text style='color:#666666;font-size:28rx;'>{{items.declaration}}</text>
+    </view>
+    <view class='home_detail1'>
+      <text style='color:#333333;font-size:26rpx;margin-top:120rpx;'>{{items.area}}平米 | {{items.room==null?'χ':items.room}}室{{items.hall==null?'χ':items.hall}}厅{{items.toilet==null?'χ':items.toilet}}卫{{items.kitchen==null?'χ':items.kitchen}}厨 | {{items.male==null?'χ':items.male}}男{{items.female?items.female:"χ"}}女</text>
+    </view>
+    <view class='home_detail'>
+      <text style='color:#666666;font-size:26rpx;'>押 {{items.deposit==null?'χ':items.deposit}}付{{items.pay==null?'χ':items.pay}} | 人均{{items.avgprice==null?'χ':items.avgprice}}元/月</text>
+    </view>
+    <view bindtap='navoToDes' style='display:flex;margin-top:30rpx;height:70rpx;'>
+      <image class='location2' src='/img/Aiqilin/location2.png'></image>
+      <view class='address' style='font-weight: bold;'>{{items.address}}</view>
+      <text class='map_border'>地图》</text>
+    </view>
+    <view style='display:flex;margin-top:30rpx;background:#FFFFFF;height:80rpx;'>
+      <text class='house_border'>有房</text>
+      <view class='h_title' >我的创家理念</view>
+    </view>
+    <view class='h_desc'>
+      <text wx:if="{{home.desc}}">{{items.desc}}</text>
+    </view>
+    <!-- <image class='h_image' mode="aspectFill" src='/img/default.jpg'></image> -->
+    <!-- <view class='descation'>
+<text class='h_name'>客厅</text>
+<view class='h_descation'>顶层复式楼顶层复式楼顶层复式楼顶层复式楼顶层复式楼顶层复式楼顶层复式楼顶层复式楼顶层复式楼顶层复式楼</view>
+</view> -->
+    <view wx:for="{{items.rooms}}" wx:for-item="item"  wx:key="id" wx:for-index="idx" wx:for-item="item" style='margin-top:40rpx;' >
+
+      <view>
+            <swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}  height={{250}}">
+  <block  wx:for="{{items.charm_imgs}}">
+    <swiper-item>
+      <image src='{{item.url}}' catchtap='previewImg' data-id="{{item.id}}" class='h_image'  mode="aspectFill" width="355" height="250"/>
+    </swiper-item>
+  </block>
+</swiper>
+        <!-- <image wx:for="{{home.charm_imgs}}"  wx:for-index="idx" class='h_image' mode="aspectFill" src='{{item.url}}'></image> -->
+        <text class='num_apply'>{{roommate_num}}人申请</text>
+      </view>
+      <view class='descation'>
+        <text class='h_name' wx:if="{{item.room_name}}"> {{item.room_name}}</text>
+        <text wx:if="{{item.room_area}}" class='h_area'>{{item.room_area}}平方米</text>
+        <text wx:if="{{item.room_area}}" style='padding-left:10rpx;'>|</text>
+        <text class='h_money' wx:if="{{item.room_price}}">{{item.room_price}}元</text>
+        <text class='apply'  catchtap='aplay' data-id="{{home.id}}" data-homeuid="{{home.uid}}" data-name="{{item.room_name}}" data-idx="{{idx}}" wx:for-index="idx">申请</text>
+        <view class='h_descation'>{{item.room_mark}}</view>
+      </view>
+    </view>
+    <view class='h_background'></view>
+    <view class='h-time'>
+      <view class='c_time'> 能住时间：{{items.start}}-{{items.end}}</view>
+      <view class='c_time'>
+        <text wx:if="{{home.apply_end}}" style='color:#666666'>报名截止时间：{{items.apply_end}}</text>
+        <text style='padding-left:140rpx;color:#333333;font-size:28rpx;'>剩余{{endDay}}天</text>
+      </view>
+    </view>
+    <view class='h_background'></view>
+    <view style='height:200rpx;'>
+      <view style='float:left;width:20%;padding-left:30rpx;height:180rpx;padding-top:20rpx;'>
+        <image wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" style="width:3rem;height:3rem;border-radius: 50%;"></image>
+        <image wx:if="{{home.avatar}}" src="{{home.avatar}}" style="width:3rem;height:3rem;border-radius: 50%;"></image>
+      </view>
+      <view style='padding-top:20rpx;'>
+        <text style="padding-top:20rpx;color:#000000;">{{home.username}}</text>
+      </view>
+      <view style='height:50rpx;line-height:40rpx;color:#666666;font-size:26rpx;'>{{home.introduction}}</view>
+    </view>
+    <view style='display:flex;'>
+      <block wx:for="{{home.charm_imgs}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+        <image class='p_img' wx:if="{{item.type == 3}}"  catchtap='previewImg' data-id="{{item.id}}" data-type="3" src="{{item.url}}" style="width:3rem;height:3rem;"></image>
+      </block>
+    </view>
+    <view class='h_background'></view>
+    <view class='idea_home'>
+      <view bindtap='switchSlider' class="{{selectIndex==0?'idea_left':'default'}}" data-index="0">
+        <text>已入选室友({{homelength}})</text> </view>
+      <view bindtap='switchSlider' class="{{selectIndex==1?'idea_right':'idea_right1'}}" data-index="1">
+        <text>留言({{home.comment}})</text>
+        <image wx:if="{{selectIndex==1}}" catchtap='navClick1' class='m_img' src='/img/compile1.png'></image>
+        <!-- <image class='m_img' src='/img/public/message1.png'></image> -->
+      </view>
+    </view>
+    <!-- 入住室友 -->
+    <view wx:if="{{selectIndex==0}}">
+      <view class='chum' wx:for="{{home.roommates}}"  wx:for-item="item">
+         <navigator  url="/pages/User/UserInfo?uid={{item.id}}&isShow=true">
+  
+        <view class='chum_img'>
+          <image class='p_img'  src="{{item.avatar}}" style="width:3rem;height:3rem;"></image>
+        </view>
+        <view class='chum_fline'>
+          <text style="color:#000000;padding-left:30rpx;">{{item.username}}</text>
+          <image src="{{item.sex==1?'../../../../img/my/male.png':'../../../../img/my/female.png'}} " class="my-img"></image>
+          <text style='padding-left:20rpx;'>{{item.universityStr}}</text>
+        </view>
+        <view class='sec_line'>
+          <text style="padding-left:30rpx;">{{item.content}}</text>
+        </view>
+   </navigator>
+      </view>
+      <view wx:if="{{home_uid == loginUid}}"  class='chum_func'>
+        <image class='func_img' src='/img/reduce.png' catchtap='delect' ></image>
+        <!-- <view class='func_text'>
+          <text  style='text-decoration: underline;'>转换家长</text>
+        </view> -->
+      </view>
+       <view class='h_prompt'>
+      <text style='font-size：28rpx;color:#FF9900'>Tips:喜欢我的创想就可以申请加入和我共建美家喔~</text>
+    </view>
+    </view>
+
+    <view wx:if="{{selectIndex==1}}">
+     <block  class="" wx:for="{{items}}" wx:for-index="idx" wx:for-item="option">
+ <view class='message'>
+<view class='left_hand'>
+  <image class='avatar2' src='{{option.avatar==""?"/img/noavatar.png":option.avatar}}'></image>
+  </view>
+  <view class='right-info'>
+    <view class='right-on'>
+      <text  wx:if="{{home.uid != loginUid}}" class='nickname1'>{{option.username}}</text>
+
+ <text  wx:else class='nickname1'>
+ <text style='#FF9900'>贴主回复</text>{{option.username}}</text>
+     <text class='up_time'>{{option.create_date}}</text>
+       <view wx:if="{{home.uid==loginUid}}" catchtap='replayClick' data-id='{{option.id}}' data-uid="{{option.uid}}" data-username="{{option.username}}"> 
+       <!-- <view bindtap='replayClick' style="display: flex;font-size: 28rpx;" data-id='{{item.id}}' data-uid="{{item.uid}}" data-username="{{item.username}}"> -->
+     <image  style="display: flex;font-size: 28rpx;" data-id='{{option.id}}' data-uid="{{option.uid}}" data-username="{{option.username}}" class='reply' src='/img/reply.png'></image>
+     <text class='reply1'>回复</text>
+      </view> 
+     <!-- </view> -->
+    </view>
+    <view class='content'>{{option.comment}}</view>
+     </view>
+</view>
+   </block >
+    
+    
+    
+    </view>
+
+   
+  </view>
+</scroll-view>
+
+
+
+
+

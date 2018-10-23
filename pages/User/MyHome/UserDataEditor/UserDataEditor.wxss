@@ -1,0 +1,157 @@
+/* setuserhomepage.wxss */
+
+.hong {
+  color: red;
+}
+
+.name {
+  display: flex;
+  position: relative;
+  width: 240rpx;
+}
+
+p {
+  display: block;
+  margin-top: 5px;
+}
+
+.my-img {
+  width: 10px;
+  height: 10px;
+  padding-left: 5px;
+}
+
+.weui-cell__hd {
+  margin-right: 15px;
+}
+
+.userCharmImg {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.submit-btn-cls {
+  margin-top: 40rpx;
+  bottom: 4px;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  flex: 1;
+  border-radius: 5px;
+}
+
+.placeholder {
+  margin: 5px;
+  padding: 0 10px;
+  height: 1.8em;
+  line-height: 1.8em;
+  text-align: center;
+  color: #97d54e;
+  border: 1px solid #97d54e;
+  border-radius: 9px;
+}
+
+.selected {
+  color: #fff;
+}
+
+.choose {
+  color: #4e9000;
+  border: 1px solid #4e9000;
+  border-radius: 9px;
+  background-color: #baf971;
+}
+
+/*删除按钮*/
+
+.positions {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 2px 2px 2px;
+}
+
+.positions > image {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.delete {
+  width: 80px;
+  position: absolute;
+  bottom: 0;
+  height: 20px;
+  background: #ccc;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.delete image {
+  width: 20px;
+  height: 20px;
+}
+
+.top-title {
+  padding: 20rpx 20rpx;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.top-title > text {
+  display: block;
+height: 40rpx;
+line-height: 40rpx;
+}
+
+.top-title > text:nth-of-type(2) {
+  /* color: #82C435; */
+  color: #666;
+  padding: 10px 10px 0 10px;
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.title-tips {
+margin-left: 20rpx;
+  align-items: center;
+  background-color: white;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 10rpx;
+  /* color: #82C435; */
+   color: #666;
+}
+
+.btn {
+  background: #82c435;
+}
+.menu_head{
+height: 74rpx;
+width: 100%;
+line-height: 74rpx;
+}
+.menu{
+  padding-left: 30rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+.weui-textarea {
+border: 2rpx solid #666;
+border-radius: 30rpx;
+padding: 30rpx;
+width: 630rpx;
+}
+.base{
+  height: 400rpx;
+  width: 100%;
+}
+.describe{
+  color: #999999;
+  margin-left: 20rpx;
+}

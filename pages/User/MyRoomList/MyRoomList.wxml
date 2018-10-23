@@ -1,0 +1,36 @@
+<scroll-view class="scrollView" style="height:{{height}}px" scroll-y="true" bindscrolltolower="loadMoreData">
+  <block class="" wx:for="{{items}}" wx:for-index="idx" wx:for-item="item">
+    <view class="weui-panel weui-panel_access line">
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_appmsg" id="detail" bindtap="roomDetail" data-uid="{{item.uid}}" data-id="{{item.id}}">
+          <view class="weui-media-box__hd">
+            <image src="{{item.url}}" style="width:78px;height:78px;"></image>
+          </view>
+          <view style="line-height:24px;">
+            <view class="classname">
+              <text style="font-weight:bold;font-size:13px;">{{item.title}}</text>
+            </view>
+
+            <view class="classname">
+              <ul class="weui-media-box__info">
+                <li class="weui-media-box__info__meta">{{item.pca}}</li>
+                <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.station}}</li>
+                <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">
+                </li>
+              </ul>
+            </view>
+
+
+              <view>
+                <text class="weui-cell__ft" style="font-size:11px;">{{item.create_date}}</text>
+              </view>
+              <view class="edit-cls" id="edit" bindtap="roomedit" data-id="{{item.id}}" data-uid="{{item.uid}}">
+                <image src="../../../img/ldealhome/edit.png"  class="my-img-icon"></image>
+                <text>编辑</text>
+              </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>

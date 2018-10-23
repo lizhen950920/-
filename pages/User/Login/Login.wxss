@@ -1,0 +1,135 @@
+Page {
+  /* background-color: #483454; */
+  background-color: #f2f2f2;
+}
+
+/*.content{
+    margin: 0;
+    padding: 0;
+    background-color: #483454;
+    height: 100%;
+}*/
+
+.input {
+  margin-top: 50%;
+  width: 95%;
+  /* background-color: #50495a; */
+  margin: 0 auto;
+  border: 1rpx solid #97d54e;
+  border-radius: 10rpx;
+}
+
+.formline {
+  background-color: #97d54e;
+  height: 1rpx;
+}
+
+.input input {
+  height: 92rpx;
+  color: #aba5ab;
+  font-size: 30rpx;
+  padding-left: 19rpx;
+}
+
+.form_button {
+  margin-top: 35rpx;
+  width: 50%;
+  color: white;
+  font-size: 28prx;
+  background-color: #97d54e;
+}
+
+.register_forgetpwd {
+  height: 92rpx;
+  color: #b7adb5;
+  font-size: 28rpx;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.register_forgetpwd text {
+  line-height: 92rpx;
+  height: 92rpx;
+}
+
+.forgetpwd {
+  float: right;
+}
+
+.bottom_top {
+  background-color: green;
+  height: 46rpx;
+  text-align: center;
+}
+
+.bottom_top text {
+  color: white;
+  display: inline-block;
+  height: 46rpx;
+  font-size: 24rpx;
+  line-height: 46rpx;
+  width: 20%;
+  text-align: center;
+}
+
+.bottom_top image {
+  display: inline-block;
+  width: 35%;
+  height: 46rpx;
+  vertical-align: middle;
+}
+
+.mobile-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mobile-line button {
+  margin: 7px 0;
+  opacity: 1;
+  border: 1px solid white;
+  background-color: #97d54e;
+  line-height:1.8;
+
+}
+
+.mobile-line button text {
+  margin-top: 2px;
+  opacity: 1;
+  color: white;
+  font-size: 32rpx;
+}
+
+
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+  background-color:#97d54e;
+}
+
+.advertising{
+  height: 100px;
+}
+.wechatBtn{
+  background-color:#1aad19;
+  width: 90%;
+  margin-left: 30rpx;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginBtn{
+  color: blue;
+  display:flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.imglogo{
+  display: block;
+ margin: 0 auto;
+ margin-top: 50rpx;
+}
