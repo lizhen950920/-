@@ -148,7 +148,7 @@ that.setData({
   bindFormSubmit: function (e) {
     var that = this;
     //判断是否可以加入 你的魅力值不足，请先去完善个人资料提升魅力值，当魅力值超过350时才可以申请
-    if (that.data.user.score < 350) {
+    // if (that.data.user.score < 350) {
     //   wx.showModal({
     //     title: '提示',
     //     content: '你的魅力值不足，请先去完善个人资料提升魅力值，当魅力值超过350时才可以申请',
@@ -160,7 +160,7 @@ that.setData({
     //     }
     //   })
     //   return;
-    }
+    // }
 
     var data = e.detail.value;
     var content = that.data.comment;
@@ -210,7 +210,6 @@ that.setData({
       that.setData({
         applyStatus: false,
       });
-      console.log(that.data.applyStatus)
       httpUtil.hideToast();
       if (res.code == 200) {
         that.sendTemplateMsg(res, comment);

@@ -31,9 +31,9 @@
       <view class="weui-cells-1 weui-cells_after-title">
         <view class="weui-cell">
           <view class="weui-cell__bd1">申请房间</view>
-          <view class="home" style='width:100%' >
+          <view class="" >
             <!-- <input class="weui-cell__ft" value="{{home.homeApply.home_room}}" cursor-spacing="100" type="text" name="room" data-name="room" placeholder="申请房间" /> -->
-           <view style='margin-left:10rpx; width:130rpx;display:inline-block;margin-top:5rpx;text-align:center' wx:if="{{item.room_name}}" wx:for="{{home.rooms}}" wx:for-index="idx" data-idx='{{idx}}' data-id='{{item.id}}' data-name='{{item.name}}' wx:for-item="item" name="item.room_name"  class="{{selectidx==idx? 'home-name':'home-name1'}}" catchtap='selectroom'>{{item.room_name}}</view>
+           <text wx:if="{{item.room_name}}" wx:for="{{home.rooms}}" wx:for-index="idx" data-idx='{{idx}}' data-id='{{item.id}}' data-name='{{item.name}}' wx:for-item="item" name="item.room_name"  class="{{selectidx==idx? 'home-name':'home-name1'}}" catchtap='selectroom'>{{item.room_name}}</text>
           </view>
         </view>
       </view>
@@ -49,12 +49,12 @@
       </view>
     </view>
     <view class='page__ft' wx:if="{{home.homeApply != null}}">
- 
-    </view>
-     
+  
       
+    </view>
+    <button class='com-btn' disabled='{{applyStatus}}' form-type="submit"> 确认提交 </button>
   </view>
-<button class='com-btn' disabled='{{applyStatus}}' form-type="submit"> 确认提交 </button>
+
 </form>
 <view class="weui-cells-2">
   <navigator class="weui-cell">

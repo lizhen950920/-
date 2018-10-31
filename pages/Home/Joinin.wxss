@@ -147,7 +147,6 @@ align-items: center;
 }
 .weui-cell__bd1{
   padding-left: 10rpx;
-    width: 180rpx;
 }
 .weui-uploader__hd1 {
   display: -webkit-box;

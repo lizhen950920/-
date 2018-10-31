@@ -7,7 +7,7 @@
     "pages/FindHome/FindHome",
     "pages/User/user",
     "pages/User/MyHome/MyHome",
-
+"pages/User/MyHome/UserDataEditor/UserDataEditor",
     "pages/User/MyHome/RealName/RealName",
     "pages/User/MyLdealHome/MyLdealHome",
     "pages/User/mymessage/mymessage",

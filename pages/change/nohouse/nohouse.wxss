@@ -302,14 +302,13 @@ p{
   background: #82C435;
 } */
 .contant {
-  width: 100%;
+  width:100%;
   padding-top: 20rpx;
   background: #ffffff;
 }
 
 textarea {
   min-height: 200rpx;
-  padding: 10rpx 20rpx 0 20rpx;
   width: 100%;
   font-size: 26rpx;
   /* color: #a5c2eb; */
