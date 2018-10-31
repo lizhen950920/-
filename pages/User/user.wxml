@@ -37,19 +37,19 @@
     <navigator class="person-list" url="/pages/change/my/MyRoomList/MyRoomList" hover-class="none" open-type="navigate">
       <image mode="aspectFit" src="../../img/my/fabu.png"></image>
       <text>我创建的</text>
-       <image style='float:right;width:25rpx;height:25rpx;margin-top:40rpx;' mode="aspectFit" src="../../img/my/to-personalpage.png"></image>
+       <image style='float:right;width:25rpx;height:25rpx;margin-top:40rpx;' mode="aspectFit" src="../../img/my/to-nextpage.png"></image>
     </navigator>
 
 
     <navigator class="person-list" url="MyLdealHome/MyLdealHome?src=1" hover-class="none" open-type="navigate">
       <image mode="aspectFit" src="../../img/my/mylove.png"></image>
       <text>我喜欢的</text>
-      <image style='float:right;width:25rpx;height:25rpx;margin-top:40rpx;' mode="aspectFit" src="../../img/my/to-personalpage.png"></image>
+      <image style='float:right;width:25rpx;height:25rpx;margin-top:40rpx;' mode="aspectFit" src="../../img/my/to-nextpage.png"></image>
     </navigator>
     <navigator class="person-list" url="/pages/change/my/contactMe/contactMe" hover-class="none" open-type="navigate">
       <image mode="aspectFit" src="../../img/my/weixin.png"></image>
       <text>联系我们<text style='font-size:34rpx;color:#000000;padding-top:-20rpx;'>.</text>进新人类族群</text>
-      <image style='float:right;width:25rpx;height:25rpx;margin-top:40rpx;' mode="aspectFit" src="../../img/my/to-personalpage.png"></image>
+      <image style='float:right;width:25rpx;height:25rpx;margin-top:40rpx;' mode="aspectFit" src="../../img/my/to-nextpage.png"></image>
     </navigator>
     <!-- <navigator class="person-list" url="/pages/change/my/feedback/feedback" hover-class="none" open-type="navigate">
       <image mode="aspectFit" src="../../img/my/fabu.png"></image>
@@ -58,7 +58,7 @@
     <navigator class="person-list  person-lists" url="/pages/change/my/strategy/strategy" hover-class="none" open-type="navigate">
       <image mode="aspectFit" src="../../img/my/strategy.png"></image>
       <text>攻略玩法</text>
-      <image style='float:right;width:25rpx;height:25rpx;margin-top:40rpx;' mode="aspectFit" src="../../img/my/to-personalpage.png"></image>
+      <image style='float:right;width:25rpx;height:25rpx;margin-top:40rpx;' mode="aspectFit" src="../../img/my/to-nextpage.png"></image>
     </navigator>
 
     <!-- <navigator class="person-list" url="MyLdealHome/MyLdealHome" hover-class="none" open-type="navigate">

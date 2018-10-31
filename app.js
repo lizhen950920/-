@@ -1,7 +1,11 @@
 //app.js
 var util = require("common/httpUtil.js");
 App({
+  globalData: {
+    userInfo:'',
+  },
   onLaunch: function () {
+  
     console.log("onLaunch..........");
     //新版本更新
     const updateManager = wx.getUpdateManager()
@@ -14,7 +18,9 @@ App({
     updateManager.onUpdateReady(function () {
       wx.showModal({
         title: '更新提示',
-        content: '新新人类乐园有更新了，为了更好的体验，需重启以使用最新的功能？',
+        content: '新人，本小程序有更新了，未来更好的体验，请重启以使用最新的功能',
+        showCancel:false,
+        confirmText:'确定',
         success: function (res) {
           if (res.confirm) {
             // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启

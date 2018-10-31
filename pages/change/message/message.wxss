@@ -20,3 +20,39 @@ page,
     padding-top: 60px;
     text-align: center;
 }
+.list{ 
+  position: relative; 
+  height: 170rpx; 
+margin: 10rpx; 
+border-radius: 10rpx;
+  line-height: 170rpx; 
+  overflow: hidden; 
+} 
+/* 删除外层包裹视图 */
+.list_del{ 
+  position: absolute; 
+  top:0; 
+} 
+.list_del.txt{ 
+  position: relative;
+  background-color: #fff; 
+  width: 100%; 
+  z-index: 5; 
+  padding:0 10rpx; 
+  transition: left 0.2s ease-in-out; 
+  white-space:nowrap; 
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+} 
+/* 删除 */
+.list_del.del{ 
+  background-color: #e64340; 
+  width: 180rpx;text-align: center; 
+  z-index: 4; 
+  right: 0; 
+  color: #fff 
+} 
+
+ 
+ 
+ 

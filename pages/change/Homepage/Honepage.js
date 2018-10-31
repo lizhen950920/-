@@ -979,13 +979,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
     var that = this;
     var params = that.data.searchCondition;
     var e = that.data.searchCondition.city;
@@ -993,24 +986,24 @@ Page({
     params.city = cityId;
     params.p = 1;
     // params.catagroy=2;
-    params.state=0;
-    params.type =2;
+    params.state = 0;
+    params.type = 2;
     console.log('that.data', that.data.searchCondition)
     var city = wx.getStorageSync('hotcity');
     that.setData({
       'city': city,
-      showsorting:false,
-      showTreatment:false,
-      showRent:false,
-      showMore:false,
-      solicite:1
+      showsorting: false,
+      showTreatment: false,
+      showRent: false,
+      showMore: false,
+      solicite: 1
     })
-    if(!city){
+    if (!city) {
       wx.showModal({
         title: '',
         content: '请点击跳转选择相应的城市',
         success: function (res) {
-        
+
           if (res.confirm) {
             wx.navigateTo({
               url: '/pages/change/city/city',
@@ -1018,7 +1011,7 @@ Page({
           }
         }
       })
-     
+
     }
     console.log('that.data.needReload', that.data.needReload)
 
@@ -1041,6 +1034,13 @@ Page({
     //从搜索页面返回或第一次进入
     that.getCityArea(e);
     that.getroomList(params);
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+ 
    
   },
 

@@ -9,7 +9,7 @@ page{
   align-items: center;
   text-align: center;
   position: relative;
-  top: 260rpx;
+  top: 110rpx;
   left: 230rpx;
   color: white;
   background: #FF9900;
@@ -31,15 +31,41 @@ top: -50rpx;
 top: -280rpx;
   left: 5rpx;
 }
+.text1{
+  position: relative;
+  top: -80rpx;
+  left: 80rpx;
+  font-size:68rpx;
+
+}
+.text2{
+  position: relative;
+  top: -20rpx;
+  left: -10rpx;
+  font-size: 40rpx;
+}
+.text3{
+  position: relative;
+  top: 50rpx;
+  left: -150rpx;
+  font-size: 60rpx;
+}
+.text4{
+  position: relative;
+  top: -270rpx;
+  left: 60rpx;
+  font-size: 60rpx;
+}
 .nohouse {
-  border: 2rpx solid #333333;
+
+  background-color: rgb(0, 153, 0);
   border-radius: 50%;
   align-items: center;
   text-align: center;
   position: relative;
-  top: 300rpx;
+  top: 200rpx;
   left: 230rpx;
-  color: #333333;
+  color: white;
   width: 312rpx;
   height: 312rpx;
   line-height: 312rpx;
@@ -47,7 +73,8 @@ top: -280rpx;
 }
 .prompt{
 position: fixed;
-top: 960rpx;
+width: 550rpx;
+bottom: 80rpx;
 left: 100rpx;
   color: #666;
   font-size: 28rpx;
@@ -104,12 +131,19 @@ margin-left:60rpx;
   align-items: center;
   text-align: center;
   position: relative;
-  top: 50rpx;
-  left: 220rpx;
   color: white;
   background: #FF9900;
   width: 312rpx;
   height: 312rpx;
   line-height: 312rpx;
   font-size: 56rpx;
+}
+navigator{
+  border: 2rpx solid #FF9900;
+  border-radius: 50%;
+  position: relative;
+  top: 50rpx;
+  left: 220rpx;
+  width: 312rpx;
+  height: 312rpx;
 }

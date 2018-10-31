@@ -11,7 +11,9 @@
       <text class='charm'>魅力值{{user.score}}</text>
     </view>
     <view class='up'>
-      <text style='color:#999999'>{{user.profession}}</text>
+      <!-- <text style='color:#999999'>{{user.profession}}</text> -->
+      <text style='color:#999999' wx:if='{{user.profession!=null}}'>{{user.profession}}</text>
+      <text style='color:#999999'  wx:if='{{user.profession==null}}'>无</text>
       <text class='data'>
       <text wx:if="{{user.universityStr}}">{{user.universityStr}}|</text>
        <text wx:if="{{user.age}}">{{user.age}}岁|</text>
@@ -44,13 +46,15 @@
 <text class='hint'>点击上面房源定位可打开地图导航过去</text>
 <view class='desc'>
   <text style='color:#999999; font-weight:bold;'>详述</text>
-  <view class='detail_desc'>
-    {{room.desc}}
-  </view>
+  <!-- <view class='detail_desc'>{{room.desc}}</view> -->
+        <view class='detail_desc' wx:if='{{room.desc!=null}}'>{{room.desc}}</view>
+      <view class='detail_desc' wx:if='{{room.desc==null}}'>无</view>
 </view>
 <view class='endtime'>
   <text style='color:#999999;'>招募截止时间</text>
-  <text class='time'>{{room.end}}</text>
+  <!-- <text class='time'>{{room.end}}</text> -->
+        <text class='time' wx:if='{{room.end!=null}}'>{{room.end}}</text>
+      <text class='time' wx:if='{{room.end==null}}'>无</text>
 </view>
 <view style='font-size:28rpx;color:#333;padding-left:30rpx;color:#999999;margin-top:60rpx;'>反馈投票</view>
  <view  class="weui-cells1" style="margin-top:10px;">

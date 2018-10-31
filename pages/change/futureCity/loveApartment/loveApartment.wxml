@@ -5,7 +5,7 @@
 <text style='color:#6B6B6B;'>十大主题，任你选择，任你创造</text>
 </view>
 <view class='love-infor'>
-  <swiper style='height:364px;' class="search-swiper" current='{{selectIndex}}'   indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <swiper style='height:364px;' class="search-swiper" current='{{selectIndex}}'   indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange='swiperChange'>
    <block wx:for="{{theme}}"  wx:key="id"  wx:for-index="idx" wx:for-item="item">
    <swiper-item>
 <view class='love-title'> <text class='title'>{{item.name}}</text></view>       

@@ -1,10 +1,12 @@
 var util = require('../../../common/httpUtil.js');
 var page = 1; //页码
+const app = getApp
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    hidden:true,
     status: ['', '求房源', '无房一起找', '招室友', '出租', '转租'],
     indicatorDots: true,
     autoplay: true,
@@ -107,18 +109,12 @@ Page({
 
 
       } else {
-        // wx.showToast({
-        //   title: '投票失败',
-        //   icon: 'success',
-        //   duration: 2000
-        // })
 
         // 更改未登录时投票显示问题
-        wx.showModal({
-          title: '温馨提示',
-          content: '投票反馈需要先登录的哟，亲~',
-          showCancel:false,
-          confirmText:'好哒'
+        wx.showToast({
+          title: '登陆后才能投票哟，亲~',
+          icon:'none',
+          duration:2000
         })
       }
     });
@@ -135,7 +131,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+    // /* 创建 canvas 画布 */
+    // const ctx = wx.createCanvasContext('shareImg')
+
+    // /* 绘制图像到画布  图片的位置你自己计算好就行 参数的含义看文档 */
+    // /* ps: 网络图片的话 就不用加../../路径了 反正我这里路径得加 */
+
+    // ctx.drawImage('/img/1.jpg', 0, 0, 545, 771)
+
+    // /* 绘制文字 位置自己计算 参数自己看文档 */
+    // ctx.setTextAlign('center')                        //  位置
+    // ctx.setFillStyle('#ffffff')                       //  颜色
+    // ctx.setFontSize(22)                               //  字号
+    // ctx.fillText('新新人类共建美家', 545 / 2, 130)         //  内容  不会自己换行 需手动换行
+    // ctx.fillText('分享自新新人类小程序', 545 / 2, 160)    //  内容
+
+
+    // /* 绘制 */
+    // ctx.stroke()
+    // ctx.draw()
+
     var id = options.id;
     var uid = options.uid;
     var scene = options.scene;
@@ -194,7 +209,7 @@ Page({
         }, function (data) {
           if (data.code === 200) {
             that.setData({
-              user: data.data
+              user: data.data,
             });
             console.log('user', data.data)
           } else {
@@ -225,7 +240,8 @@ Page({
           console.log('tmpRoom', tmpRoom)
           var address = tmpRoom.address;
           that.setData({
-            address: address
+            address: address,
+            title: tmpRoom.title,
           })
           console.log(address)
           //标记地图
@@ -300,18 +316,9 @@ Page({
     }
     console.log('parameter', parameter)
     this.refreshNewData(parameter);
-    // var pages = getCurrentPages();
-    // var currPage = pages[pages.length - 1]; //当前页面
-    // var prevPage = pages[pages.length - 2]; //上一个页面
-
-    // //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
-    // if (prevPage && prevPage.route == "pages/FindHome/FindHome") {
-    //   prevPage.setData({
-    //     needReload: false,
-    //   })
-    // }
 
   },
+  
   /**
    * 用户点击右上角分享
    */
@@ -358,18 +365,13 @@ Page({
           duration: 2000
         })
       } else {
-        // wx.showToast({
-        //   title: res.message,
-        //   icon: 'success',
-        //   duration: 2000
-        // })
+    
         // 更改未登录情况下点赞失败的弹窗显示
-        wx.showModal({
-          title: '温馨提示',
-          content: '登录之后才能够点赞哟，亲~',
-          showCancel:false,
-          confirmText:'好哒'
-        })
+       wx.showToast({
+         title: '登录后才能点赞哟，亲~',
+         icon:'none',
+         duration:2000
+       })
       }
     });
   },
@@ -398,10 +400,64 @@ Page({
       scale: 18
     })
   },
+  sharecar:function(){
+    wx.showToast({
+      title:'正在努力开发中',
+      icon:'none',
+      duration:2000,
+    })
+    // var that = this
+    // wx.canvasToTempFilePath({
+    //   x: 0,
+    //   y: 0,
+    //   width: 545,
+    //   height: 771,
+    //   destWidth: 545,
+    //   destHeight: 771,
+    //   canvasId: 'shareImg',
+    //   success: function (res) {
+    //     console.log('+++' + res.tempFilePath);
+    //     /* 这里 就可以显示之前写的 预览区域了 把生成的图片url给image的src */
+    //     that.setData({
+    //       prurl: res.tempFilePath,
+    //       hidden: false,
+         
+    //     })
+     
+    //   },
+    //   fail: function (res) {
+    //     console.log(res)
+    //   }
+    // })
+    
+  },
+  // save: function () {
+  //   var that = this
+  //   wx.saveImageToPhotosAlbum({
+  //     filePath: that.data.prurl,
+  //     success(res) {
+  //       wx.showModal({
+  //         content: '图片已保存到相册，赶紧晒一下吧~',
+  //         showCancel: false,
+  //         confirmText: '好的',
+  //         confirmColor: '#333',
+  //         success: function (res) {
+  //           if (res.confirm) {
+  //             console.log('用户点击确定');
+  //             /* 该隐藏的隐藏 */
+  //             that.setData({
+  //               hidden: true
+  //             })
+  //           }
+  //         }
+  //       })
+  //     }
+  //   })
+  // },  
+
+
   //点击预览图片
   previewImg: function(e) {
-
-
     var idx = e.currentTarget.dataset.id - this.data.room.charm_imgs[0].id;
     var urls = [];
 
@@ -410,11 +466,13 @@ Page({
     that.data.room.charm_imgs.map(function(item) {
       urls.push(item.url);
     });
+    console.log(that.data.room.charm_imgs)
     wx.previewImage({
       current: urls[idx], // 当前显示图片的http链接
       urls: urls // 需要预览的图片http链接列表
     })
   },
+  
   contact: function() {
     this.setData({
       contact: true
@@ -425,6 +483,7 @@ Page({
       contact: false
     })
   },
+
   //一键复制
   copyFormSubmit: function(e) {
     var uid = wx.getStorageSync('uid');
@@ -508,17 +567,11 @@ Page({
     })
   },
   navClick: function(e) {
-    // console.log(e)
-    // var id=this.data.id;
-    //     var roomuid=this.data.uid;
-    //     var name = this.data.room.title;
-    //     console.log('this.data',this.data)
+
     this.setData({
       liuyan: true
     })
-    // wx.navigateTo({
-    //   url: '/pages/change/housDetails/comments/comments?type=4&room_id=' + id + '&roomuid=' + roomuid + "&title=" +name,
-    // })
+    
   },
   /**获取输入的内容 */
   commentInput: function(e) {
@@ -660,6 +713,9 @@ Page({
   searchCondition: function(e) {
 
   },
+ 
+
+
   share: function(e) {
     var that = this;
     console.log('data', that.data)
@@ -687,7 +743,8 @@ Page({
         var ercode = res.data.data || [];
         var size = ercode.length;
         that.setData({
-          code: ercode
+          code: ercode,
+        
         })
       }
     })
@@ -730,15 +787,15 @@ Page({
       })
       return;
     } 
-    var formId = e.detail.formId;
-    console.log("留言或回复formId:" + formId);
-    util.saveFormId({ uid: uid, formId: formId }, function (res) { });
+    // var formId = e.detail.formId;
+    // console.log("留言或回复formId:" + formId);
+    // util.saveFormId({ uid: uid, formId: formId }, function (res) { });
 
-    wx.showToast({
-      title: '正在努力开发中',
-      icon: 'none',
-      duration: 1000
-    })
+    // wx.showToast({
+    //   title: '正在努力开发中',
+    //   icon: 'none',
+    //   duration: 1000
+    // })
     // var that = this;
     // wx.navigateTo({
     //   url: '/pages/change/houseDetail/share/share?uid=' + that.data.uid + "&id=" + that.data.id,
@@ -808,4 +865,5 @@ Page({
       }, 1000);
     });
   }
+
 })

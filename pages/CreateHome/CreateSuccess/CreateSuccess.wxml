@@ -1,17 +1,6 @@
 <import src="../../../template/ideaHome.wxml" />
 <include src="../../../common/alert.wxml" />
 
-<!-- <view class="createsuccess">
-
-   <view class="createsuccess_title" wx:if="{{show}}">
-    <text class="success_congratulation">恭喜你，创家成功！你距离美好生活又近了一步</text>
-  </view> 
-
-  <view class="success_title">
-    <text class="success_share">点击右上角转发并分享给好友</text>
-  </view>
-</view> -->
-
 <view class="weui-cells">
   <!-- <template is="ideaHome" data="{{home}}" /> -->
   <view class="weui-cell">

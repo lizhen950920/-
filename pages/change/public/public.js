@@ -7,7 +7,7 @@ Page({
   data: {
     selectIndex: 0,
   },
-
+ 
   /**
    * 生命周期函数--监听页面加载
    */
@@ -24,11 +24,13 @@ Page({
       }
     });
   },
+ 
   switchSlider(e) {
     this.setData({
       'selectIndex': e.target.dataset.index
     })
   },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

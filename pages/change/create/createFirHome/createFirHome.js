@@ -321,6 +321,7 @@ wx.navigateTo({
   },
   //上传图片
   uploadImg: function (e) {
+ 
     var typeInt = e.currentTarget.dataset.type;
     console.log("typeInt:", typeInt);
     var that = this;
@@ -372,6 +373,12 @@ wx.navigateTo({
 
             },
             success: function (res) {
+              wx.showLoading({
+                title: '请稍后..',
+              })
+              setTimeout(function () {
+                wx.hideLoading()
+              }, 1000)
               console.log("upload res:" + res);
               try {
                 var data = JSON.parse(res.data);

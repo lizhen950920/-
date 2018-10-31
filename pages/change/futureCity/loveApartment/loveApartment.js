@@ -311,6 +311,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+  },
+  swiperChange: function (e) {
+    this.setData({
+      selectIndex: e.detail.current
+    })
   }
 })

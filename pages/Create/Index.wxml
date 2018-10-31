@@ -1,17 +1,4 @@
-<!-- <view class='create-view' style='margin-top:{{height/2 - 30}}px'>
-  <navigator url='/pages/CreateHome/CreateHome'>
-    <view class='imgs-view'>
-      <image src="/img/create_home.png"></image>
-      <text>创建爱家</text>
-    </view>
-  </navigator>
-  <navigator url='/pages/User/MyRoomRent/MyRoomRent'>
-    <view class='imgs-view'>
-      <image src='/img/zufang.png'></image>
-      <text>出租房屋</text>
-    </view>
-  </navigator>
-</view>  -->
+
 
 <view class='create-view' style='height:{{height}}px;'>
   <text class='create-view-title'>创造美好</text>

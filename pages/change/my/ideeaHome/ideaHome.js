@@ -160,23 +160,7 @@ Page({
     }
   },
 
-  //点击预览图片
-  previewImg: function (e) {
 
-
-    var idx = e.currentTarget.dataset.id - this.data.home.charm_imgs[0].id;
-    var urls = [];
-
-    console.log(idx)
-    var that = this;
-    that.data.home.charm_imgs.map(function (item) {
-      urls.push(item.url);
-    });
-    wx.previewImage({
-      current: urls[idx], // 当前显示图片的http链接
-      urls: urls // 需要预览的图片http链接列表
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -306,6 +290,23 @@ Page({
     });
 
   },
+  //点击预览图片
+  previewImg: function (e) {
+    var idx = e.currentTarget.dataset.id - this.data.home.charm_imgs[0].id;
+    var type = e.currentTarget.dataset.type;
+    var urls = [];
+    var that = this;
+    that.data.home.charm_imgs.map(function (item) {
+      if (item.type == type)
+        urls.push(item.url);
+    });
+console.log(idx)
+    wx.previewImage({
+      current: urls[idx], // 当前显示图片的http链接
+      urls: urls // 需要预览的图片http链接列表
+    })
+  },
+
   refreshNewData: function (options) {
     //加载提示框
     util.showLoading();
@@ -353,11 +354,11 @@ Page({
     if (that.data.uid == homeuid) {
       util.hideToast();
       // 给一个提示 您不能申请自己作为自己的室友
-      wx.showToast({
-        title: '您不能申请自己作为自己的室友',
-        icon: 'success',
-        duration: 2000
-      })
+   wx.showToast({
+     title: '您不能申请自己为自己的室友',
+     icon:'none',
+     deaution:2000
+   })
     } else {
       wx.navigateTo({
         url: '/pages/Home/Joinin?type=1&home_id=' + id + '&homeuid=' + homeuid,
@@ -658,7 +659,6 @@ Page({
   aplay:function(e){
     var that = this;
     console.log(e)
-    util.showLoading();
     var id = e.currentTarget.dataset.id;
     var homeName = e.currentTarget.dataset.name;
     var room_id = e.currentTarget.dataset.room_id;
@@ -666,11 +666,10 @@ Page({
     var idx = e.currentTarget.dataset.idx;
     
     if (that.data.uid == homeuid) {
-      util.hideToast();
       wx.showToast({
-        title: '您不能申请自己作为自己的室友',
-        icon: 'success',
-        duration: 2000
+        title: '您不能申请自己为自己的室友',
+        icon: 'none',
+        deaution: 2000
       })
     } else {
       wx.navigateTo({

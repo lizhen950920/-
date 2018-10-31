@@ -109,7 +109,7 @@ Page({
 
   //点击预览图片
   previewImg: function (e) {
-    var idx = e.currentTarget.dataset.idx;
+    var idx = e.currentTarget.dataset.id - this.data.home.charm_imgs[0].id;
     var type = e.currentTarget.dataset.type;
     var urls = [];
     var that = this;
@@ -220,7 +220,7 @@ Page({
       // 给一个提示 您不能申请自己作为自己的室友
       wx.showToast({
         title: '您不能申请自己作为自己的室友',
-        icon: 'success',
+        icon: 'none',
         duration: 2000
       })
     } else {

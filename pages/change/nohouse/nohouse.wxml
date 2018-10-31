@@ -30,9 +30,11 @@
       <view class="date"  wx:if="{{selectIndex==1}}">
         <block wx:if="{{!endDate}}">招室友截止日期，非必填</block>
           <text style='color:#000000'> {{endDate}}</text>
+        
       </view>
        <view class="date"  wx:if="{{selectIndex==2}}">
-        <block wx:if="{{!endDate}}">求收留截止日期，非必填</block><text style='color:#000000'> {{endDate}}</text>
+        <block wx:if="{{!endDate}}">求收留截止日期，非必填</block><text style='color:#000000'> {{endDate}}</text>  
+        
       </view>
     </picker>
   </view>

@@ -254,6 +254,12 @@ Page({
 
             },
             success: function (res) {
+              wx.showLoading({
+                title: '请稍后..',
+              })
+              setTimeout(function () {
+                wx.hideLoading()
+              }, 1000)
               console.log("upload res:" + res);
               try {
                 var data = JSON.parse(res.data);
@@ -422,6 +428,12 @@ Page({
       })
       return;
     }
+    wx.showLoading({
+      title: '发布中..',
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
     var homeDetail = wx.getStorageSync('homeDetail')
     console.log('homeDetail', homeDetail)
     var cover_id = wx.getStorageSync('cover_id')

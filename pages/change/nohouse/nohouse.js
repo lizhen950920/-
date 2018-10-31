@@ -41,6 +41,8 @@ Page({
     todate:'',
     top: '',
     select:false,
+    disabled: false,
+    form: true
   },
   bindDateChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -226,7 +228,7 @@ Page({
   },
   //提交表单
   formSubmit: function (e) {
-
+    if (this.data.form) {
     var that = this;
     var data = e.detail.value;
     console.log('e', that.data)
@@ -313,11 +315,16 @@ Page({
           wx.removeStorageSync("roomDetail");
           //跳转到首页
           wx.navigateTo({
-            url: '/pages/change/housDetails/preview/preview?id=' + res.data.id + '&uid=' + res.data.uid
+            url: '/pages/change/housDetails/preview/preview?id=' + res.data.id + '&uid=' + res.data.uid + '&idx=' + that.data.idx
           })
         }
       }, 1000);
     });
+      this.setData({
+        disabled: true,
+        form: false
+      });
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -447,8 +454,9 @@ Page({
     console.log(id);
     that.setData({
       cover_id: id,
+      idx: idx
     });
-
+   
     var tmpArr = that.data.charm_imgs;
     tmpArr.map(function (item) {
       if (item.id == id) {

@@ -142,6 +142,7 @@
 <view wx:if="{{loveList}}" class='handpick' wx:for="{{loveapartmentList}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
  <navigator class="search-list" hover-class="none" open-type="navigate" url="/pages/change/my/ideeaHome/ideaHome?id={{item.id}}&uid={{item.uid}}">
 <view class='handpick_fir'>
+
 <image class='fc-image' src='{{item.avatar}}'></image>
 <view class='fc-name'>{{item.name}}</view>
 <image class='fc-loca' src='/img/Aiqilin/location2.png'></image>

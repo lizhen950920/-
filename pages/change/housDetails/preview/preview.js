@@ -149,6 +149,7 @@ Page({
       uid: options.uid,
       // uid: wx.getStorageSync('uid'),
       type: 4,
+      idx: options.idx
     })
 
     var that = this;
@@ -217,7 +218,9 @@ Page({
       console.log('tmpRoom', tmpRoom)
       var address = tmpRoom.address;
       that.setData({
-        address: address
+        address: address,
+        title: tmpRoom.title,
+        home_id: tmpRoom.uid
       })
       console.log(address)
       //标记地图
@@ -307,11 +310,11 @@ Page({
   onShareAppMessage: function (res) {
     var that = this;
 
-    var url = that.data.room.charm_imgs[0].url;
+    var url = that.data.room.charm_imgs[that.data.idx].url;
     console.log(url)
     return {
       title: '【 ' + that.data.room.l_street + that.data.status[that.data.room.state] + '】' + that.data.room.title + ' ',
-      path: '/pages/Room/RoomDetail?id=' + that.data.room.id + "&uid=" + that.data.room.uid,
+      path: '/pages/change/housDetails/preview/preview?id=' + that.data.room.id + "&uid=" + that.data.room.uid,
       imageUrl: url
     }
   },
@@ -634,7 +637,7 @@ Page({
       pid: e.currentTarget.dataset.id,
       commentUid: e.currentTarget.dataset.uid,
       //comment: "@"+ e.currentTarget.dataset.username + ":",
-      replayUser: "@" + e.currentTarget.dataset.username + ":",
+      replayUser: "贴主回复" + e.currentTarget.dataset.username + ":",
       liuyan: true,
     });
 
@@ -652,7 +655,7 @@ Page({
       id: that.data.room.id
     }
     var shareUrl = {
-      shareUrl: 'pages/change/housDetails/housDetails'
+      shareUrl: 'pages/change/housDetails/housDetails?idx=' + this.data.idx
     }
 
     var newSearchData = Object.assign({}, uid, id, shareUrl); //新的筛选条件is  OK!

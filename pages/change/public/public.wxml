@@ -1,5 +1,5 @@
  <view class="nav bc_white">
-    <view class="{{selectIndex==0?'red':'default'}}" data-index="0" bindtap="switchSlider">首页简单版</view>
+    <view class="{{selectIndex==0?'red':'default'}}" data-index="0" bindtap="switchSlider">首页普通版租房</view>
     <view class="{{selectIndex==1?'red':'default'}}" data-index="1" bindtap="switchSlider">未来城高级版</view>
   </view>
 
@@ -12,7 +12,10 @@
 <text class='house1-1'>我有房</text>
 </view>
 <view class='nohouse' bindtap='nohouse'>
-<text>我无房</text>
+<text class='text1'>求租</text>
+<text class='text2'>或</text>
+<text class='text3'>一起</text><text class='text4'>找房</text>
+
 </view>
 </view>
  <view hidden="{{selectIndex!=1}}" class="tab-content">
@@ -27,7 +30,7 @@
 </view>
 </navigator>
 </view>
-<!-- <view class='prompt'>
-<view>中介、高价公寓、托管、职业二房东请绕道，</view>
-<view>你们发布的信息将直接被删除</view>
-</view> -->
+<view class='prompt'>
+<view><text style='color:red;'>警告：</text>中介、无良公寓请绕道，你们发布的信息将直接被删除</view>
+<!-- <view>你们发布的信息将直接被删除</view> -->
+</view>

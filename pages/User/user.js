@@ -68,19 +68,25 @@ Page({
     })
   },
   rent: function() {
-    wx.navigateTo({
-      url: '/pages/Utopia/Rentstate',
-    })
-
+    // wx.navigateTo({
+    //   url: '/pages/Utopia/Rentstate',
+    // }
+wx.showToast({
+  title: '正在努力开发中',
+  icon:'none',
+  duration:2000,
+})
   },
   new: function() {
 
-    wx.navigateTo({
-      url: '/pages/Xinxin/list',
-    })
     // wx.navigateTo({
-    //   url: '/pages/change/my/newMankind/newMankind',
+    //   url: '/pages/Xinxin/list',
     // })
+   wx.showToast({
+     title: '正在努力开发中',
+     icon:'none',
+     duration:2000,
+   })
   },
 
   //获取用户信息

@@ -1,4 +1,0 @@
-<view class="canvas-box">
-  <canvas style="width: 100%;height: {{windowHeight-40}}px;" canvas-id="mycanvas" />
-</view>
-<button type='primary' style='height:40px;' bindtap='saveImg'>生成卡片</button>

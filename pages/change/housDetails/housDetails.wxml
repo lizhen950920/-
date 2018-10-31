@@ -4,14 +4,16 @@
       <view class='person-img '>
         <image class='avatar1' src='{{user.avatar==""?"/img/noavatar.png":user.avatar}}'></image>
       </view>
-      <view class='person-info'>
-        <view class='on'>
-          <text class='Nickname'>{{user.username}}</text>
-          <image mode="aspectFit" src='{{user.sex==1?"/img/my/male.png":"/img/my/female.png"}}'></image>
+      <view class='person-info' >
+        <view class='on' >
+          <text class='Nickname' style='float:left'>{{user.username}}</text>
+          <image  mode="aspectFit" src='{{user.sex==1?"/img/my/male.png":"/img/my/female.png"}}' class='usersex'></image>
           <text class='charm'>魅力值{{user.score}}</text>
         </view>
         <view class='up'>
-          <text style='color:#999999'>{{user.profession}}</text>
+          <!-- <text style='color:#999999'>{{user.profession}}</text> -->
+      <text style='color:#999999' wx:if='{{user.profession!=null}}'>{{user.profession}}</text>
+      <text style='color:#999999'  wx:if='{{user.profession==null}}'>无</text>
           <text class='data'>
       <text wx:if="{{user.universityStr}}">{{user.universityStr}}|</text>
           <text wx:if="{{user.age}}">{{user.age}}岁|</text>
@@ -39,18 +41,19 @@
     <view class='site' bindtap='navoToDes'>
       <image class='lacation' src='/img/location1.png'></image>
       <text class='addre'>{{room.address}}</text>
-      <text class='chart'>导航 </text><image class='navaddress' src='../../../img/导航.png'></image>
+      <text class='chart'>导航 </text><image class='navaddress' src='/img/导航.png'></image>
     </view>
     <text class='hint'>点击上面房源定位可打开地图导航过去</text>
     <view class='desc'>
       <text style='color:#999999; font-weight:bold;'>详述</text>
-      <view class='detail_desc'>
-        {{room.desc}}
-      </view>
+      <!-- <view class='detail_desc'>{{room.desc}}</view> -->
+      <view class='detail_desc' wx:if='{{room.desc!=null}}'>{{room.desc}}</view>
+      <view class='detail_desc' wx:if='{{room.desc==null}}'>无</view>
     </view>
     <view class='endtime'>
       <text style='color:#999999;'>招募截止时间</text>
-      <text class='time'>{{room.end}}</text>
+      <text class='time' wx:if='{{room.end!=null}}'>{{room.end}}</text>
+      <text class='time' wx:if='{{room.end==null}}'>无</text>
     </view>
     <view style='font-size:28rpx;color:#333;padding-left:30rpx;color:#999999;margin-top:60rpx;'>反馈投票</view>
     <view class="weui-cells1" style="margin-top:10px;">
@@ -184,6 +187,7 @@
         <text  class="home-detail-text">{{room.like}}</text>
       </view>
       <text>喜欢</text>
+      
     </view>
     <view bindtap="share" style='background:#009900;color:white' class="weui-navbar__item ">
       <view>
@@ -211,9 +215,29 @@
 
       <button class='btn3' open-type="share" catchtap='shutdown'>转发到群</button>
       <!-- <text class='h_text'  catchtap='fenx'  open-type="share">转发到群</text> -->
-      <form bindsubmit="h_shareFormSubmit" report-submit="true">
-        <button class='btn4' form-type="submit" disabled='{{submit}}'>卡片分享</button>
-      </form>
+      <!-- <form bindsubmit="h_shareFormSubmit" report-submit="true"> -->
+
+        <!-- 生成分享图 这里的操作是把canvas绘制的图预览出来  -->
+        <button class='share' type='primary' catchtap='sharecar'>卡片分享</button>
+
+
+      <!-- </form> -->
     </view>
   </view>
+
+
 </view>
+             <!-- <!-- 画布大小按需定制 这里我按照背景图的尺寸定的  -->
+<!-- <canvas  canvas-id="shareImg" style="width:545px;height:801px"></canvas> -->
+
+
+<!-- 预览分享图 这里就是上图展示的效果   -->
+<!-- 刚开始是隐藏的 生成分享图之后显示, 用一个布尔变量来控制 这里的样式大家看图就写出来了 -->
+ <!-- <view hidden='{{hidden}}' class='preview'>
+ <view class='p1'>
+    <image src='{{prurl}}' mode='widthFix'></image>
+ </view>
+  <button type='primary' size='mini' bindtap='save'>保存分享图</button>
+</view>  -->
+
+ -->

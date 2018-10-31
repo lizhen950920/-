@@ -14,8 +14,9 @@ Page({
     expandText: "",
     p: 1,
   },
-
+ 
   onLoad: function () {
+    
     var that = this;
     wx.getSystemInfo({
       success: function (res) {
@@ -117,6 +118,9 @@ Page({
         if (item.read == 0) {
           ids.push(item.id);
         }
+        if(item.read!=0){
+        
+        }
       });
       var idsStr = ids.toString();
       console.log("read message idsStr", idsStr);
@@ -142,7 +146,7 @@ Page({
         });
       }
     });
-    // this.loadData("2,4,6,7");
+    //this.loadData("2,4,6,7");
   },
 
   //点击操作
@@ -182,6 +186,7 @@ Page({
       console.log("redirectTo home:", url);
 
     }
+ 
 
     if (url) {
       wx.navigateTo({

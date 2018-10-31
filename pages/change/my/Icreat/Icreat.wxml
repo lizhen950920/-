@@ -10,7 +10,7 @@
      <view class="edit-opterator" wx:if="{{item.uid == uid}}" id="edit" data-id="{{item.id}}" bindtap="showHiddenHome">
     <text  wx:if="{{item.status==1}}" class='wrong'>开放</text>
     <text wx:if="{{item.status==0}}" class='wrong'>关闭</text>
-    <switch class='selecte'   color="#FF9900" bindchange="switch2Change" />
+    <switch class='selecte'  checked='{{onoff[item.status]}}' color="#FF9900" bindchange="switch2Change" />
     </view>
      <view class="edit-cls" id="edit" bindtap="roomedit" data-id="{{item.id}}" data-uid="{{item.uid}}">
                 <image src="../../../../img/ldealhome/edit.png"  class="my-img-icon"></image>

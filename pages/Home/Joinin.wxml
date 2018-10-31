@@ -49,11 +49,12 @@
       </view>
     </view>
     <view class='page__ft' wx:if="{{home.homeApply != null}}">
-  
-      <button class='com-btn' disabled='{{applyStatus}}' form-type="submit"> 确认提交 </button>
+ 
     </view>
+     
+      
   </view>
-
+<button class='com-btn' disabled='{{applyStatus}}' form-type="submit"> 确认提交 </button>
 </form>
 <view class="weui-cells-2">
   <navigator class="weui-cell">

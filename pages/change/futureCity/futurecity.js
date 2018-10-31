@@ -531,10 +531,12 @@ console.log(e)
       loveApartment:false,
       motif:'',
     })
+
     util.getIamges(1, function(res) {
       that.setData({
         imgUrls: res.data
       })
+      console.log(res.data)
       var sift = [];
       var date1 = new Date();
       for (var i = 0; i < res.data.length; i++) {

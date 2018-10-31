@@ -74,6 +74,8 @@ Page({
     todate: '',
     select_time: false,
     select: false,
+    disabled: false,
+    form: true
   },
   bindPickerChange: function(e) {
     var todate = [1, 3, 7, 15, 30, 60];
@@ -280,6 +282,7 @@ Page({
   },
   //提交表单
   formSubmit: function(e) {
+    if (this.data.form) {
     console.log('e', e)
     var that = this;
     
@@ -384,11 +387,17 @@ Page({
         wx.removeStorageSync("roomDetail");
         //跳转到首页
         wx.navigateTo({
-          url: '/pages/change/housDetails/preview/preview?id=' + res.data.id + '&uid=' + res.data.uid
+          url: '/pages/change/housDetails/preview/preview?id=' + res.data.id + '&uid=' + res.data.uid + '&idx=' + that.data.idx
         })
       }
       //}, 100);
     });
+      this.setData({
+        disabled: true,
+        form: false
+      });
+
+    }
   },
 
 
@@ -479,8 +488,9 @@ Page({
     console.log(id);
     that.setData({
       cover_id: id,
-    });
-
+      idx: idx
+  });
+   
     var tmpArr = that.data.charm_imgs;
     tmpArr.map(function(item) {
       if (item.id == id) {

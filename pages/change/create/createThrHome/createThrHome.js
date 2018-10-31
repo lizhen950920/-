@@ -70,9 +70,9 @@ Page({
   addShowRoom: function (e) {
     var showRoomArr = this.data.showRoomArr
     var room_checked = this.data.room_checked
-    if (showRoomArr.length >= 5) {
+    if (showRoomArr.length >= 20) {
       wx.showToast({
-        title: '最多只能增加5个房间',
+        title: '最多只能增加20个房间',
         icon: 'none',
         duration: 1000
       })
@@ -253,6 +253,12 @@ Page({
 
             },
             success: function (res) {
+              wx.showLoading({
+                title: '请稍后..',
+              })
+              setTimeout(function () {
+                wx.hideLoading()
+              }, 1000)
               console.log("upload res:" + res);
               try {
                 var data = JSON.parse(res.data);
