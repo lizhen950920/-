@@ -44,13 +44,13 @@
     <text class='list_title1'>详情</text>
     <view class='logo'>
       <block>
-       <text style='color:#000000 overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width:500rpx;' wx:if="{{content}}">{{content}}</text>
+       <text style='color:#000000 overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width:400rpx;' wx:if="{{content}}">{{content}}</text>
       <text style='color:#a5a5a5'  wx:if="{{!content}}">详细描述，非必填</text>
       </block>
     </view>
   </view>
    <view wx:if="{{oppen==true}}" class="contant">
-                    <textarea name="opinion"   bindinput='Content' value="{{content}}" auto-height placeholder-class="placeholder" placeholder="户型，配套设施，交通入住情况、租期、付款方式、个人简介及对室友的期待等" />
+                    <textarea name="opinion"  maxlength='-1' bindinput='Content' value="{{content}}" auto-height placeholder-class="placeholder" placeholder="户型，配套设施，交通入住情况、租期、付款方式、个人简介及对室友的期待等" />
                 </view>
   <!-- <view class='addimage'>
     <view class='prompt'>添加图片</view>
